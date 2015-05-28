@@ -117,27 +117,21 @@ textarea {
     margin: 0 auto; 
 }
 
-.mainnav{
-    width: 100%;
-    border:1px solid red;
-    padding: 10px 0;
-}
-
 .hamIcon{
     float: right;
-
-    padding: 0;
+    padding: 10px 0;
 }
 
 .title{
     display: block;
     width: 60%;
     float: left;
+    padding: 10px 0;
 }
 
 /*-------- mobile nav----------*/
 nav{
-    border:1px solid red;
+    margin-top: 64.8px;
 }
 nav ul{
     margin: 0;
@@ -148,7 +142,7 @@ nav ul{
 nav a {
     display: block;
     border-bottom: 1px solid black;
-    padding: 15px 0;
+    padding: 10px 0;
 
     text-align: center;
     text-decoration: none;
@@ -159,24 +153,26 @@ nav a {
 
 /*--------- content ----------*/
 .section-container{
-    width: 93.75%;
-    margin:10px 0;
-
+    width: 100%;
+    margin:6.667% 0;/*20/300*/
+    padding: 0 3.333%;/*10/300*/
+    box-sizing:border-box;
 }
 
 .content{
-    width: 300px;
+    width: 100%;
     background-color: gray;
     border: 1px solid black;
     margin-bottom: 10px;
-    box-siziong:border-box;
+
+}
+
+.section-title{
+    text-align: center;
 }
 
 img{
     width: 100%;
-}
-img:hover{
-
 }
 
 
@@ -263,22 +259,56 @@ img:hover{
    ========================================================================== */
 
 @media only screen and (min-width: 550px) {
+    .wrapper{
+        width: 97.06%;/*660/680*/
+    }
 
     .hamIcon {
         display: none;
     }
 
-    nav ul li{
+    nav {
         display: inline;
+        margin-top:0;
     }
 
     nav a {
-        float: right;
-        margin: 0 1%;
-        padding: 15px 2%;
+        float: left;
+        margin: 0;
+        padding: 20px 2% 15px 2%;
         border-bottom: none;
     }
+
+
+    .title{
+        width: 20%;
+    }
+
+    .content{
+        width: 300px;/*300/660*/
+        float: left;
+        margin-right: 6px;
+        /*15/660*/
+    }
+
+    .section-container{
+    width: 100%;
+    margin:3.0303% 0;/*20/660*/
+    padding: 0 3.333%;/*10/300*/
+    box-sizing:border-box;
+    }
 }
+
+@media only screen and (min-width: 900px){
+    .wrapper{
+
+        max-width: 1280px;
+    }
+
+
+}
+
+
 
 @media print,
        (-webkit-min-device-pixel-ratio: 1.25),
