@@ -1,72 +1,48 @@
 <?php get_header(); ?> 
+
+<?php 
+
+//query parameters
+$params = array(
+    // 'orderby' => 't.name DESC',    
+    "limit" => -1,
+    // "where" => 'featured = true'
+    // 'where' => 't.name != "Matt"'
+    );
+
+
+
+//creates pod object and loads data
+$eventsPod = pods('events',$params); 
+
+// var_dump($eventsPod-> total());
+?>
+
+
         <main class="wrapper clearfix">
             <div class="section-container">
-                <h2 class="section-title">Title of Section</h2>
+                <h2 class="section-title">Events</h2>
 
-                <figure class="content">
-                    <img src="img/pic1.jpg">
-                    <figcaption>
-                        <h3>Interactive Advertising grows by 53 percent in the March Quarter 2015</h3>
-                        <p class="tag">Tags or Category</p>
-                        <p class="excerpt">Interactive Advertising* continues to grow with the latest IAB/PwC Online Advertising Report noting that it generated $179.88 million in Q1, 2015, a 53 percent increase year on year.</p>
-                    </figcaption>
-                </figure>
+                <?php
+                
+                     while ($eventsPod->fetch() ):
 
-                <figure class="content">
-                    <img src="img/pic1.jpg">
-                    <figcaption>
-                        <h3>Interactive Advertising grows by 53 percent in the March Quarter 2015</h3>
-                        <p class="tag">Tags or Category</p>
-                        <p class="excerpt">Interactive Advertising* continues to grow with the latest IAB/PwC Online Advertising Report noting that it generated $179.88 million in Q1, 2015, a 53 percent increase year on year.</p>
-                    </figcaption>
-                </figure>
+                 ?>
+                <a href="<?php echo $eventsPod->field('permalink')?>">
+                    <div class="event">
+                        <h2><?php echo $eventsPod->field('title'); ?></h2>
+                        <p><?php echo pods_image($eventsPod->field('featured_image'), 'large')?></p> 
+                     
+                        <?php echo wp_trim_words($eventsPod->field('content'),20); ?> 
+                       <!--  <?php echo wpautop($eventsPod->field('content')); ?> -->
+                    </div>
+                </a>
+                <?php 
+                    endwhile;
+        
+                ?>
             </div>
-            <!-- end of section-container -->
-
-            <div class="section-container">
-                <h2 class="section-title">Title of Section</h2>
-
-                <figure class="content">
-                    <img src="img/pic1.jpg">
-                    <figcaption>
-                        <h3>Interactive Advertising grows by 53 percent in the March Quarter 2015</h3>
-                        <p class="tag">Tags or Category</p>
-                        <p class="excerpt">Interactive Advertising* continues to grow with the latest IAB/PwC Online Advertising Report noting that it generated $179.88 million in Q1, 2015, a 53 percent increase year on year.</p>
-                    </figcaption>
-                </figure>
-
-                <figure class="content">
-                    <img src="img/pic1.jpg">
-                    <figcaption>
-                        <h3>Interactive Advertising grows by 53 percent in the March Quarter 2015</h3>
-                        <p class="tag">Tags or Category</p>
-                        <p class="excerpt">Interactive Advertising* continues to grow with the latest IAB/PwC Online Advertising Report noting that it generated $179.88 million in Q1, 2015, a 53 percent increase year on year.</p>
-                    </figcaption>
-                </figure>
-            </div>
-            <!-- end of section-container -->
-
-            <div class="section-container">
-                <h2 class="section-title">Title of Section</h2>
-
-                <figure class="content">
-                    <img src="img/pic1.jpg">
-                    <figcaption>
-                        <h3>Interactive Advertising grows by 53 percent in the March Quarter 2015</h3>
-                        <p class="tag">Tags or Category</p>
-                        <p class="excerpt">Interactive Advertising* continues to grow with the latest IAB/PwC Online Advertising Report noting that it generated $179.88 million in Q1, 2015, a 53 percent increase year on year.</p>
-                    </figcaption>
-                </figure>
-
-                <figure class="content">
-                    <img src="img/pic1.jpg">
-                    <figcaption>
-                        <h3>Interactive Advertising grows by 53 percent in the March Quarter 2015</h3>
-                        <p class="tag">Tags or Category</p>
-                        <p class="excerpt">Interactive Advertising* continues to grow with the latest IAB/PwC Online Advertising Report noting that it generated $179.88 million in Q1, 2015, a 53 percent increase year on year.</p>
-                    </figcaption>
-                </figure>
-            </div>
+            
             <!-- end of section-container -->
         </main>
         <!-- end of main -->

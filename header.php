@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
+        
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
@@ -25,7 +25,7 @@
         <div class="header-container">
             <header class="wrapper ">
 
-                <h1 class="title"><?php bloginfo('name'); ?></h1>    
+                <h1 class="title"><a href="<?php bloginfo('url') ?>"><?php bloginfo('name'); ?></a></h1>    
                 <div class="hamIcon"><i class="fa fa-bars fa-2x "></i></div>
                 <nav >
                     <ul class="clearfix">
