@@ -6,8 +6,6 @@ $permalink = pods_var('last','url');
 //query parameters
 //creates pod object and loads data
 $eventsPod = pods('events',$permalink);
-
-
 ?>
 
 
@@ -16,36 +14,43 @@ $eventsPod = pods('events',$permalink);
 <main class="wrapper clearfix">
     <h2><?php echo $eventsPod->field('title'); ?></h2>
     <div class="event">
-        <?php echo pods_image($eventsPod->field('featured_image'), 'large')?> 
-        
-        <!-- <?php echo wp_trim_words($eventsPod->field('content'),20); ?> -->
+     
+        <?php  foreach(( $eventsPod->field('category')) as $category) {?>
+        <a href="<?php echo bloginfo('url')."/".$category['slug']?>">
+            <?php echo $category['name']."<br>"  ?>
+        </a>
+
+        <?php } ?>
+        <?php 
+            $postId = $eventsPod->field('ID');
+            $image_id = get_post_thumbnail_id($postId);
+            // echo "<br>Categories: ".$eventsPod->display('category')."<br>";          
+            // $categories = wp_get_object_terms($postId,'category');
+
+
+            $image = wp_get_attachment_image_src($image_id,'large');
+            $image_url = $image[0];             
+        ?>
+
+         <img src="<?php echo $image_url; ?>" alt=""/>
          <?php echo wpautop($eventsPod->field('content')); ?>
     </div>
 
-	<div class="event-details" width="200px" height="200px" background-color="red">
-            <?php 
+	<div class="event-details">
+            <?php
+                $cost = ($eventsPod->field('cost') == 0)? "Free" : $eventsPod->display('cost')." + GST";
+                echo "Costs: ".$cost."<br>";
 
-            	echo "Date: ".$eventsPod->display('day')."<br>";
-            	echo "Time: ".$eventsPod->display('time')."<br>";
+                echo "Duration: ".$eventsPod->display('duration')."<br>";
+                
+                $hasFinishDate = ($eventsPod->field('finish_date') ==="0000-00-00" )?  "":" to ".$eventsPod->display('finish_date');
+            	echo "When: ".$eventsPod->display('start_date').$hasFinishDate."<br>";
             	$location = $eventsPod->field('place');
-            	echo "Name: ".$location['name']."<br>" ;
-            	echo "Address: ".$location['no'].", "; 
+            	echo "Location: ".$location['name'].": " ;
+            	echo $location['no'].", "; 
             	echo $location['address'].", ";
-            	
-            	echo $eventsPod->display('place.city.name');
-            	// var_dump($city);
-            	
-
-            	// $city = ($eventsPod->field('cityname'));
-            	// // var_dump($city);
-            	// echo $city['name'];
-
-
-  
-
-
-
-
+            	echo $eventsPod->display('place.suburb.name').", ";
+            	echo $eventsPod->display('place.city.name');           	
 
             ?>
     </div>
