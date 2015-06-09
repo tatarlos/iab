@@ -857,7 +857,8 @@ h1 {
   margin: 50px auto; }
 
 .sections {
-  padding: 3em; }
+  width: 95%;
+  margin: auto; }
 
 .content {
   float: left;
@@ -869,7 +870,8 @@ h1 {
   border: 1px solid #ddd;
   box-shadow: 0 2px 4px #e6e6e6;
   cursor: pointer;
-  position: relative; }
+  position: relative;
+  margin-bottom: 2em; }
   .content:last-child {
     margin-right: 0; }
   @media screen and (min-width: 53.75em) {
@@ -909,7 +911,8 @@ h1 {
   .content .content-copy {
     font-size: 0.9em;
     line-height: 1.5em;
-    padding: 0.75em 0.75em; }
+    padding: 0.75em 0.75em;
+    height: 120px; }
     .content .content-copy p {
       margin: 0 0 0.75em; }
   .content:focus, .content:hover {
@@ -1028,8 +1031,7 @@ h1 {
     width: 4px; }
 
 .members {
-  background-color: #606363;
-  padding-top: 0.1875em; }
+  background-color: #606363; }
   .members .section-title {
     color: white; }
 
@@ -1037,18 +1039,29 @@ h1 {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 23.23176%;
-  display: inline-block; }
-  .member::after {
-    clear: both;
-    content: "";
-    display: table; }
+  width: 48.82117%;
+  border: 1px solid black;
+  text-align: center;
+  padding: 1em auto;
+  margin-bottom: 1em; }
   .member:last-child {
     margin-right: 0; }
-  .member:nth-child(4n) {
+  .member:nth-child(2n) {
     margin-right: 0; }
-  .member:nth-child(4n+1) {
+  .member:nth-child(2n+1) {
     clear: left; }
+  @media screen and (min-width: 53.75em) {
+    .member {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 23.23176%; }
+      .member:last-child {
+        margin-right: 0; }
+      .member:nth-child(4n) {
+        margin-right: 0; }
+      .member:nth-child(4n+1) {
+        clear: left; } }
 
 .footer {
   background: white;
@@ -1095,21 +1108,21 @@ h1 {
       .footer li {
         text-align: left; } }
   .footer li a {
-    color: rgba(255, 255, 255, 0.4);
+    color: #606363;
     text-decoration: none; }
     .footer li a:focus, .footer li a:hover {
-      color: white; }
+      color: #ee2d26; }
   .footer li h3 {
-    color: white;
+    color: #821717;
     font-size: 1em;
     font-weight: 800;
     margin-bottom: 0.4em; }
   .footer hr {
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(96, 99, 99, 0.7);
     margin: 0 auto 1.5em;
     width: 12em; }
   .footer p {
-    color: rgba(255, 255, 255, 0.4);
+    color: #821717;
     font-size: 0.9em;
     line-height: 1.5em;
     margin: auto;

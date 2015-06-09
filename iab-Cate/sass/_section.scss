@@ -6,10 +6,8 @@
 }
 
 .sections {
-  // @include display(flex);
-  // @include flex-wrap(wrap);
-  // @include justify-content(space-between);
-  padding: 3em ;
+  width: 95%;
+  margin:auto;
 }
 
 .content {
@@ -25,6 +23,7 @@
   cursor: pointer;
   // margin: 0 $card-margin $base-spacing $card-margin;
   position: relative;
+  margin-bottom: 2em;
 
   .content-image {
     overflow: hidden;
@@ -54,6 +53,7 @@
     font-size: 0.9em;
     line-height: 1.5em;
     padding: ($base-spacing / 2) ($base-spacing / 2);
+    height: 120px;
 
     p {
       margin: 0 0 ($base-spacing / 2);
