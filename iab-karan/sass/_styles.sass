@@ -1,17 +1,16 @@
+$mobile: new-breakpoint(max-width 500px 4)
+$medium: new-breakpoint(max-width 640px 6)
+$desktop: new-breakpoint(min-width 800px 12)
+
 .outercontainer
 	margin: 40px 0
+	padding: 0 20px
 	+outer-container
-	+media($desktop)
-		+span-columns(12)
-	+media($mobile)
-		+span-columns(6)
 	.tabbed
-		+media($desktop)
-			+span-columns(8)
-		+media($mobile)
+		+span-columns(8)
+		+media($medium)
 			+span-columns(6)
 	.signup
-		+media($desktop)
-			+span-columns(4)
-		+media($mobile)
+		+span-columns(4)
+		+media($medium)
 			+span-columns(6)

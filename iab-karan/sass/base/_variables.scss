@@ -1,17 +1,20 @@
+$sans-serif: 'Questrial', sans-serif;
+$serif: 'Sanchez', serif;
+
 // Typography
-$base-font-family: $helvetica;
-$heading-font-family: $base-font-family;
+$base-font-family: $sans-serif;
+$heading-font-family: $serif;
 
 // Font Sizes
 $base-font-size: 1em;
 
 // Line height
-$base-line-height: 1.5;
+$base-line-height: 1.5em !default;
 $heading-line-height: 1.2;
 
 // Other Sizes
-$base-border-radius: 3px;
-$base-spacing: $base-line-height * 1em;
+$base-border-radius: 3px !default;
+$base-spacing: 1.5em !default;
 $small-spacing: $base-spacing / 2;
 $base-z-index: 0;
 
@@ -25,6 +28,7 @@ $light-gray: #ddd;
 $base-font-color: $dark-gray;
 //$action-color: $blue;
 $action-color: $default-red;
+$base-link-color: $action-color !default;
 
 // Border
 $base-border-color: $light-gray;
