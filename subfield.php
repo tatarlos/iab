@@ -5,6 +5,17 @@ template Name:All SubNav template
 ?>
 <?php get_header(); ?> 
 
+
+<nav >
+ <ul class="clearfix">
+
+    <li><a href="<?php echo bloginfo('url')?>/news">NEWS</a></li>
+    <li><a href="<?php echo bloginfo('url')?>/events">EVENTS</a></li>
+    <li><a href="<?php echo bloginfo('url')?>/resources">RESOURCES</a></li>
+    <li><a href="<?php echo bloginfo('url')?>/members">MEMBERS</a></li>
+    <li><a href="<?php echo bloginfo('url')?>/about">ABOUT IAB</a></li>
+ </ul>
+</nav>
 <?php 
 
 //query parameters

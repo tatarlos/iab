@@ -6,22 +6,24 @@
 }
 
 .sections {
-  @include display(flex);
-  @include flex-wrap(wrap);
-  @include justify-content(space-between);
+  width: 95%;
+  margin:auto;
 }
 
 .content {
-  @include flex-basis(15em);
-  @include flex-grow(1);
-  @include transition (all 0.2s ease-in-out);
+  @include span-columns(12);
+  @include media($large-screen){
+    @include span-columns(4);
+    @include omega(3n);
+  }
   background-color: $card-background;
   border-radius: $base-border-radius;
   border: $card-border;
   box-shadow: 0 2px 4px darken($base-background-color, 10%);
   cursor: pointer;
-  margin: 0 $card-margin $base-spacing $card-margin;
+  // margin: 0 $card-margin $base-spacing $card-margin;
   position: relative;
+  margin-bottom: 2em;
 
   .content-image {
     overflow: hidden;
@@ -51,6 +53,7 @@
     font-size: 0.9em;
     line-height: 1.5em;
     padding: ($base-spacing / 2) ($base-spacing / 2);
+    height: 120px;
 
     p {
       margin: 0 0 ($base-spacing / 2);

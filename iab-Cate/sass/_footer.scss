@@ -1,7 +1,7 @@
 .footer {
 
 
-  background: $footer-background;
+  background: $base-color;
   padding: ($base-spacing * 2) $gutter;
   width: 100%;
 
@@ -45,30 +45,30 @@
   }
 
   li a {
-    color: $footer-link-color;
+    color: $darkgray;
     text-decoration: none;
 
     &:focus,
     &:hover {
-      color: transparentize($footer-color, 0);
+      color: transparentize($base-color-red, 0);
     }
   }
 
   li h3 {
-    color: $footer-color;
+    color: $base-color-dark-red;
     font-size: 1em;
     font-weight: 800;
     margin-bottom: 0.4em;
   }  
 
   hr {
-    border: 1px solid transparentize($footer-disclaimer-color, 0.3);
+    border: 1px solid transparentize($darkgray, 0.3);
     margin: 0 auto $base-spacing;
     width: 12em;
   }
 
   p {
-    color: $footer-disclaimer-color;
+    color: $base-color-dark-red;
     font-size: 0.9em;
     line-height: 1.5em;
     margin: auto;
