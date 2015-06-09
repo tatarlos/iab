@@ -1,0 +1,19 @@
+.members{
+  $background-color:#606363;
+  $content-padding:em(3);
+
+  background-color:$background-color;
+  padding-top:$content-padding;
+
+  .section-title{
+  	color:white;
+  }
+}
+
+.member{
+	@include clearfix;
+	@include span-columns(3);
+  	@include omega(4n);
+
+  	display: inline-block;
+}
