@@ -3,9 +3,11 @@
 template Name:Single Event single template
 */ 
 $permalink = pods_var('last','url');
+$cat = pods_v(-2,'url');
 //query parameters
 //creates pod object and loads data
 $eventsPod = pods('events',$permalink);
+$type = $cat."_type.name";
 ?>
 
 
@@ -29,7 +31,21 @@ $eventsPod = pods('events',$permalink);
 
 
             $image = wp_get_attachment_image_src($image_id,'large');
-            $image_url = $image[0];             
+            $image_url = $image[0];
+
+            $cats = $eventsPod->field($type);
+            
+            if ( is_array($cats) ){
+                
+                $catLen = sizeof($cats);
+                                
+                for($i = $catLen-1; $i >= 0; $i--){
+                    echo ($cats[$i]."<br>");
+                }
+
+            }else{
+                echo $cats;
+            }            
         ?>
 
          <img src="<?php echo $image_url; ?>" alt=""/>

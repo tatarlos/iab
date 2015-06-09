@@ -9,6 +9,7 @@ $cat = pods_v(-2,'url');
 //query parameters
 //creates pod object and loads data
 $articlePod = pods($cat,$permalink);
+$type = $cat."_type.name";
 ?>
 
 
@@ -26,7 +27,21 @@ $articlePod = pods($cat,$permalink);
         </a>
 
         <?php } ?>
-        <?php 
+        
+        <?php
+            $cats = $articlePod->field($type);
+            if ( is_array($cats) ){
+                
+                $catLen = sizeof($cats);
+                
+                for($i = $catLen-1; $i >= 0; $i--){
+                    echo ($cats[$i]."<br>");
+                }
+
+            }else{
+                echo $cats;
+            }
+
             $postId = $articlePod->field('ID');
             $image_id = get_post_thumbnail_id($postId);
             // echo "<br>Categories: ".$eventsPod->display('category')."<br>";          

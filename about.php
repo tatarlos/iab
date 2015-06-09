@@ -1,6 +1,6 @@
 <?php
 /*
-template Name:All SubNav template
+template Name:about template
 */ 
 ?>
 <?php get_header(); ?> 
