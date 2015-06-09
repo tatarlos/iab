@@ -14,7 +14,6 @@
   $large-screen: em(860) !default;
   $hero-background-top: #7F99BE; 
   $hero-background-bottom: #20392B;
-  $hero-color: white;
   $gradient-angle: 10deg;
   $background-image: url(../img/business-ideas-305.jpeg);
 
@@ -66,6 +65,23 @@
   $card-image-hover-background: lighten($card-image-background, 5%);
   $card-margin: 1em;
 
+// data
+  $base-border-radius: 3px !default;
+  $action-color: #477DCA !default;
+  $large-screen: em(860) !default;
+  $device-padding-vertical: 5em;
+  $device-padding-horizontal: 0.4em;
+  $device-screen-width: 14em;
+  $device-screen-height: 25em;
+  $device-background: darken(gray, 40%);
+  $device-backside-background: darken($device-background, 10%);
+  $device-text-color: white;
+  $device-background-top: #162C4C; 
+  $device-background-bottom: #0A120D;
+  $gradient-angle: 10deg;
+  $device-image: 'https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png';
+  $background-color:#606363;
+
 // section2
   $base-background-color: white !default;
   $dark-gray: #333 !default;
@@ -87,7 +103,7 @@
   $action-color: #477DCA !default;
   $medium-screen: em(640) !default;
   $large-screen: em(860) !default;
-  $footer-background: $base-color-1;
+  $footer-background: $base-color;
   $footer-color: white;
   $footer-link-color: transparentize($footer-color, 0.6);
   $footer-disclaimer-color: transparentize($footer-color, 0.6);

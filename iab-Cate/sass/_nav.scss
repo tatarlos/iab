@@ -37,6 +37,8 @@ h1{
   padding: $base-spacing;
   width: 100%;
   display: inline-block;
+  border-bottom: $header-border-bottom;
+
 
   .header-logo {
     margin-right: 1em;
@@ -49,7 +51,7 @@ h1{
   }
 
   .header-logo img {
-    height: 1.6em;
+    height: 3em;
   } 
 
   ul {
@@ -82,7 +84,7 @@ h1{
 
     &:focus,
     &:hover {
-      color: transparentize($header-color, 0);
+      color: transparentize($base-color-red, 0);
     }
   }
 

@@ -1,4 +1,7 @@
 
 $header-background-color:red;
 $base-color:white;
-$base-color-1:desaturate(darken($header-background-color, 20%), 30%);
+$base-color-dark-red:desaturate(darken($header-background-color, 20%), 30%);
+$base-color-red:#ee2d26;
+$header-border-bottom:1px solid #f0f0f0;
+$section-header-black:black;

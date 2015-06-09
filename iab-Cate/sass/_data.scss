@@ -1,25 +1,11 @@
-.device-background {
-  $base-border-radius: 3px !default;
-  $action-color: #477DCA !default;
-  $large-screen: em(860) !default;
-  $device-padding-vertical: 5em;
-  $device-padding-horizontal: 0.4em;
-  $device-screen-width: 14em;
-  $device-screen-height: 25em;
-  $device-background: darken(gray, 40%);
-  $device-backside-background: darken($device-background, 10%);
-  $device-text-color: white;
-  $device-background-top: #162C4C; 
-  $device-background-bottom: #0A120D;
-  $gradient-angle: 10deg;
-  $device-image: 'https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png';
-  $background-color:#606363;
+.data-background {
+
 
   background-color:$background-color;
   min-height: 20em;
   width: 100%;
 
-  .device-text {
+  .data-text {
     color: $device-text-color;
     padding: 2em;
 
@@ -30,7 +16,7 @@
     }
 
     h4 {
-      border-bottom: 1px solid transparentize($base-color-1, 0.7);
+      border-bottom: 1px solid transparentize($base-color-red, 0.7);
       font-size: 1.5em;
       margin: 0 0 0.5em 0;
       padding-bottom: 0.5em;
@@ -42,7 +28,7 @@
     }
 
     button {
-      @include button(flat, $base-color-1);
+      @include button(flat, $base-color-red);
       padding: 0.7em 1em;
     }
   }

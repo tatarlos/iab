@@ -1,17 +1,17 @@
+.section-title{
+  color:$base-color-dark-red;
+  @include justify-content;
+  text-align: center;
+  margin:50px auto;
+}
+
 .sections {
   @include display(flex);
   @include flex-wrap(wrap);
   @include justify-content(space-between);
 }
-.section-title{
-  color:$base-color-1;
-  @include justify-content;
-  text-align: center;
-  margin:50px auto;
-}
+
 .content {
-
-
   @include flex-basis(15em);
   @include flex-grow(1);
   @include transition (all 0.2s ease-in-out);
@@ -38,8 +38,8 @@
 
   .content-header {
     @include transition (all 0.2s ease-in-out);
-    color:$base-color-1;
-    background-color: $card-header-background;
+    color:$section-header-black;
+    background-color: $base-color-red;
     border-bottom: $card-border;
     border-radius: $base-border-radius $base-border-radius 0 0;
     font-weight: bold;
@@ -66,8 +66,8 @@
     }
   
     .content-header {
-      background-color: $base-color-1;
-      color:white;
+      background-color: $base-color-dark-red;
+      color:$base-color;
     }
   }
 

@@ -16,12 +16,15 @@
     border-right: $grid-item-border;
     cursor: pointer;
     float: left;
-    height: $grid-item-height;
     overflow: hidden;
     outline: none;
     padding: 2em;
     text-decoration: none;
     width: 100%;
+    &:nth-child(3n+0) {
+      border-right: none;
+    }
+
 
     @include media($large-screen) {
       @include grid-item-columns($grid-item-columns);
@@ -35,7 +38,7 @@
 
   .grid-item img {
       display: block;
-      height: 5.5em;
+      width: 100%;
       margin-bottom: 1.2em;
       
     }

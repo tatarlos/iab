@@ -4,6 +4,7 @@
   @include span-columns(12);
   @include media($vertical-tab-mode){
     @include span-columns(8);
+    height: 300px;
   }
   @include clearfix;
   overflow: hidden;
@@ -13,7 +14,7 @@
   }
 
   a {
-    color: $base-link-color;
+    color: $base-color-red;
     text-decoration: none;
   }
 

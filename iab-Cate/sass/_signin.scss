@@ -1,14 +1,13 @@
 .signin {  
   @include span-columns(12);
-  @include media($large-screen){
+  @include media($vertical-tab-mode){
     @include span-columns(4);
   }
 
-  background-color: $background-color;
   background-position: top;  
   @include clearfix;
-  color: $hero-color;
-  padding: 3.5em;
+  color: $base-color;
+  padding: 3em 2.5em;
   text-align: center;
   
     
@@ -19,7 +18,7 @@
         font-size: 1.6em;
         margin-bottom: 0.5em;
 
-        @include media($large-screen) {
+        @include media($vertical-tab-mode) {
           font-size: 1.8em;
         }
       }
@@ -29,7 +28,7 @@
         line-height: 1.4em;
         margin: 0 auto 3em auto; 
 
-        @include media($large-screen) {
+        @include media($vertical-tab-mode) {
           font-size: 1.1em;
           max-width: 40%;
         }
@@ -40,6 +39,6 @@
     button {
       @include button(flat, $base-color);
       padding: 0.7em 1em;
-      color:$base-color;
+      color:$base-color-red;
     }
 }
