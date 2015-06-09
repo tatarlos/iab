@@ -1129,4 +1129,13 @@ h1 {
     max-width: 35em;
     text-align: center; }
 
+.filter-section {
+  background-color: white; }
+
+.filter-header {
+  color: #821717;
+  padding: 2em;
+  text-align: center;
+  border-bottom: 1px solid #606363; }
+
 /*# sourceMappingURL=main.css.map */
