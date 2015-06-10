@@ -2,6 +2,14 @@ $mobile: new-breakpoint(max-width 500px 4)
 $medium: new-breakpoint(max-width 640px 6)
 $desktop: new-breakpoint(min-width 800px 12)
 
+::selection
+	background: $default-red
+	color: $white
+
+::-moz-selection
+	background: $default-red
+	color: $white
+
 .outercontainer
 	margin: 40px 0 0 0
 	padding: 0 20px
@@ -42,9 +50,6 @@ $desktop: new-breakpoint(min-width 800px 12)
 		box-shadow: 0 2px 4px $even-darker-grey
 		&:focus, &:hover
 			background-color: $white
-			box-shadow: 0 10px 20px $even-darker-grey
-		twitter
-			border-color: light-blue
 
 .section
 	margin: 20px 0
@@ -85,4 +90,3 @@ $desktop: new-breakpoint(min-width 800px 12)
 
 .members
 	+outer-container
-

@@ -20,8 +20,10 @@
 
   &:hover,
   &:focus {
-    background-color: darken($action-color, 15%);
+    background-color: darken($action-color, 5%);
     color: #fff;
+    box-shadow: 0 10px 15px $shadow;
+    text-shadow: 0 5px 5px $shadow;
   }
 
   &:disabled {
@@ -52,8 +54,10 @@ button {
 
     &:hover,
     &:focus {
-      background-color: darken($even-darker-grey, 15%);
+      background-color: darken($even-darker-grey, 5%);
       color: #fff;
+      box-shadow: 0 10px 15px $shadow;
+      text-shadow: 0 5px 5px $shadow;
     }
 
     &:disabled {
@@ -83,8 +87,10 @@ button {
 
     &:hover,
     &:focus {
-      background-color: darken($facebook, 15%);
+      background-color: darken($facebook, 5%);
       color: #fff;
+      box-shadow: 0 10px 15px $shadow;
+      text-shadow: 0 5px 5px $shadow;
     }
 
     &:disabled {
@@ -114,8 +120,10 @@ button {
 
     &:hover,
     &:focus {
-      background-color: darken($twitter, 15%);
+      background-color: darken($twitter, 5%);
       color: #fff;
+      box-shadow: 0 10px 15px $shadow;
+      text-shadow: 0 5px 5px $shadow;
     }
 
     &:disabled {

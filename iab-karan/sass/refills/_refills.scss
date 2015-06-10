@@ -370,8 +370,9 @@ $parallax-background-height: $parallax-window-height * 2;
     padding: 20px;
     font-size: 2.5em;
     text-shadow: 0 3px 15px #000;
-    //background-color: $default-red;
+    background-color: $default-red;
     border-bottom: 3px solid $default-red;
+    display: inline-block;
   }
   p {
     padding: 20px;
@@ -401,6 +402,7 @@ $parallax-background-height: $parallax-window-height * 2;
 
 
 .vertical-tabs-container {
+  @include transition (all 0.2s ease-in-out);
   $base-border-color: gainsboro !default;
   $base-border-radius: 3px !default;
   $base-background-color: white !default;
@@ -436,6 +438,7 @@ $parallax-background-height: $parallax-window-height * 2;
   }
 
   .vertical-tabs {
+    @include transition (all 0.2s ease-in-out);
     display: none;
 
     @include media($vertical-tab-mode) {
@@ -448,6 +451,7 @@ $parallax-background-height: $parallax-window-height * 2;
   }
 
   .vertical-tab {
+    @include transition (all 0.2s ease-in-out);
     @include media($vertical-tab-mode) {
       border-bottom: $tab-border;
       display: block;
@@ -472,6 +476,7 @@ $parallax-background-height: $parallax-window-height * 2;
   }
 
   .vertical-tab-content-container {
+    @include transition (all 0.2s ease-in-out);
     display: block;
     margin: 0 auto;
 
@@ -487,10 +492,12 @@ $parallax-background-height: $parallax-window-height * 2;
   }
 
   .vertical-tab-content {
+    @include transition (all 0.2s ease-in-out);
     background-color: $tab-content-background;
     padding: $base-spacing $gutter;
 
     p {
+      @include transition (all 0.2s ease-in-out);
       color: $base-font-color;
       line-height: $base-line-height;
     }
@@ -535,6 +542,7 @@ $parallax-background-height: $parallax-window-height * 2;
 
 
 .flex-boxes {
+  @include transition (all 0.2s ease-in-out);
   $base-border-radius: 3px !default;
   $base-background-color: white !default;
   $dark-gray: #333 !default;
@@ -568,12 +576,11 @@ $parallax-background-height: $parallax-window-height * 2;
     text-align: center;
 
   .flex-box {
-    @include transition (all 0.2s ease-in-out);
     @include flex(2 2 15em);
     @include align-self(stretch);
     background: $flex-box-background;
     border-radius: $base-border-radius;
-    box-shadow: inset 0 0 1px $flex-box-border-color, 0 2px 4px $light;
+    box-shadow: inset 0 0 1px $flex-box-border-color, 0 2px 4px $shadow;
     display: block;
     margin: $flex-box-gutter;
     padding: 2em 2em 3em 2em;
@@ -583,13 +590,26 @@ $parallax-background-height: $parallax-window-height * 2;
       &:nth-child(#{$i}) {
         $color-from-list: nth($flex-box-top-colors, $i);
         border-top: 6px solid $color-from-list;
-        
+        @include transition (all 0.2s ease-in-out);
         &:focus,
         &:hover {
-          border-top: none;
-          border-bottom: 6px solid $color-from-list;
-          //background-color: transparentize($color-from-list, 0.9);
+          @include transition (all 0.2s ease-in-out);
+          box-shadow: 0 7px 4px $shadow;
         }
+      }
+    }
+    &.fb {
+      border-top: 6px solid $facebook;
+      &:focus, &:hover {
+        border-top: 6px solid $facebook;
+        border-bottom: none;
+      }
+    }
+    &.twitter {
+      border-top: 6px solid $twitter;
+      &:focus, &:hover {
+        border-top: 6px solid $twitter;
+        border-bottom: none;
       }
     }
 
@@ -657,6 +677,12 @@ $parallax-background-height: $parallax-window-height * 2;
     padding: 2em;
     text-decoration: none;
     width: 100%;
+    h2 {
+      color: $default-red;
+      border-bottom: 2px solid $light;
+      @include transition (all 0.2s ease-in-out);
+      letter-spacing: 0.125em;
+    }
 
     @include media($large-screen) {
       @include grid-item-columns($grid-item-columns);
@@ -664,7 +690,21 @@ $parallax-background-height: $parallax-window-height * 2;
 
     &:focus,
     &:hover {
-      background: transparentize($grid-item-color, 0.95);
+      background-color: transparentize($even-darker-grey, 0.3);
+
+      h2 {
+        color: $white;
+        border-bottom: 2px solid $default-red;
+        letter-spacing: 0.075em;
+        text-shadow: 0 0 3px $shadow;
+      }
+      p {
+        color: $white;
+        text-shadow: 0 0 3px $shadow;
+      }
+      img {
+        box-shadow: 0 12px 15px $shadow;
+      }
     }
   }
 
@@ -742,7 +782,7 @@ $parallax-background-height: $parallax-window-height * 2;
   $card-background: lighten($card-border-color, 10%);
   $card-header-background: $card-background;
   $card-margin: 1em;
-  $card-image-hover-opacity: 0.7;
+  $card-image-hover-opacity: 0.9;
   $card-image-hover-color: $secondary-red;
 
   @include flex-basis(15em);
@@ -751,7 +791,7 @@ $parallax-background-height: $parallax-window-height * 2;
   background-color: $card-background;
   border-radius: $base-border-radius;
   border: $card-border;
-  box-shadow: 0 2px 10px $even-darker-grey;
+  box-shadow: 0 2px 10px $shadow;
   cursor: pointer;
   margin: 0 $card-margin $base-spacing $card-margin;
   position: relative;
@@ -760,7 +800,8 @@ $parallax-background-height: $parallax-window-height * 2;
   .card-image {
     overflow: hidden;
     //height: 150px;
-    max-height: 150px;
+    //max-height: 150px;
+    height: auto;
     background-color: $card-image-hover-color;
 
     img {
@@ -769,6 +810,8 @@ $parallax-background-height: $parallax-window-height * 2;
       border-top-right-radius: $base-border-radius;
       width: 100%;
       opacity: 1;
+      height: auto;
+      transform: scale(1.11);
     }
   }
 
@@ -809,14 +852,16 @@ $parallax-background-height: $parallax-window-height * 2;
   &:focus,
   &:hover {
     cursor: pointer;
-
+    box-shadow: 0 12px 15px $shadow;
     img {
       opacity: $card-image-hover-opacity;
+      transform: scale(1.15);
     }
 
     .card-header {
     background-color: $default-red;
     color: $white;
+    text-shadow: 0 5px 5px $shadow;
     }
   
   }
