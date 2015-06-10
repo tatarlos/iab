@@ -1,4 +1,5 @@
 #{$all-buttons} {
+  @include transition (all 0.2s ease-in-out);
   appearance: none;
   background-color: $action-color;
   border: none;
@@ -52,6 +53,68 @@ button {
     &:hover,
     &:focus {
       background-color: darken($even-darker-grey, 15%);
+      color: #fff;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+
+  &.fb-btn{
+    appearance: none;
+    background-color: $facebook;
+    border: none;
+    border-radius: $base-border-radius;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 600;
+    line-height: 1;
+    padding: 0.75em 1em;
+    text-decoration: none;
+    user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+
+    &:hover,
+    &:focus {
+      background-color: darken($facebook, 15%);
+      color: #fff;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+
+  &.twitter-btn{
+    appearance: none;
+    background-color: $twitter;
+    border: none;
+    border-radius: $base-border-radius;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 600;
+    line-height: 1;
+    padding: 0.75em 1em;
+    text-decoration: none;
+    user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+
+    &:hover,
+    &:focus {
+      background-color: darken($twitter, 15%);
       color: #fff;
     }
 

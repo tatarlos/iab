@@ -9,7 +9,7 @@ header.navigation {
   $navigation-padding: 1em;
   $navigation-background: $white;
   $navigation-color: transparentize(white, 0.3);
-  $navigation-color-hover: $secondary-red;
+  $navigation-color-hover: $very-dark-grey;
   $navigation-height: 60px;
   $navigation-nav-button-background: $action-color;
   $navigation-nav-button-background-hover: lighten($navigation-background, 10%);
@@ -138,7 +138,7 @@ header.navigation {
       &:focus,
       &:hover {
         color: $navigation-color-hover;
-        text-shadow: 0 0 5px #ccc;
+        //text-shadow: 0 0 5px #ccc;
       }
     }
   }
@@ -406,7 +406,7 @@ $parallax-background-height: $parallax-window-height * 2;
   $base-background-color: white !default;
   $base-line-height: 1.5em !default;
   $base-spacing: 1.5em !default;
-  $action-color: #477DCA !default;
+  $action-color: $default-red;
   $base-link-color: $action-color !default;
   $dark-gray: #333 !default;
   $medium-screen: em(640) !default;
@@ -417,7 +417,7 @@ $parallax-background-height: $parallax-window-height * 2;
   $tab-content-background: lighten($tab-border-color, 10%);
   $tab-active-color: $tab-content-background;
   $tab-inactive-color: $base-background-color;
-  $vertical-tabs-height: em(310);
+  $vertical-tabs-height: em(320);
   $vertical-tab-mode: $medium-screen;
 
   @include clearfix;
@@ -464,7 +464,7 @@ $parallax-background-height: $parallax-window-height * 2;
 
   a.vertical-tab-accordion-heading,
   a.vertical-tab {
-    color: $dark-gray;
+    color: $default-red;
   }
 
   .vertical-tab:focus {
@@ -573,7 +573,7 @@ $parallax-background-height: $parallax-window-height * 2;
     @include align-self(stretch);
     background: $flex-box-background;
     border-radius: $base-border-radius;
-    box-shadow: inset 0 0 1px $flex-box-border-color, 0 2px 4px darken($base-background-color, 10%);
+    box-shadow: inset 0 0 1px $flex-box-border-color, 0 2px 4px $light;
     display: block;
     margin: $flex-box-gutter;
     padding: 2em 2em 3em 2em;
@@ -586,7 +586,9 @@ $parallax-background-height: $parallax-window-height * 2;
         
         &:focus,
         &:hover {
-          background-color: transparentize($color-from-list, 0.9);
+          border-top: none;
+          border-bottom: 6px solid $color-from-list;
+          //background-color: transparentize($color-from-list, 0.9);
         }
       }
     }
@@ -636,7 +638,7 @@ $parallax-background-height: $parallax-window-height * 2;
   $grid-item-columns: 4;
   $grid-item-big-columns: 8;
   $grid-item-color: $base-font-color;
-  $grid-item-height: 14em;
+  $grid-item-height: 20em;
 
   @include clearfix;
   position: relative;
@@ -649,7 +651,7 @@ $parallax-background-height: $parallax-window-height * 2;
     border-right: $grid-item-border;
     cursor: pointer;
     float: left;
-    height: $grid-item-height;
+    //height: $grid-item-height;
     overflow: hidden;
     outline: none;
     padding: 2em;
@@ -668,9 +670,11 @@ $parallax-background-height: $parallax-window-height * 2;
 
   .grid-item img {
       display: block;
-      height: 2.5em;
+      width: 100%;
+      height: auto;
+      //height: 2.5em;
       margin-bottom: 1.2em;
-      opacity: 0.2;
+      //opacity: 0.2;
     }
 
   .grid-item h1 {
@@ -772,7 +776,7 @@ $parallax-background-height: $parallax-window-height * 2;
     @include transition (all 0.2s ease-in-out);
     background-color: $card-header-background;
     border-bottom: $card-border;
-    border-radius: $base-border-radius $base-border-radius 0 0;
+    //border-radius: $base-border-radius $base-border-radius 0 0;
     font-weight: bold;
     line-height: 1.5em;
     padding: ($base-spacing / 3) ($base-spacing / 2);
@@ -809,6 +813,12 @@ $parallax-background-height: $parallax-window-height * 2;
     img {
       opacity: $card-image-hover-opacity;
     }
+
+    .card-header {
+    background-color: $default-red;
+    color: $white;
+    }
+  
   }
 
   &:active {
@@ -817,6 +827,92 @@ $parallax-background-height: $parallax-window-height * 2;
     .card-header {
       background-color: $card-background;
     }
+  }
+}
+
+.footer {
+  $base-spacing: 1.5em !default;
+  $action-color: #477DCA !default;
+  $medium-screen: em(640) !default;
+  $large-screen: em(860) !default;
+  $footer-background: $even-darker-grey;
+  $footer-color: white;
+  $footer-link-color: transparentize($footer-color, 0.6);
+  $footer-disclaimer-color: transparentize($footer-color, 0.6);
+
+  background: $footer-background;
+  padding: ($base-spacing * 2) $gutter;
+  width: 100%;
+
+  .footer-logo {
+    margin-bottom: 2em;
+    text-align: center;
+
+    img {
+      height: 3em;
+    }
+  } 
+
+  .footer-links {
+    @include clearfix;
+    margin-bottom: $base-spacing;
+
+    @include media($medium-screen) {
+      @include shift(3);
+    }
+  }
+
+  ul {
+    margin-bottom: $base-spacing * 2;
+    padding: 0;
+
+    @include media($medium-screen) {
+      @include span-columns(3);
+      @include omega(3n);
+      @include clearfix;
+    }
+  }
+
+  li {
+    line-height: 1.5em;
+    list-style: none;
+    text-align: center;
+
+    @include media($medium-screen) {
+      text-align: left;
+    }
+  }
+
+  li a {
+    color: $footer-link-color;
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+      color: transparentize($footer-color, 0);
+    }
+  }
+
+  li h3 {
+    color: $footer-color;
+    font-size: 1em;
+    font-weight: 800;
+    margin-bottom: 0.4em;
+  }  
+
+  hr {
+    border: 1px solid transparentize($footer-disclaimer-color, 0.3);
+    margin: 0 auto $base-spacing;
+    width: 12em;
+  }
+
+  p {
+    color: $footer-disclaimer-color;
+    font-size: 0.9em;
+    line-height: 1.5em;
+    margin: auto;
+    max-width: 35em;
+    text-align: center;
   }
 }
 
