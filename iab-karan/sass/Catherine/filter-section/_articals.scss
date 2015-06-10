@@ -1,0 +1,70 @@
+
+
+.articals{
+	@include span-columns(12);
+	@include media($large-screen){
+		@include span-columns(10);
+	}
+	
+	margin-right:0;
+	padding-bottom:	$artical-element-padding;
+}
+
+.artical{
+	@include fill-parent();
+	@include row(block);
+	width:100%;
+
+	@include media($medium-screen){
+		width:45.5%;
+		float:left;
+	}
+
+	@include media($large-screen){
+		width:33%;
+		float:left;
+	}
+	
+
+	border-right:$artical-border;
+	padding:2em;
+	margin-right:0;
+
+	&:nth-child(3n+0) {
+      border-right: none;
+    }
+
+
+	.artical-header{
+		padding:$artical-element-padding;
+		text-align: center;
+		
+		.publish-time{
+			color:$gray;
+			font-size: 14px;
+		}
+	}
+
+	.artical-copy{
+		padding:$artical-element-padding;
+		border-bottom:$artical-border;
+		padding-bottom:30px;
+
+		.category{
+			color:$base-color-red;
+			font-size: 14px;
+		}
+	}
+}
+
+aside{
+	@include span-columns(12);
+	@include media($large-screen){
+		@include span-columns(2);
+	}
+}
+
+.latest{
+	border-top:4px solid $base-color-red;
+	padding-top:10px;
+}

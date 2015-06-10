@@ -1,2 +1,14 @@
 
-$filter-header-border:1px solid $darkgray;
+$filter-header-border:1px solid #f0f0f0;
+$artical-border:1px solid #b9b9b9;
+$gray:silver;
+$active-color:white;
+$artical-element-padding:10px;
+
+$medium-screen: em(640) !default;
+$large-screen: em(860) !default;
+
+$tab-mode: $medium-screen;
+$horizontal-bar-mode: $large-screen;
+
+$base-border-radius: 3px !default;

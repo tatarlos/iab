@@ -1,0 +1,8 @@
+aside{
+	@include span-columns(2);
+}
+
+.latest{
+	border-top:4px solid $base-color-red;
+	padding-top:10px;
+}
