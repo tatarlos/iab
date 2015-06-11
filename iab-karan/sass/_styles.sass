@@ -1,5 +1,5 @@
 $mobile: new-breakpoint(max-width 500px 4)
-$medium: new-breakpoint(max-width 640px 6)
+$medium: new-breakpoint(max-width 800px 6)
 $desktop: new-breakpoint(min-width 800px 12)
 
 ::selection
@@ -102,3 +102,45 @@ $desktop: new-breakpoint(min-width 800px 12)
 
 .members
 	+outer-container
+
+.postcontainer
+	margin: 40px 0 0 0
+	padding: 0 20px
+	+outer-container
+	.article-area
+		text-align: left
+		$height: em(293)
+		+span-columns(8)
+		+media($medium)
+			+span-columns(6)
+	.sidebar
+		border-left: 1px solid $light
+		+span-columns(4)
+		+media($medium)
+			+span-columns(6)
+		.flex-box
+			height: em(367)
+	hr
+		align: center
+		border: 1px solid $default-red
+		margin: 0 auto 1.5em
+		width: 12em
+
+
+.resourcecontainer
+	margin: 40px 0 0 0
+	padding: 0 20px
+	+outer-container
+	.listing-area
+		text-align: left
+		$height: em(293)
+		+span-columns(8)
+		+media($medium)
+			+span-columns(6)
+	.sidebar
+		border-left: 1px solid $light
+		+span-columns(4)
+		+media($medium)
+			+span-columns(6)
+		.flex-box
+			height: em(367)
