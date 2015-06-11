@@ -1,24 +1,2 @@
 
 
-.grids{
-	width:100%;
-	
-
-	@include media($large-screen){
-		width:70%;
-		float: left;
-	}
-}
-
-aside{
-	width:100%;
-	@include media($large-screen){
-		width: 29%;
-		float: left;
-	}
-
-	.latest-header{	
-		padding:20px;
-	}
-}
-
