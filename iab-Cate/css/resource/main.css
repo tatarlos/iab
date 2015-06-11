@@ -1,7 +1,7 @@
 /*
-Error: File to import not found or unreadable: resource/filter-variables.
-       Load path: /Users/luyi.cao6117/Desktop/iab/iab-Cate/sass/resource
-        on line 1 of /Users/luyi.cao6117/Desktop/iab/iab-Cate/sass/resource/_filter-resource.scss
+Error: Undefined variable: "$base-color".
+        on line 5 of /Users/luyi.cao6117/Desktop/iab/iab-Cate/sass/resource/_filter-header.scss
+        from line 2 of /Users/luyi.cao6117/Desktop/iab/iab-Cate/sass/resource/_filter-resource.scss
         from line 12 of /Users/luyi.cao6117/Desktop/iab/iab-Cate/sass/resource/main.sass
 
 1: @import "normalize"
@@ -10,15 +10,42 @@ Error: File to import not found or unreadable: resource/filter-variables.
 4: @import "base/grid-settings"
 5: @import "neat/neat"
 6: @import "base/base"
+7: @import "refills/refills"
+8: 	
+9: 
+10: @import "styles"
 
 Backtrace:
-/Users/luyi.cao6117/Desktop/iab/iab-Cate/sass/resource/_filter-resource.scss:1
+/Users/luyi.cao6117/Desktop/iab/iab-Cate/sass/resource/_filter-header.scss:5
+/Users/luyi.cao6117/Desktop/iab/iab-Cate/sass/resource/_filter-resource.scss:2
 /Users/luyi.cao6117/Desktop/iab/iab-Cate/sass/resource/main.sass:12
-/Users/luyi.cao6117/Desktop/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.9/lib/sass/tree/import_node.rb:66:in `rescue in import'
-/Users/luyi.cao6117/Desktop/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.9/lib/sass/tree/import_node.rb:45:in `import'
-/Users/luyi.cao6117/Desktop/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.9/lib/sass/tree/import_node.rb:28:in `imported_file'
-/Users/luyi.cao6117/Desktop/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.9/lib/sass/tree/import_node.rb:37:in `css_import?'
-/Users/luyi.cao6117/Desktop/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:301:in `visit_import'
+/Users/luyi.cao6117/Desktop/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.9/lib/sass/script/tree/variable.rb:49:in `_perform'
+/Users/luyi.cao6117/Desktop/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.9/lib/sass/script/tree/node.rb:50:in `perform'
+/Users/luyi.cao6117/Desktop/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:384:in `visit_prop'
+/Users/luyi.cao6117/Desktop/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/luyi.cao6117/Desktop/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Users/luyi.cao6117/Desktop/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.9/lib/sass/stack.rb:79:in `block in with_base'
+/Users/luyi.cao6117/Desktop/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.9/lib/sass/stack.rb:115:in `with_frame'
+/Users/luyi.cao6117/Desktop/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.9/lib/sass/stack.rb:79:in `with_base'
+/Users/luyi.cao6117/Desktop/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Users/luyi.cao6117/Desktop/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:420:in `block (2 levels) in visit_rule'
+/Users/luyi.cao6117/Desktop/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:420:in `map'
+/Users/luyi.cao6117/Desktop/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:420:in `block in visit_rule'
+/Users/luyi.cao6117/Desktop/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Users/luyi.cao6117/Desktop/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:418:in `visit_rule'
+/Users/luyi.cao6117/Desktop/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/luyi.cao6117/Desktop/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Users/luyi.cao6117/Desktop/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.9/lib/sass/stack.rb:79:in `block in with_base'
+/Users/luyi.cao6117/Desktop/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.9/lib/sass/stack.rb:115:in `with_frame'
+/Users/luyi.cao6117/Desktop/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.9/lib/sass/stack.rb:79:in `with_base'
+/Users/luyi.cao6117/Desktop/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Users/luyi.cao6117/Desktop/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:315:in `block (2 levels) in visit_import'
+/Users/luyi.cao6117/Desktop/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:315:in `map'
+/Users/luyi.cao6117/Desktop/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:315:in `block in visit_import'
+/Users/luyi.cao6117/Desktop/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.9/lib/sass/stack.rb:88:in `block in with_import'
+/Users/luyi.cao6117/Desktop/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.9/lib/sass/stack.rb:115:in `with_frame'
+/Users/luyi.cao6117/Desktop/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.9/lib/sass/stack.rb:88:in `with_import'
+/Users/luyi.cao6117/Desktop/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:312:in `visit_import'
 /Users/luyi.cao6117/Desktop/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
 /Users/luyi.cao6117/Desktop/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
 /Users/luyi.cao6117/Desktop/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.4.9/lib/sass/stack.rb:79:in `block in with_base'
@@ -64,4 +91,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: resource/filter-variables.\A        Load path: /Users/luyi.cao6117/Desktop/iab/iab-Cate/sass/resource\A         on line 1 of /Users/luyi.cao6117/Desktop/iab/iab-Cate/sass/resource/_filter-resource.scss\A         from line 12 of /Users/luyi.cao6117/Desktop/iab/iab-Cate/sass/resource/main.sass\A \A 1: @import \"normalize\"\A 2: @import \"variables\"\A 3: @import \"bourbon/bourbon\"\A 4: @import \"base/grid-settings\"\A 5: @import \"neat/neat\"\A 6: @import \"base/base\""; }
+  content: "Error: Undefined variable: \"$base-color\".\A         on line 5 of /Users/luyi.cao6117/Desktop/iab/iab-Cate/sass/resource/_filter-header.scss\A         from line 2 of /Users/luyi.cao6117/Desktop/iab/iab-Cate/sass/resource/_filter-resource.scss\A         from line 12 of /Users/luyi.cao6117/Desktop/iab/iab-Cate/sass/resource/main.sass\A \A 1: @import \"normalize\"\A 2: @import \"variables\"\A 3: @import \"bourbon/bourbon\"\A 4: @import \"base/grid-settings\"\A 5: @import \"neat/neat\"\A 6: @import \"base/base\"\A 7: @import \"refills/refills\"\A 8: 	\A 9: \A 10: @import \"styles\""; }
