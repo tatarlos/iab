@@ -1657,7 +1657,7 @@ header.navigation .search-bar form button[type=submit] img {
 }
 .card:focus .card-header, .card:hover .card-header {
   background-color: #BC0100;
-  border-top: 2px solid #ffffff;
+  border-top: 2px solid #0C0304;
   color: #ffffff;
   text-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
 }
@@ -1991,6 +1991,7 @@ header.navigation .search-bar form button[type=submit] img {
     display: block;
     margin-right: 4.82916%;
     width: 100%;
+    border-left: none;
   }
   .postcontainer .sidebar:last-child {
     margin-right: 0;
@@ -2055,6 +2056,7 @@ header.navigation .search-bar form button[type=submit] img {
     display: block;
     margin-right: 4.82916%;
     width: 100%;
+    border-left: none;
   }
   .resourcecontainer .sidebar:last-child {
     margin-right: 0;
