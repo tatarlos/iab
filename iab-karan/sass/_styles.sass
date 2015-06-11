@@ -50,6 +50,18 @@ $desktop: new-breakpoint(min-width 800px 12)
 		box-shadow: 0 2px 4px $even-darker-grey
 		&:focus, &:hover
 			background-color: $white
+	.card
+		.card-header
+			border-top: 2px solid $very-dark-grey
+		.card-meta
+			background-color: $white
+			color: $default-red
+		&:hover
+			.card-header
+				background-color: $even-darker-grey
+				color: $white
+				border-top: 2px solid $white
+
 
 .section
 	margin: 20px 0

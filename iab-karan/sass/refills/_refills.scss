@@ -681,7 +681,7 @@ $parallax-background-height: $parallax-window-height * 2;
       color: $default-red;
       border-bottom: 2px solid $light;
       @include transition (all 0.2s ease-in-out);
-      letter-spacing: 0.125em;
+      letter-spacing: 0.08em;
     }
 
     @include media($large-screen) {
@@ -695,7 +695,7 @@ $parallax-background-height: $parallax-window-height * 2;
       h2 {
         color: $white;
         border-bottom: 2px solid $default-red;
-        letter-spacing: 0.075em;
+        letter-spacing: 0.05em;
         text-shadow: 0 0 3px $shadow;
       }
       p {
@@ -796,6 +796,7 @@ $parallax-background-height: $parallax-window-height * 2;
   cursor: pointer;
   margin: 0 $card-margin $base-spacing $card-margin;
   position: relative;
+  text-align: left;
 
 
   .card-image {
@@ -828,10 +829,10 @@ $parallax-background-height: $parallax-window-height * 2;
 
   .card-header {
     @include transition (all 0.2s ease-in-out);
-    background-color: $card-header-background;
-    border-top: 2px solid $secondary-red;
+    background-color: $white;
+    border-top: 2px solid $default-red;
     //border-radius: $base-border-radius $base-border-radius 0 0;
-    font-weight: bold;
+    //font-weight: bold;
     line-height: 1.5em;
     padding: ($base-spacing / 3) ($base-spacing / 2);
   }
@@ -842,24 +843,23 @@ $parallax-background-height: $parallax-window-height * 2;
     font-size: 0.9em;
     line-height: 1.5em;
     padding: ($base-spacing / 2) ($base-spacing / 2);
-    border-bottom: 1px solid $default-red;
+    border-bottom: 2px solid $default-red;
     p {
       margin: 0;
     }
   }
 
   .card-meta {
-    margin-top: 5px;
     width:100%;
-    background-color: $secondary-red;
+    background-color: $default-red;
     color: $white;
-    border-top: $card-border;
-    font-size: 0.8em;
+    //border-top: $card-border;
+    font-size: 0.7em;
     line-height: 1em;
     padding: ($base-spacing / 2) ($base-spacing / 2);
 
     p {
-      margin: 0 0 ($base-spacing / 2);
+      margin: 0;
     }
   }
 
@@ -873,7 +873,7 @@ $parallax-background-height: $parallax-window-height * 2;
     }
 
     .card-header {
-    background-color: $secondary-red;
+    background-color: $default-red;
     border-top: 2px solid $white;
     color: $white;
     text-shadow: 0 5px 5px $shadow;

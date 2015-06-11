@@ -1466,7 +1466,7 @@ header.navigation .search-bar form button[type=submit] img {
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
-  letter-spacing: 0.125em;
+  letter-spacing: 0.08em;
 }
 @media screen and (min-width: 53.75em) {
   .grid-items-lines .grid-item {
@@ -1479,7 +1479,7 @@ header.navigation .search-bar form button[type=submit] img {
 .grid-items-lines .grid-item:focus h2, .grid-items-lines .grid-item:hover h2 {
   color: #ffffff;
   border-bottom: 2px solid #BC0100;
-  letter-spacing: 0.075em;
+  letter-spacing: 0.05em;
   text-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
 }
 .grid-items-lines .grid-item:focus p, .grid-items-lines .grid-item:hover p {
@@ -1586,6 +1586,7 @@ header.navigation .search-bar form button[type=submit] img {
   cursor: pointer;
   margin: 0 1em 1.5em 1em;
   position: relative;
+  text-align: left;
 }
 .card .card-image {
   overflow: hidden;
@@ -1607,9 +1608,8 @@ header.navigation .search-bar form button[type=submit] img {
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
-  background-color: #f7f7f7;
-  border-top: 2px solid #95040B;
-  font-weight: bold;
+  background-color: #ffffff;
+  border-top: 2px solid #BC0100;
   line-height: 1.5em;
   padding: 0.5em 0.75em;
 }
@@ -1619,23 +1619,21 @@ header.navigation .search-bar form button[type=submit] img {
   font-size: 0.9em;
   line-height: 1.5em;
   padding: 0.75em 0.75em;
-  border-bottom: 1px solid #BC0100;
+  border-bottom: 2px solid #BC0100;
 }
 .card .card-copy p {
   margin: 0;
 }
 .card .card-meta {
-  margin-top: 5px;
   width: 100%;
-  background-color: #95040B;
+  background-color: #BC0100;
   color: #ffffff;
-  border-top: 1px solid #ddd;
-  font-size: 0.8em;
+  font-size: 0.7em;
   line-height: 1em;
   padding: 0.75em 0.75em;
 }
 .card .card-meta p {
-  margin: 0 0 0.75em;
+  margin: 0;
 }
 .card:focus, .card:hover {
   cursor: pointer;
@@ -1646,7 +1644,7 @@ header.navigation .search-bar form button[type=submit] img {
   transform: scale(1.15);
 }
 .card:focus .card-header, .card:hover .card-header {
-  background-color: #95040B;
+  background-color: #BC0100;
   border-top: 2px solid #ffffff;
   color: #ffffff;
   text-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
@@ -1841,6 +1839,18 @@ header.navigation .search-bar form button[type=submit] img {
 }
 .section-red .flex-box:focus, .section-red .flex-box:hover {
   background-color: #ffffff;
+}
+.section-red .card .card-header {
+  border-top: 2px solid #0C0304;
+}
+.section-red .card .card-meta {
+  background-color: #ffffff;
+  color: #BC0100;
+}
+.section-red .card:hover .card-header {
+  background-color: #2C3230;
+  color: #ffffff;
+  border-top: 2px solid #ffffff;
 }
 
 .section {
