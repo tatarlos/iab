@@ -1468,6 +1468,15 @@ header.navigation .search-bar form button[type=submit] img {
   transition: all 0.2s ease-in-out;
   letter-spacing: 0.08em;
 }
+.grid-items-lines .grid-item .meta {
+  padding: 5px 0 0;
+  color: #BC0100;
+  font-size: 0.7em;
+  border-top: 1px solid #BC0100;
+}
+.grid-items-lines .grid-item .meta p {
+  margin: 0;
+}
 @media screen and (min-width: 53.75em) {
   .grid-items-lines .grid-item {
     width: 33.33333%;
@@ -1488,6 +1497,9 @@ header.navigation .search-bar form button[type=submit] img {
 }
 .grid-items-lines .grid-item:focus img, .grid-items-lines .grid-item:hover img {
   box-shadow: 0 12px 15px rgba(0, 0, 0, 0.4);
+}
+.grid-items-lines .grid-item:focus .meta, .grid-items-lines .grid-item:hover .meta {
+  border-top: 1px solid #ffffff;
 }
 .grid-items-lines .grid-item img {
   display: block;

@@ -683,6 +683,15 @@ $parallax-background-height: $parallax-window-height * 2;
       @include transition (all 0.2s ease-in-out);
       letter-spacing: 0.08em;
     }
+    .meta {
+      padding: 5px 0 0;
+      color: $default-red;
+      font-size: 0.7em;
+      border-top: 1px solid $default-red;
+      p {
+        margin: 0;
+      }
+    }
 
     @include media($large-screen) {
       @include grid-item-columns($grid-item-columns);
@@ -704,6 +713,9 @@ $parallax-background-height: $parallax-window-height * 2;
       }
       img {
         box-shadow: 0 12px 15px $shadow;
+      }
+      .meta {
+        border-top: 1px solid $white;
       }
     }
   }
