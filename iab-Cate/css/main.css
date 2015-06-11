@@ -2953,4 +2953,13 @@ header.navigation {
         box-sizing: border-box;
         display: block; } }
 
+.listing-area {
+  width: 100%;
+  display: table;
+  width: 100%;
+  table-layout: fixed; }
+
+.sidebar h2 {
+  text-align: center; }
+
 /*# sourceMappingURL=main.css.map */
