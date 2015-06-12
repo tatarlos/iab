@@ -2862,8 +2862,7 @@ header.navigation {
         border-bottom: 0;
         border-top: 1px solid #f0f0f0;
         border-left: 1px solid #f0f0f0;
-        border-right: 1px solid #f0f0f0;
-        box-shadow: 0.5px 1px 10px 1px rgba(217, 218, 222, 0.9) inset; }
+        border-right: 1px solid #f0f0f0; }
       .filter-section .accordion-tabs-minimal a.tab-link:focus {
         outline: none; }
       .filter-section .accordion-tabs-minimal a.tab-link.is-active {
@@ -2935,5 +2934,8 @@ header.navigation {
 
 .sidebar h2 {
   text-align: center; }
+
+.grid-item {
+  width: 50%; }
 
 /*# sourceMappingURL=main.css.map */
