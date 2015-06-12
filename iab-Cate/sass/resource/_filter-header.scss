@@ -1,5 +1,5 @@
 .filter-section{
-	@include transition (all 0.2s ease-in-out);
+	@include transition (all 0.5s ease-in-out);
 	@include clearfix;
 
 	background-color: $base-color;
@@ -41,6 +41,10 @@
 
 	    &:hover {
 	      color: $base-color-red;
+        border-bottom: 0;
+        border-top: $filter-header-border;
+        border-left: $filter-header-border;
+        border-right: $filter-header-border;
 	    }
 
 	    &:focus {

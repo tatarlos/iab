@@ -2117,7 +2117,7 @@ header.navigation {
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
-  border-radius: 3px;
+  border-radius: 0;
   border: 1px solid #ddd;
   margin-bottom: 1.5em;
   overflow: hidden; }
@@ -2264,7 +2264,7 @@ header.navigation {
     align-self: stretch;
     -ms-flex-item-align: stretch;
     background: #f7f7f7;
-    border-radius: 3px;
+    border-radius: 0;
     box-shadow: inset 0 0 1px #ddd, 0 2px 4px rgba(0, 0, 0, 0.4);
     display: block;
     margin: 0.4em;
@@ -2530,7 +2530,7 @@ header.navigation {
       transform: scale(1.15); }
     .card:focus .card-header, .card:hover .card-header {
       background-color: #BC0100;
-      border-top: 2px solid #ffffff;
+      border-top: 2px solid #0C0304;
       color: #ffffff;
       text-shadow: 0 5px 5px rgba(0, 0, 0, 0.4); }
   .card:active {
@@ -2679,7 +2679,8 @@ header.navigation {
     .section-red .flex-box:focus, .section-red .flex-box:hover {
       background-color: #ffffff; }
   .section-red .card .card-header {
-    border-top: 2px solid #0C0304; }
+    border-top: 2px solid #0C0304;
+    color: #BC0100; }
   .section-red .card .card-meta {
     background-color: #ffffff;
     color: #BC0100; }
@@ -2752,105 +2753,76 @@ header.navigation {
     content: "";
     display: table; }
 
-.postcontainer {
+.postcontainer, .resourcecontainer {
   margin: 40px 0 0 0;
   padding: 0 20px;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto; }
-  .postcontainer::after {
+  .postcontainer::after, .resourcecontainer::after {
     clear: both;
     content: "";
     display: table; }
-  .postcontainer .article-area {
+  .postcontainer .article-area, .postcontainer .listing-area, .resourcecontainer .article-area, .resourcecontainer .listing-area {
     text-align: left;
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 65.88078%; }
-    .postcontainer .article-area:last-child {
+    .postcontainer .article-area:last-child, .postcontainer .listing-area:last-child, .resourcecontainer .article-area:last-child, .resourcecontainer .listing-area:last-child {
       margin-right: 0; }
     @media screen and (max-width: 800px) {
-      .postcontainer .article-area {
+      .postcontainer .article-area, .postcontainer .listing-area, .resourcecontainer .article-area, .resourcecontainer .listing-area {
         float: left;
         display: block;
         margin-right: 4.82916%;
         width: 100%; }
-        .postcontainer .article-area:last-child {
+        .postcontainer .article-area:last-child, .postcontainer .listing-area:last-child, .resourcecontainer .article-area:last-child, .resourcecontainer .listing-area:last-child {
           margin-right: 0; } }
-  .postcontainer .sidebar {
+  .postcontainer .sidebar, .resourcecontainer .sidebar {
     border-left: 1px solid #D9DADE;
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 31.76157%; }
-    .postcontainer .sidebar:last-child {
+    .postcontainer .sidebar:last-child, .resourcecontainer .sidebar:last-child {
       margin-right: 0; }
     @media screen and (max-width: 800px) {
-      .postcontainer .sidebar {
+      .postcontainer .sidebar, .resourcecontainer .sidebar {
         float: left;
         display: block;
         margin-right: 4.82916%;
-        width: 100%; }
-        .postcontainer .sidebar:last-child {
+        width: 100%;
+        border-left: none; }
+        .postcontainer .sidebar:last-child, .resourcecontainer .sidebar:last-child {
           margin-right: 0; } }
-    .postcontainer .sidebar .flex-box {
+    .postcontainer .sidebar .flex-box, .resourcecontainer .sidebar .flex-box {
       height: 22.9375em; }
-  .postcontainer hr {
-    align: center;
+  .postcontainer hr, .resourcecontainer hr {
+    align: left;
     border: 1px solid #BC0100;
     margin: 0 auto 1.5em;
     width: 12em; }
 
-.resourcecontainer {
-  margin: 40px 0 0 0;
-  padding: 0 20px;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto; }
-  .resourcecontainer::after {
-    clear: both;
-    content: "";
-    display: table; }
-  .resourcecontainer .listing-area {
-    text-align: left;
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 65.88078%; }
-    .resourcecontainer .listing-area:last-child {
-      margin-right: 0; }
-    @media screen and (max-width: 800px) {
-      .resourcecontainer .listing-area {
-        float: left;
-        display: block;
-        margin-right: 4.82916%;
-        width: 100%; }
-        .resourcecontainer .listing-area:last-child {
-          margin-right: 0; } }
-  .resourcecontainer .sidebar {
-    border-left: 1px solid #D9DADE;
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 31.76157%; }
-    .resourcecontainer .sidebar:last-child {
-      margin-right: 0; }
-    @media screen and (max-width: 800px) {
-      .resourcecontainer .sidebar {
-        float: left;
-        display: block;
-        margin-right: 4.82916%;
-        width: 100%; }
-        .resourcecontainer .sidebar:last-child {
-          margin-right: 0; } }
-    .resourcecontainer .sidebar .flex-box {
-      height: 22.9375em; }
+.sidebar .card .card-header {
+  border-top: 2px solid #0C0304;
+  color: #ffffff;
+  background-color: #BC0100; }
+.sidebar .card .card-meta {
+  background-color: #D9DADE;
+  color: #BC0100; }
+.sidebar .card .card-copy {
+  background: #ffffff;
+  color: #0C0304; }
+.sidebar .card:hover .card-header {
+  background-color: #2C3230;
+  color: #ffffff;
+  border-top: 2px solid #BC0100; }
 
 .filter-section {
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
   background-color: white; }
   .filter-section::after {
     clear: both;
@@ -2886,7 +2858,12 @@ header.navigation {
           display: inline-block;
           border-top: 0; } }
       .filter-section .accordion-tabs-minimal a.tab-link:hover {
-        color: #ee2d26; }
+        color: #ee2d26;
+        border-bottom: 0;
+        border-top: 1px solid #f0f0f0;
+        border-left: 1px solid #f0f0f0;
+        border-right: 1px solid #f0f0f0;
+        box-shadow: 0.5px 1px 10px 1px rgba(217, 218, 222, 0.9) inset; }
       .filter-section .accordion-tabs-minimal a.tab-link:focus {
         outline: none; }
       .filter-section .accordion-tabs-minimal a.tab-link.is-active {
@@ -2954,10 +2931,7 @@ header.navigation {
         display: block; } }
 
 .listing-area {
-  width: 100%;
-  display: table;
-  width: 100%;
-  table-layout: fixed; }
+  padding: 0; }
 
 .sidebar h2 {
   text-align: center; }
