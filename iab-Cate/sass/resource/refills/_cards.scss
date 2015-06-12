@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+.cards {
+  @include display(flex);
+  @include flex-wrap(wrap);
+  @include justify-content(space-between);
+  @include outer-container;
+}
+
+.card {
+  $base-border-color: gainsboro !default;
+  $base-border-radius: 3px !default;
+  $base-background-color: white !default;
+  $base-spacing: 1.5em !default;
+  $action-color: #477DCA !default;
+  $base-link-color: $action-color !default;
+  $dark-gray: #333 !default;
+  $base-font-color: $dark-gray !default;
+  $card-border-color: $base-border-color;
+  $card-border: 1px solid $card-border-color;
+  $card-background: lighten($card-border-color, 10%);
+  $card-header-background: $card-background;
+  $card-margin: 1em;
+  $card-image-hover-opacity: 0.9;
+  $card-image-hover-color: $secondary-red;
+
+  @include flex-basis(15em);
+  @include flex-grow(1);
+  @include transition (all 0.2s ease-in-out);
+  background-color: $card-background;
+  // border-radius: $base-border-radius;
+  // border: $card-border;
+  border: none;
+  box-shadow: 0 2px 10px $shadow;
+  cursor: pointer;
+  margin: 0 $card-margin $base-spacing $card-margin;
+  position: relative;
+  text-align: left;
+
+
+  .card-image {
+    overflow: hidden;
+    //height: 150px;
+    //max-height: 150px;
+    height: auto;
+    background-color: $card-image-hover-color;
+
+    img {
+      @include transition (all 0.2s ease-in-out);
+      border-top-left-radius: $base-border-radius;
+      border-top-right-radius: $base-border-radius;
+      width: 100%;
+      opacity: 1;
+      height: auto;
+      transform: scale(1.11);
+    }
+  }
+
+  // .card-header {
+  //   @include transition (all 0.2s ease-in-out);
+  //   background-color: $card-header-background;
+  //   border-bottom: $card-border;
+  //   //border-radius: $base-border-radius $base-border-radius 0 0;
+  //   font-weight: bold;
+  //   line-height: 1.5em;
+  //   padding: ($base-spacing / 3) ($base-spacing / 2);
+  // }
+
+  .card-header {
+    @include transition (all 0.2s ease-in-out);
+    background-color: $white;
+    border-top: 2px solid $default-red;
+    //border-radius: $base-border-radius $base-border-radius 0 0;
+    //font-weight: bold;
+    line-height: 1.5em;
+    padding: ($base-spacing / 3) ($base-spacing / 2);
+  }
+
+  .card-copy {
+    background-color: $very-dark-grey;
+    color: $white;
+    font-size: 0.9em;
+    line-height: 1.5em;
+    padding: ($base-spacing / 2) ($base-spacing / 2);
+    border-bottom: 2px solid $default-red;
+    p {
+      margin: 0;
+    }
+  }
+
+  .card-meta {
+    width:100%;
+    background-color: $default-red;
+    color: $white;
+    //border-top: $card-border;
+    font-size: 0.7em;
+    line-height: 1em;
+    padding: ($base-spacing / 2) ($base-spacing / 2);
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &:focus,
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 12px 15px $shadow;
+    img {
+      opacity: $card-image-hover-opacity;
+      transform: scale(1.15);
+    }
+
+    .card-header {
+    background-color: $default-red;
+    border-top: 2px solid $very-dark-grey;
+    color: $white;
+    text-shadow: 0 5px 5px $shadow;
+    }
+  
+  }
+
+  &:active {
+    background-color: $card-background;
+
+    .card-header {
+      background-color: $card-background;
+    }
+  }
+}
