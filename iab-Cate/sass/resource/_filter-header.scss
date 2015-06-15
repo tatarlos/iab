@@ -30,7 +30,7 @@
 	    color: $darkgray;
 	    display: block;
 	    font-weight: 400;
-	    padding: ($base-spacing / 2) $gutter;
+	    padding: $filter-tab-link-padding;
 	    text-decoration: none;
 	    border-bottom:$filter-header-border;
 
