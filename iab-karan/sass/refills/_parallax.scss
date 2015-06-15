@@ -8,7 +8,7 @@ $parallax-background-height: $parallax-window-height * 2;
   overflow: hidden;
   position: relative;
   text-align: center;
-  width: 100%;
+  display: inline-block;
 }
 
 .parallax-static-content {

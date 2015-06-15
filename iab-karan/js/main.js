@@ -56,23 +56,25 @@ $(document).ready(function() {
 
 
   // Refills Parallax BG
-  if ($("#js-parallax-window").length) {
+  if ($(".parallax-window").length) {
     parallax();
   }
+
+  $('.banner').parallaxBannerSlider();
 
 });
 
 
 $(window).scroll(function(e) {
-  if ($("#js-parallax-window").length) {
+  if ($(".parallax-window").length) {
     parallax();
   }
 });
 
 function parallax(){
-  if( $("#js-parallax-window").length > 0 ) {
-    var plxBackground = $("#js-parallax-background");
-    var plxWindow = $("#js-parallax-window");
+  if( $(".parallax-window").length > 0 ) {
+    var plxBackground = $(".parallax-background");
+    var plxWindow = $(".parallax-window");
 
     var plxWindowTopToPageTop = $(plxWindow).offset().top;
     var windowTopToPageTop = $(window).scrollTop();
