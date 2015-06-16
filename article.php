@@ -1,6 +1,6 @@
 <?php
 /*
-template Name:Single article single template
+template Name:Single article template
 */ 
 $permalink = pods_v('last','url');
 
@@ -8,64 +8,106 @@ $cat = pods_v(-2,'url');
 
 //query parameters
 //creates pod object and loads data
-$articlePod = pods($cat,$permalink);
+$eventsPod = pods($cat,$permalink);
 $type = $cat."_type.name";
 ?>
 
 
 <?php get_header(); ?>
 
-<nav >
- <ul class="clearfix">
 
-    <li><a href="<?php echo bloginfo('url')?>/news">NEWS</a></li>
-    <li><a href="<?php echo bloginfo('url')?>/events">EVENTS</a></li>
-    <li><a href="<?php echo bloginfo('url')?>/resources">RESOURCES</a></li>
-    <li><a href="<?php echo bloginfo('url')?>/members">MEMBERS</a></li>
-    <li><a href="<?php echo bloginfo('url')?>/about">ABOUT IAB</a></li>
- </ul>
-</nav>
+<div class="postcontainer">
+        <div class="article-area">
+            <article>
+                <p class="type">  
+                    <?php
+                        
+                        $cats = $eventsPod->field($type);
+                        if ( is_array($cats) ){
+                            
+                            $catLen = sizeof($cats)-1;
+                            echo  $cats[ $catLen];
+                            
+                            // for($i = $catLen; $i >= 0; $i--){
+                            //     echo ($cats[$i]." || ");
+                            // }
 
+                        }else{
+                            echo $cats;
+                        } 
+                    ?>
+                </p>
+            <h1><?php echo $eventsPod->field('title'); ?></h1>
+            <h2>This artice is about something amazing</h2>
+            <p class="date"> 
+                <?php 
+                    $time =strtotime($eventsPod->field('created')) ;
+                    echo(gmdate('D, d M Y', $time));
+                ?>
+            </p>
+            <p>
+                <?php echo wpautop($eventsPod->field('content')); ?>
+            </p>
+       <hr>
+   
+          <p class="author">- by <?php
+                
+                $author_id = $eventsPod->field('post_author');
+                $author = get_the_author_meta( 'display_name', $author_id );
+                echo $author;
+            ?>
 
-<main class="wrapper clearfix">
-    <h2><?php echo $articlePod->field('title'); ?></h2>
-    <div class="event">
-     
-        <?php  foreach(( $articlePod->field('category')) as $category) {?>
-        <a href="<?php echo bloginfo('url')."/".$category['slug']?>">
-            <?php echo $category['name']."<br>"  ?>
-        </a>
+        </p>
+            </article>
 
-        <?php } ?>
+            
+            <div class="grid">
+                               <h2>You May Also Like:</h2>
+                <hr>
+                <div class="grid-items-lines">
+                  <a href="javascript:void(0)" class="grid-item">
+                    <img src="img/banner.jpeg" alt="">
+                    <h2>Article Title</h2>
+                    <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+                    <div class="meta">
+                        <p>15th April 2015</p>
+                        <p>Resources > Case Studies</p>
+                    </div>
+                  </a>
+                  <a href="javascript:void(0)" class="grid-item">
+                    <img src="img/banner.jpeg" alt="">
+                    <h2>Article Title</h2>
+                    <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+                    <div class="meta">
+                        <p>15th April 2015</p>
+                        <p>Resources > Case Studies</p>
+                    </div>
+                  </a>
+                  <a href="javascript:void(0)" class="grid-item">
+                    <img src="img/banner.jpeg" alt="">
+                    <h2>Article Title</h2>
+                    <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+                    <div class="meta">
+                        <p>15th April 2015</p>
+                        <p>Resources > Case Studies</p>
+                    </div>
+                  </a>
+                  <div class="right-cover"></div>
+                  <div class="bottom-cover"></div>
+                </div>
+            </div> <!-- end of You May Also Like -->
+            
+        </div>
         
-        <?php
-            $cats = $articlePod->field($type);
-            if ( is_array($cats) ){
-                
-                $catLen = sizeof($cats);
-                
-                for($i = $catLen-1; $i >= 0; $i--){
-                    echo ($cats[$i]."<br>");
-                }
+<?php get_sidebar() ?>
 
-            }else{
-                echo $cats;
-            }
-
-            $postId = $articlePod->field('ID');
-            $image_id = get_post_thumbnail_id($postId);
-            // echo "<br>Categories: ".$eventsPod->display('category')."<br>";          
-            // $categories = wp_get_object_terms($postId,'category');
-
-
-            $image = wp_get_attachment_image_src($image_id,'large');
-            $image_url = $image[0];             
-        ?>
-
-         <img src="<?php echo $image_url; ?>" alt=""/>
-         <?php echo wpautop($articlePod->field('content')); ?>
     </div>
+ 
+<?php comment_form(); ?>
 
-</main> 
+       
+</main>
+
+
 	
 <?php get_footer(); ?>

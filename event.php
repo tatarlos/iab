@@ -10,74 +10,93 @@ $eventsPod = pods('events',$permalink);
 $type = $cat."_type.name";
 ?>
 
-
 <?php get_header(); ?>
 
 
-<nav >
- <ul class="clearfix">
+<div class="postcontainer">
+        <div class="article-area">
+            <article>
+                <p class="type">  
+                    <?php
+                        
+                        $cats = $eventsPod->field($type);
+                        if ( is_array($cats) ){
+                            
+                            $catLen = sizeof($cats)-1;
+                            echo  $cats[ $catLen];
 
-    <li><a href="<?php echo bloginfo('url')?>/news">NEWS</a></li>
-    <li><a href="<?php echo bloginfo('url')?>/events">EVENTS</a></li>
-    <li><a href="<?php echo bloginfo('url')?>/resources">RESOURCES</a></li>
-    <li><a href="<?php echo bloginfo('url')?>/members">MEMBERS</a></li>
-    <li><a href="<?php echo bloginfo('url')?>/about">ABOUT IAB</a></li>
- </ul>
-</nav>
-
-<main class="wrapper clearfix">
-    <h2><?php echo $eventsPod->field('title'); ?></h2>
-    <div class="event">
-     
-        <?php  foreach(( $eventsPod->field('category')) as $category) {?>
-        <a href="<?php echo bloginfo('url')."/".$category['slug']?>">
-            <?php echo $category['name']."<br>"  ?>
-        </a>
-
-        <?php } ?>
-        <?php 
-            $postId = $eventsPod->field('ID');
-            $image_id = get_post_thumbnail_id($postId);
-            $image = wp_get_attachment_image_src($image_id,'large');
-            $image_url = $image[0];
-
-            $cats = $eventsPod->field($type);
-            
-            if ( is_array($cats) ){
+                        }else{
+                            echo $cats;
+                        } 
+                    ?>
+                </p>
+            <h1><?php echo $eventsPod->field('title'); ?></h1>
+            <h2>This artice is about something amazing</h2>
+            <p class="date"> 
+                <?php 
+                    $time =strtotime($eventsPod->field('created')) ;
+                    echo(gmdate('D, d M Y', $time));
+                ?>
+            </p>
+            <p>
+                <?php echo wpautop($eventsPod->field('content')); ?>
+            </p>
+       <hr>
+   
+          <p class="author">- by <?php
                 
-                $catLen = sizeof($cats);
-                                
-                for($i = $catLen-1; $i >= 0; $i--){
-                    echo ($cats[$i]."<br>");
-                }
-
-            }else{
-                echo $cats;
-            }            
-        ?>
-
-         <img src="<?php echo $image_url; ?>" alt=""/>
-         <?php echo wpautop($eventsPod->field('content')); ?>
-    </div>
-
-	<div class="event-details">
-            <?php
-                $cost = ($eventsPod->field('cost') == 0)? "Free" : $eventsPod->display('cost')." + GST";
-                echo "Costs: ".$cost."<br>";
-
-                echo "Duration: ".$eventsPod->display('duration')."<br>";
-                
-                $hasFinishDate = ($eventsPod->field('finish_date') ==="0000-00-00" )?  "":" to ".$eventsPod->display('finish_date');
-            	echo "When: ".$eventsPod->display('start_date').$hasFinishDate."<br>";
-            	$location = $eventsPod->field('place');
-            	echo "Location: ".$location['name'].": " ;
-            	echo $location['no'].", "; 
-            	echo $location['address'].", ";
-            	echo $eventsPod->display('place.suburb.name').", ";
-            	echo $eventsPod->display('place.city.name');           	
-
+                $author_id = $eventsPod->field('post_author');
+                $author = get_the_author_meta( 'display_name', $author_id );
+                echo $author;
             ?>
+
+        </p>
+            </article>
+
+            
+            <div class="grid">
+                               <h2>You May Also Like:</h2>
+                <hr>
+                <div class="grid-items-lines">
+                  <a href="javascript:void(0)" class="grid-item">
+                    <img src="img/banner.jpeg" alt="">
+                    <h2>Article Title</h2>
+                    <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+                    <div class="meta">
+                        <p>15th April 2015</p>
+                        <p>Resources > Case Studies</p>
+                    </div>
+                  </a>
+                  <a href="javascript:void(0)" class="grid-item">
+                    <img src="img/banner.jpeg" alt="">
+                    <h2>Article Title</h2>
+                    <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+                    <div class="meta">
+                        <p>15th April 2015</p>
+                        <p>Resources > Case Studies</p>
+                    </div>
+                  </a>
+                  <a href="javascript:void(0)" class="grid-item">
+                    <img src="img/banner.jpeg" alt="">
+                    <h2>Article Title</h2>
+                    <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+                    <div class="meta">
+                        <p>15th April 2015</p>
+                        <p>Resources > Case Studies</p>
+                    </div>
+                  </a>
+                  <div class="right-cover"></div>
+                  <div class="bottom-cover"></div>
+                </div>
+            </div> <!-- end of You May Also Like -->
+            
+        </div>
+        
+<?php get_sidebar() ?>
+
     </div>
+        
 </main>
+
 	
 <?php get_footer(); ?>

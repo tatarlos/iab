@@ -5,77 +5,160 @@ template Name:All SubNav template
 ?>
 <?php get_header(); ?> 
 
-
-<nav >
- <ul class="clearfix">
-
-    <li><a href="<?php echo bloginfo('url')?>/news">NEWS</a></li>
-    <li><a href="<?php echo bloginfo('url')?>/events">EVENTS</a></li>
-    <li><a href="<?php echo bloginfo('url')?>/resources">RESOURCES</a></li>
-    <li><a href="<?php echo bloginfo('url')?>/members">MEMBERS</a></li>
-    <li><a href="<?php echo bloginfo('url')?>/about">ABOUT IAB</a></li>
- </ul>
-</nav>
 <?php 
 
-//query parameters
-$params = array( 
-    "limit" => -1,
-    );
-$permalink = pods_v('last','url');
-//creates pod object and loads data
-$subpod = pods($permalink,$params); 
-$type = $permalink."_type.name";
-// var_dump($subpod->field($type));
+  //query parameters
+  $params = array( 
+      "limit" => -1,
+      );
+  $permalink = pods_v('last','url');
+  //creates pod object and loads data
+  $subpod = pods($permalink,$params); 
+  $taxonomy = $permalink."_type"; 
+  $terms = get_terms($taxonomy, array('orderby' => 'name', 'hide_empty' => 0, 'parent'=>0 ));
+
 
 ?>
+<!-- <main> -->
 
-    <main class="wrapper clearfix">
-        <div class="section-container">
-            <h2 class="section-title">All <?php echo ucwords($permalink); ?></h2>
 
-           
-           <?php while ($subpod->fetch()): ?>
-            <a href="<?php echo $subpod->field('permalink')?>">
-                <div class="event">
-                    <h2><?php echo $subpod->field('title'); ?></h2>
-                    <p><?php $subpod->field('thumbnail'); ?></p>
-                    <p>
-                        <?php 
 
-                            $cat = $subpod->field($type);
-                            if ( is_array($cat) ){
-                                
-                                $catLen = sizeof($cat);
-                                
-                                for($i = $catLen-1; $i >= 0; $i--){
-                                    echo ($cat[$i]."<br>");
-                                }
+    <!-- articals -->
 
-                            }else{
-                                echo $cat;
-                            }
+    <div class="resourcecontainer">
 
-                        ?>
-                    </p>
 
-                    <p>
-                        
-                        <?php 
-                            $postId = $subpod->field('ID');
-                            $image_id = get_post_thumbnail_id($postId);
-                            $image = wp_get_attachment_image_src($image_id);
-                            $image_url = $image[0];             
-                        ?>
-                    <img src="<?php echo $image_url; ?>" alt=""/>
-                    </p>
-                 
-                    <?php echo wp_trim_words($subpod->field('content'),20); ?> 
+
+      <div class="listing-area">
+
+
+      <section class="filter-section">
+        <div class="outercontainer">
          
-                </div>
-            </a>
-            <?php endwhile;?>
-        </div>
-    </main>
-<?php get_footer(); ?> 
 
+            <div class="filter-header">
+              <h2><?php echo (ucwords($permalink)); ?></h2>
+            </div>
+        
+            <ul class="accordion-tabs-minimal">
+              <?php 
+               
+                foreach ( $terms as $term ) : ?>
+
+                <li class="tab-header">
+                <a href="#" class="tab-link is-active"><?php echo $term->name; ?></a>
+                </li>
+         
+              <?php endforeach ?>
+
+            </ul> <!-- end of accordion-tabs-minimal -->
+
+            <div class="navigation-tools">
+              <div class="search-bar">
+                <form role="search">
+                  <input type="search" placeholder="Enter Search" />
+                  <button type="submit">
+                    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="Search Icon">
+                  </button>
+                </form>
+              </div>
+            </div> <!-- end of navigation-tools -->
+        </div> <!-- end of outer-container -->
+      </section> <!-- end of filter-section -->
+
+      
+        <div class="grid">     
+          <div class="grid-items-lines">
+            <?php while ($subpod->fetch()): ?>  
+              <a href="<?php echo $subpod->field('permalink')?>" class="grid-item-big">
+                <?php 
+                    $postId = $subpod->field('ID');
+                    $image_id = get_post_thumbnail_id($postId);
+                    $image = wp_get_attachment_image_src($image_id);
+                    $image_url = $image[0];             
+                ?>
+                <img src="<?php echo $image_url; ?>" alt="">
+
+                <h2>
+                <?php echo wp_trim_words($subpod->field('title'), 2); ?>
+                </h2>
+                <p><?php echo wp_trim_words($subpod->field('content'),5); ?></p>
+                <div class="meta">
+                  <p>
+                    <?php 
+                          $time =strtotime($subpod->field('created')) ;
+                          echo(gmdate('D, d M Y', $time));
+                      ?>
+                  </p>
+                  <p>Resources > Case Studies</p>
+                </div>
+              </a>
+            <?php endwhile;?>   
+            
+            <div class="right-cover"></div>
+            <div class="bottom-cover"></div>
+          </div>
+        </div> <!-- end of grid-items-lines -->  
+      </div> <!-- end of grid -->
+      
+      <div class="sidebar">
+        <div class="outercontainer">
+            <h2>The Latest</h2>
+            <hr>
+            <div class="cards">
+              <div class="card">
+                <div class="card-header">
+                  First Interesting Article
+                </div>
+                <div class="card-image">
+                  <img src="img/banner.jpeg" alt="">
+                </div>
+                <div class="card-copy">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, officiis sunt neque facilis culpa molestiae necessitatibus delectus veniam provident.</p>
+                </div>
+                <div class="card-meta">
+                  <p>15th April 2015</p>
+                    <p>Resources > Market Research</p>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header">
+                  Second Interesting Article
+                </div>
+                <div class="card-image">
+                  <img src="img/banner.jpeg" alt="">
+                </div>
+                <div class="card-copy">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, officiis sunt neque facilis culpa molestiae necessitatibus delectus veniam provident.</p>
+                </div>
+                <div class="card-meta">
+                  <p>15th April 2015</p>
+                    <p>Resources > Ad Spend</p>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header">
+                  Last Interesting Article
+                </div>
+                <div class="card-image">
+                  <img src="img/banner.jpeg" alt="">
+                </div>
+                <div class="card-copy">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, officiis sunt neque facilis culpa molestiae necessitatibus delectus veniam provident.</p>
+                </div>
+                <div class="card-meta">
+                  <p>15th April 2015</p>
+                    <p>Resources > Trends</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+      </div>
+
+    </div>
+
+<!-- </main> -->
+<?php get_footer(); ?> 
