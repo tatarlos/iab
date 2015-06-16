@@ -181,7 +181,7 @@ $desktop: new-breakpoint(min-width 800px 12)
 		position: relative
 		display: block
 		float: left
-		margin: 0 16px
+		margin: 0 12px
 		width: 16px
 		height: 16px
 		cursor: pointer
@@ -203,13 +203,8 @@ $desktop: new-breakpoint(min-width 800px 12)
 .dotstyle-dotstroke 
 	li 
 		a
-			box-shadow: inset 0 0 0 8px $default-red
-			-webkit-transition: box-shadow 0.3s ease
-			box-shadow: 0 0 5px $shadow
-			transition: box-shadow 0.3s ease
-			&:hover, &:focus
+			-webkit-transition: all 0.3s ease
+			transition: all 0.3s ease
+			box-shadow: inset 0 0 0 8px $default-red, 0 0 5px $shadow
+			&:hover, &.current
 				box-shadow: inset 0 0 0 2px white, 0 0 5px $shadow
-		&.current
-			a
-				box-shadow: inset 0 0 0 2px white, 0 0 5px $shadow
-

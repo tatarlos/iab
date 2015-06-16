@@ -9,7 +9,6 @@
 			var $this = $(this),
 				$slides = $this.find('.parallax-window'),
 				$dotsList = $this.find('.dots .dotstyle ul'),
-				$dots = $dotsList.find('a'),
 				$mask = $this.find('.banner-area'),
 				$slider,
 				numSlides = $slides.length,
@@ -31,10 +30,8 @@
 				clearTimeout(timeout);
 				timeout = setTimeout(nextSlide, delay);
 				$slider.css({'margin-left': -currentIndex*100+"%"});
-				//$thumbs.filter('.selected').removeClass('selected');
-				//$thumbs.eq(currentIndex).addClass('selected');
-
-
+				$dots.filter('.current').removeClass('current');
+				$dots.eq(currentIndex).addClass('current');
 			}
 
 			function nextSlide() {
@@ -45,6 +42,7 @@
 
 
 			//Initialise
+
 			//Wrap images inside a slider
 
 			$slides.wrapAll('<div class="slider">');
@@ -56,21 +54,24 @@
 			//Set images width
 			$slides.width(100/numSlides+"%");
 
+			//Create Dots
+			createDots();
+
 			//Set dots selected state
+			var $dots = $dotsList.find('li a');
 			$dots.eq(currentIndex).addClass('current');
 			
 			$mask.css({overflow: 'hidden'});
 			timeout = setTimeout(nextSlide, delay);
 
-			createDots();
-
-			alert($dots.length);
 			
 
-			// $thumbs.click(function(){
-			// 	currentIndex = $thumbs.index(this);
-			// 	changeImage();
-			// });
+			
+
+			$dots.click(function(){
+				currentIndex = $dots.index(this);
+				changeSlide();
+			});
 
 			// $prevBtn.click(function(){
 			// 	currentIndex = (currentIndex > 0)? currentIndex-1 : lastIndex;
@@ -79,7 +80,28 @@
 
 			// $nextBtn.click(nextImage);
 
-		});
+			function parallax(){
+			  if( $(".parallax-window").length > 0 ) {
+				    var plxBackground = $(".parallax-background");
+				    var plxWindow = $(".parallax-window");
+
+				    var plxWindowTopToPageTop = $(plxWindow).offset().top;
+				    var windowTopToPageTop = $(window).scrollTop();
+				    var plxWindowTopToWindowTop = plxWindowTopToPageTop - windowTopToPageTop;
+
+				    var plxBackgroundTopToPageTop = $(plxBackground).offset().top;
+				    var windowInnerHeight = window.innerHeight;
+				    var plxBackgroundTopToWindowTop = plxBackgroundTopToPageTop - windowTopToPageTop;
+				    var plxBackgroundTopToWindowBottom = windowInnerHeight - plxBackgroundTopToWindowTop;
+				    var plxSpeed = 0.35;
+
+				    plxBackground.css('top', - (plxWindowTopToWindowTop * plxSpeed) + 'px');
+				  }
+
+			}
+
+
+			});
 
 	}
 
