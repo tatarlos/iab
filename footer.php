@@ -30,10 +30,10 @@
 	  <p>&copy; 2015 Interactive Advertising Bureau. All rights reserved.</p>
 	</footer>
 
-
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="js/vendor/jquery-2.1.4.min.js"><\/script>')</script>	
 	<script src="<?php bloginfo('template_directory'); ?>/js/main.js"></script>
+	<script src="<?php bloginfo('template_directory'); ?>/js/twitterhider.js"></script>
 </body>
 </html>	
 <?php wp_footer(); ?>

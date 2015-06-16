@@ -1,6 +1,4 @@
 $(document).ready(function() {
-  
-
 
   // Refills Navigation Menu
   var menuToggle = $('#js-mobile-menu').unbind();
