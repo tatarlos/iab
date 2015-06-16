@@ -8,7 +8,7 @@ $cat = pods_v(-2,'url');
 
 //query parameters
 //creates pod object and loads data
-$eventsPod = pods($cat,$permalink);
+$articlePod = pods($cat,$permalink);
 $type = $cat."_type.name";
 ?>
 
@@ -22,7 +22,7 @@ $type = $cat."_type.name";
                 <p class="type">  
                     <?php
                         
-                        $cats = $eventsPod->field($type);
+                        $cats = $articlePod->field($type);
                         if ( is_array($cats) ){
                             
                             $catLen = sizeof($cats)-1;
@@ -37,22 +37,22 @@ $type = $cat."_type.name";
                         } 
                     ?>
                 </p>
-            <h1><?php echo $eventsPod->field('title'); ?></h1>
+            <h1><?php echo $articlePod->field('title'); ?></h1>
             <h2>This artice is about something amazing</h2>
             <p class="date"> 
                 <?php 
-                    $time =strtotime($eventsPod->field('created')) ;
+                    $time =strtotime($articlePod->field('created')) ;
                     echo(gmdate('D, d M Y', $time));
                 ?>
             </p>
             <p>
-                <?php echo wpautop($eventsPod->field('content')); ?>
+                <?php echo wpautop($articlePod->field('content')); ?>
             </p>
        <hr>
    
           <p class="author">- by <?php
                 
-                $author_id = $eventsPod->field('post_author');
+                $author_id = $articlePod->field('post_author');
                 $author = get_the_author_meta( 'display_name', $author_id );
                 echo $author;
             ?>
