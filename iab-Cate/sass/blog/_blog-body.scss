@@ -1,3 +1,7 @@
+@mixin grid-item-columns($columns) {
+  width: (100% / 12) * $columns;
+}
+
 .grid-items-lines {
   text-align: left;
   $base-background-color: white !default;
@@ -16,18 +20,37 @@
 
   @include clearfix;
   position: relative;
+  
+
+  .blog-img{
+  	width: 29%;
+  	float: left;
+    padding:0 2em;
+    // background-image:url('img/banner.jpeg');
+    // background-repeat:none;
+    // background-size:cover;
+  }
+
+  .blog-img img{
+    width: 100%;
+  }
+
+  .blog-content{
+  	width: 69%;
+  	float: left;
+  	
+  }
     
   .grid-item-blog {
     text-align: left;
     @include transition (all 0.2s ease-in-out);
     background: $grid-item-background;
     border-bottom: $grid-item-border;
-    border-right: $grid-item-border;
     cursor: pointer;
     float: left;
     overflow: hidden;
     outline: none;
-    padding: 2em;
+    padding: 2em 0;
     text-decoration: none;
     width: 100%;
     h2 {
@@ -35,11 +58,11 @@
       @include transition (all 0.2s ease-in-out);
       letter-spacing: 0.08em;
     }
-    .auth0r{
-      padding: 5px 0 0;
-      color: $default-red;
-      font-size: 0.7em;
-      border-bottom: 2px solid $light;
+    .author{
+    	padding: 5px 0 0;
+      	color: $default-red;
+      	font-size: 0.7em;
+    	border-bottom: 2px solid $light;
     }
     .meta {
       padding: 5px 0 0;
@@ -57,8 +80,8 @@
 
       h2 {
         color: $white;
-
-        letter-spacing: 0.05em;
+        
+        // letter-spacing: 0.05em;
         text-shadow: 0 0 3px $shadow;
       }
       p {
@@ -69,7 +92,7 @@
         box-shadow: 0 12px 15px $shadow;
       }
       .author{
-        border-bottom: 2px solid $default-red;  
+      	border-bottom: 2px solid $default-red;
       }
       .meta {
         border-top: 1px solid $white;
@@ -79,10 +102,8 @@
 
   .grid-item-blog img {
       display: block;
-      width: 100%;
-      height: auto;
-      //height: 2.5em;
-      margin-bottom: 1.2em;
+      // height: 10em;
+      // margin-bottom: 1.2em;
       //opacity: 0.2;
     }
 
@@ -96,10 +117,11 @@
       color: transparentize($grid-item-color, 0.4);
       line-height: 1.5em;
       
-      @include media($medium-screen) {
-        max-width: 70%;
-      }
+      // @include media($medium-screen) {
+      //   max-width: 70%;
+      // }
     }
+
 
 
   // this, below, might not be the most beautiful solution but it removes the outer borders by using the background color.
@@ -119,3 +141,5 @@
     width: 4px;
   }
 }
+
+
