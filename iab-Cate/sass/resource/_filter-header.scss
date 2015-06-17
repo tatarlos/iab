@@ -25,6 +25,7 @@
 	}
 
 	a.tab-link {
+      letter-spacing:0.01em;
 	    background-color: $base-color;
 	    border-top: $filter-header-border;
 	    color: $darkgray;
@@ -53,6 +54,7 @@
 
 	    &.is-active {
 	      border-bottom: 0;
+        color: $base-color-red;
 
 	      @include media($tab-mode) {
 	        border: $filter-header-border;

@@ -1801,12 +1801,13 @@ header.navigation {
         .filter-section .accordion-tabs-minimal li.tab-header {
           display: inline; } }
     .filter-section .accordion-tabs-minimal a.tab-link {
+      letter-spacing: 0.01em;
       background-color: white;
       border-top: 1px solid #f0f0f0;
       color: #606363;
       display: block;
       font-weight: 400;
-      padding: 13px;
+      padding: 10px;
       text-decoration: none;
       border-bottom: 1px solid #f0f0f0; }
       @media screen and (min-width: 40em) {
@@ -1822,7 +1823,8 @@ header.navigation {
       .filter-section .accordion-tabs-minimal a.tab-link:focus {
         outline: none; }
       .filter-section .accordion-tabs-minimal a.tab-link.is-active {
-        border-bottom: 0; }
+        border-bottom: 0;
+        color: #ee2d26; }
         @media screen and (min-width: 40em) {
           .filter-section .accordion-tabs-minimal a.tab-link.is-active {
             border: 1px solid #f0f0f0;
