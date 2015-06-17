@@ -8,6 +8,7 @@
   $dark-gray: #333 !default;
   $light-gray: #DDD !default;
   $medium-screen: em(640) !default;
+  $small-screen:em(330) !default;
   $large-screen: em(800) !default;
   $base-font-color: $dark-gray !default;
   $grid-items-background: $base-background-color;
@@ -21,11 +22,27 @@
   @include clearfix;
   position: relative;
   
+  .blog-img-small{
+    display: block;
+    
+    padding:1em;
+
+    @include media($medium-screen){
+      display: none;
+    }
+  }
 
   .blog-img{
+    display: none;
   	width: 29%;
-  	float: left;
-    padding:0 2em;
+    float: left;
+    padding-left:1em;
+
+    @include media($medium-screen) {
+      display: block;
+    }
+
+    
     // background-image:url('img/banner.jpeg');
     // background-repeat:none;
     // background-size:cover;
@@ -36,8 +53,17 @@
   }
 
   .blog-content{
-  	width: 69%;
-  	float: left;
+  	width: 100%;
+  	float: none;
+    padding: 1em;
+
+    @include media($medium-screen) {
+      width: 69%;
+      float: right;
+      padding-right: 1em;
+    }
+
+    
   	
   }
     

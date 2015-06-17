@@ -5,7 +5,7 @@
   $action-color: #477dca !default;
   $stats-color: lighten($action-color, 10%);
 
-  padding: $base-spacing / 2;
+  padding: $base-spacing / 2 0;
 
   ul {
     padding: 0;
