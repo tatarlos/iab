@@ -1904,7 +1904,8 @@ header.navigation {
     display: none;
     width: 29%;
     float: left;
-    padding-left: 1em; }
+    padding-left: 1em;
+    padding-top: 1em; }
     @media screen and (min-width: 40em) {
       .grid-items-lines .blog-img {
         display: block; } }

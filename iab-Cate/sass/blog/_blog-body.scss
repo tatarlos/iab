@@ -37,6 +37,7 @@
   	width: 29%;
     float: left;
     padding-left:1em;
+    padding-top:1em;
 
     @include media($medium-screen) {
       display: block;
