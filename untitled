@@ -1,0 +1,18 @@
+ var $filter = $('.filtering-links'),
+      $container = $('.grid-items-lines');
+
+//filtering system for subfields page
+
+  $filter.click(function(event){
+    event.preventDefault();
+    var 
+      $term = $(this).data('term'),
+      $taxonomy = $(this).data('taxonomy'),
+      $postType = $(this).data('post-type'),
+      dataSend = {'action': 'getFilteredPosts','term':$term }
+
+    $.post(siteInfo.ajaxURL, dataSend, function(dataReturn){
+      console.log(dataReturn);
+     $container.empty().fadeIn().html(dataReturn);
+    })
+  });

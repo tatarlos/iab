@@ -951,6 +951,7 @@ header.navigation {
   overflow: hidden;
   position: relative;
   text-align: center;
+  display: inline-block;
   width: 100%; }
 
 .parallax-static-content {
@@ -1801,12 +1802,13 @@ header.navigation {
         .filter-section .accordion-tabs-minimal li.tab-header {
           display: inline; } }
     .filter-section .accordion-tabs-minimal a.tab-link {
+      letter-spacing: 0.01em;
       background-color: white;
       border-top: 1px solid #f0f0f0;
       color: #606363;
       display: block;
       font-weight: 400;
-      padding: 13px;
+      padding: 10px;
       text-decoration: none;
       border-bottom: 1px solid #f0f0f0; }
       @media screen and (min-width: 40em) {
@@ -1822,7 +1824,8 @@ header.navigation {
       .filter-section .accordion-tabs-minimal a.tab-link:focus {
         outline: none; }
       .filter-section .accordion-tabs-minimal a.tab-link.is-active {
-        border-bottom: 0; }
+        border-bottom: 0;
+        color: #ee2d26; }
         @media screen and (min-width: 40em) {
           .filter-section .accordion-tabs-minimal a.tab-link.is-active {
             border: 1px solid #f0f0f0;
@@ -1892,6 +1895,32 @@ header.navigation {
     clear: both;
     content: "";
     display: table; }
+  .grid-items-lines .blog-img-small {
+    display: block;
+    padding: 1em; }
+    @media screen and (min-width: 40em) {
+      .grid-items-lines .blog-img-small {
+        display: none; } }
+  .grid-items-lines .blog-img {
+    display: none;
+    width: 29%;
+    float: left;
+    padding-left: 1em;
+    padding-top: 1em; }
+    @media screen and (min-width: 40em) {
+      .grid-items-lines .blog-img {
+        display: block; } }
+  .grid-items-lines .blog-img img {
+    width: 100%; }
+  .grid-items-lines .blog-content {
+    width: 100%;
+    float: none;
+    padding: 1em; }
+    @media screen and (min-width: 40em) {
+      .grid-items-lines .blog-content {
+        width: 69%;
+        float: right;
+        padding-right: 1em; } }
   .grid-items-lines .grid-item-blog {
     text-align: left;
     -webkit-transition: all 0.2s ease-in-out;
@@ -1899,12 +1928,11 @@ header.navigation {
     transition: all 0.2s ease-in-out;
     background: #fff;
     border-bottom: 1px solid rgba(51, 51, 51, 0.2);
-    border-right: 1px solid rgba(51, 51, 51, 0.2);
     cursor: pointer;
     float: left;
     overflow: hidden;
     outline: none;
-    padding: 2em;
+    padding: 2em 0;
     text-decoration: none;
     width: 100%; }
     .grid-items-lines .grid-item-blog h2 {
@@ -1913,7 +1941,7 @@ header.navigation {
       -moz-transition: all 0.2s ease-in-out;
       transition: all 0.2s ease-in-out;
       letter-spacing: 0.08em; }
-    .grid-items-lines .grid-item-blog .auth0r {
+    .grid-items-lines .grid-item-blog .author {
       padding: 5px 0 0;
       color: #BC0100;
       font-size: 0.7em;
@@ -1929,7 +1957,6 @@ header.navigation {
       background-color: rgba(44, 50, 48, 0.7); }
       .grid-items-lines .grid-item-blog:focus h2, .grid-items-lines .grid-item-blog:hover h2 {
         color: #ffffff;
-        letter-spacing: 0.05em;
         text-shadow: 0 0 3px rgba(0, 0, 0, 0.4); }
       .grid-items-lines .grid-item-blog:focus p, .grid-items-lines .grid-item-blog:hover p {
         color: #ffffff;
@@ -1941,10 +1968,7 @@ header.navigation {
       .grid-items-lines .grid-item-blog:focus .meta, .grid-items-lines .grid-item-blog:hover .meta {
         border-top: 1px solid #ffffff; }
   .grid-items-lines .grid-item-blog img {
-    display: block;
-    width: 100%;
-    height: auto;
-    margin-bottom: 1.2em; }
+    display: block; }
   .grid-items-lines .grid-item-blog h1 {
     color: #333;
     font-size: 1.3em;
@@ -1952,9 +1976,6 @@ header.navigation {
   .grid-items-lines .grid-item-blog p {
     color: rgba(51, 51, 51, 0.6);
     line-height: 1.5em; }
-    @media screen and (min-width: 40em) {
-      .grid-items-lines .grid-item-blog p {
-        max-width: 70%; } }
   .grid-items-lines .bottom-cover {
     background: #fff;
     bottom: 0px;
@@ -1967,5 +1988,34 @@ header.navigation {
     position: absolute;
     right: 0px;
     width: 4px; }
+
+.stats {
+  padding: 0.75em 0; }
+  .stats ul {
+    padding: 0; }
+  .stats li {
+    border-right: 1px solid rgba(51, 51, 51, 0.2);
+    color: #ef0100;
+    display: inline;
+    float: left;
+    font-weight: 800;
+    line-height: 1.1em;
+    padding: 0 0.7em; }
+    .stats li:first-child {
+      padding-left: 0; }
+    .stats li:last-child {
+      border-right: 0; }
+  .stats span {
+    color: #333;
+    display: block;
+    font-size: 0.7em;
+    font-weight: normal; }
+
+.event-details th {
+  text-align: right;
+  width: 30%;
+  padding-right: 0.5em; }
+.event-details td {
+  padding-left: 0.5em; }
 
 /*# sourceMappingURL=main.css.map */

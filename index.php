@@ -2,9 +2,11 @@
 <?php get_header(); ?>
 <?php 
 
+
 //query parameters
 $params = array( 
     "limit" => 3,
+
 );
 //creates pod object and loads data
 $eventsPod = pods('events',$params);
@@ -18,16 +20,55 @@ $resourcesPod = pods('resources', $params);
 ?>
 
 <main>
-        <div id="js-parallax-window" class="parallax-window">
-          <div class="parallax-static-content">
-            <h1>IAB's Latest Headlines</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque esse quisquam quas perferendis.</p>
-            <button>Read More</button>
-          </div>
+        <div class="banner">
 
-          <div id="js-parallax-background" class="parallax-background"></div>
-        </div>
-        
+            <div class="banner-area">
+
+                <div class="parallax-window">
+                  <div class="parallax-static-content">
+                    <h1>IAB's Latest Headlines</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque esse quisquam quas perferendis.</p>
+                    <button>Read More</button>
+                  </div>
+
+                  <div class="parallax-background"></div>
+                </div>
+
+
+                <div class="parallax-window">
+                  <div class="parallax-static-content">
+                    <h1>IAB's Latest Headlines 2</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque esse quisquam quas perferendis.</p>
+                    <button>Read More</button>
+                  </div>
+
+                  <div class="parallax-background"></div>
+                </div>
+
+
+                <div class="parallax-window">
+                  <div class="parallax-static-content">
+                    <h1>IAB's Latest Headlines 3</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque esse quisquam quas perferendis.</p>
+                    <button>Read More</button>
+                  </div>
+
+                  <div class="parallax-background"></div>
+                </div>
+
+                
+            
+            </div>
+
+            <div class="dots">
+                    <div class="dotstyle dotstyle-dotstroke">
+                        <ul>
+                            
+                        </ul>
+                    </div>
+                </div>
+                
+        </div>        
 
         <div class="outercontainer">
             <div class="tabbed">
@@ -143,8 +184,8 @@ $resourcesPod = pods('resources', $params);
                     ?>
                     <img src="<?php echo $image_url; ?>" alt="">
 
-                    <h2><?php echo wp_trim_words($resourcesPod->field('title'), 3); ?></h2>
-                    <p><?php echo wp_trim_words($resourcesPod->field('content'),3); ?></p>
+                    <h2><?php echo wp_trim_words($resourcesPod->field('title'), 10); ?></h2>
+                    <p><?php echo wp_trim_words($resourcesPod->field('content'), 10); ?></p>
                     <div class="meta">
                         <p>
                             <?php 
@@ -171,24 +212,7 @@ $resourcesPod = pods('resources', $params);
                 <div class="flex-boxes">
                     <div class="flex-box twitter">
                         <h2 class="flex-title">Twitter Feed</h2>
-                        <p class="twitter-box">            
-                
-                        <a class="twitter-timeline" 
-                        data-dnt="true" 
-                        href="https://twitter.com/iab"
-                        data-chrome ="no footer noborders"
-                         data-tweet-limit="1"
-                        data-widget-id="610668699083649024">
-                        Tweets by @iab</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-                
-                var text  =  document.getElementsByClassName(".h-feed"); 
-                console.log(text );
-                // $widgetTweet = $('.twitter-box');
-                // $widgetTweet.hide(); 
-                // $text.add($(".twitter-text"));
 
-            </script>
           
 
            </p>
@@ -257,14 +281,14 @@ $resourcesPod = pods('resources', $params);
         </div> <!-- end of 3 events -->
 
         <!-- shopping cart Simple PayPal Shopping Cart -->
-<!--         <?php 
+   <!--      <?php 
         $itemprice = 12;
         $productname="\"hallo\" ";
         $b = "[wp_cart_button name=";
         $e = "price= \"19.95\" shipping= \"4.99\"]";
       
         echo do_shortcode($b.$productname.$e); ?>
-        <?php echo do_shortcode('[show_wp_shopping_cart]'); ?> -->
+        <?php echo do_shortcode('[show_wp_shopping_cart]'); ?>  -->
     </main>
 
 <?php get_footer(); ?>

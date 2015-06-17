@@ -15,7 +15,9 @@ template Name:All SubNav template
   //creates pod object and loads data
   $subpod = pods($permalink,$params); 
   $taxonomy = $permalink."_type"; 
+  
   $terms = get_terms($taxonomy, array('orderby' => 'name', 'hide_empty' => 0, 'parent'=>0 ));
+
 
 
 ?>
@@ -43,10 +45,9 @@ template Name:All SubNav template
             <ul class="accordion-tabs-minimal">
               <?php 
                
-                foreach ( $terms as $term ) : ?>
-
+                foreach ( $terms as $term ) : ?>  
                 <li class="tab-header">
-                <a href="#" class="tab-link is-active"><?php echo $term->name; ?></a>
+                <a href="#" data-term="<?php echo $term->slug ?> "data-taxonomy="<?php echo $taxonomy ?>" data-post-type="<?php echo $permalink ?>" class="tab-link is-active filtering-links"><?php echo $term->name; ?></a>
                 </li>
          
               <?php endforeach ?>
@@ -65,6 +66,8 @@ template Name:All SubNav template
         <div class="grid">     
           <div class="grid-items-lines">
             <?php while ($subpod->fetch()): ?>  
+            
+
               <a href="<?php echo $subpod->field('permalink')?>" class="grid-item-big">
                 <?php 
                     $postId = $subpod->field('ID');
@@ -77,7 +80,7 @@ template Name:All SubNav template
                 <h2>
                 <?php echo wp_trim_words($subpod->field('title'), 2); ?>
                 </h2>
-                <p><?php echo wp_trim_words($subpod->field('content'),5); ?></p>
+                <p><?php echo wp_trim_words($subpod->field('content'),10); ?></p>
                 <div class="meta">
                   <p>
                     <?php 

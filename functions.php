@@ -61,3 +61,59 @@ function arphabet_widgets_init() {
 }
 add_action( 'widgets_init', 'arphabet_widgets_init' );
 ?>
+<?php  
+
+add_action('wp_ajax_getFilteredPosts', 'getFilteredPosts');
+add_action('wp_ajax_nopriv_getFilteredPosts', 'getFilteredPosts');
+
+
+function getFilteredPosts(){
+	$postType = 'resources';
+	$taxonomy = 'resources_type';
+	$term = $_POST['term'];
+
+	$args = array(
+	  'post_type' => $postType,
+	  'tax_query' => array(
+	    array(
+	      'taxonomy' => $taxonomy,
+	      'field'    => 'slug',
+	      'terms'    => $term,
+	    ),
+	  ),
+	);
+
+	$loop = new WP_Query( $args );
+
+	if($loop->have_posts()):
+	while ( $loop->have_posts() ) : $loop->the_post();
+?>
+	<a href="<?php echo the_permalink();?>" class="grid-item-big">
+	    <?php 
+	        $postId = get_the_ID();
+	        $image_id = get_post_thumbnail_id($postId);
+	        $image = wp_get_attachment_image_src($image_id);
+	        $image_url = $image[0];             
+	    ?>
+	    <img src="<?php echo $image_url; ?>" alt="">
+
+	    <h2>
+	    <?php echo wp_trim_words(get_the_title(), 2); ?>
+	    </h2>
+	    <p><?php echo wp_trim_words(get_the_content(),10); ?></p>
+	    <div class="meta">
+	      <p>
+	        <?php 
+	              $time =strtotime(get_the_date()) ;
+	              echo(gmdate('D, d M Y', $time));
+	          ?>
+	      </p>
+	      <p>Resources > Case Studies</p>
+	    </div>
+	</a>
+<?php
+	endwhile;
+	endif;
+	exit;
+}
+?>

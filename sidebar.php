@@ -3,6 +3,7 @@
     <h2>Sidebar Stuff</h2>
     <hr>
     <div class="cards">
+           <!-- <?php echo do_shortcode('[show_wp_shopping_cart]'); ?>  -->
 
       <div class="card">
         <div class="card-header">
