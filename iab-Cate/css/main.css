@@ -2010,4 +2010,11 @@ header.navigation {
     font-size: 0.7em;
     font-weight: normal; }
 
+.event-details th {
+  text-align: right;
+  width: 30%;
+  padding-right: 0.5em; }
+.event-details td {
+  padding-left: 0.5em; }
+
 /*# sourceMappingURL=main.css.map */
