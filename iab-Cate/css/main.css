@@ -2065,13 +2065,39 @@ header.navigation {
     font-size: 0.7em;
     font-weight: normal; }
 
-.event-details th {
-  text-align: right;
-  width: 30%;
-  padding-right: 0.5em;
-  border-bottom: 1px solid transparent(#606363, 0.3); }
-.event-details td {
-  padding-left: 0.5em;
-  border-bottom: 1px solid transparent(#606363, 0.3); }
+.event-detail {
+  position: relative;
+  padding: 1em;
+  background-color: #ffffff;
+  border-bottom: 2px solid #BC0100; }
+  .event-detail .row {
+    padding: 0.5em;
+    border-bottom: 1px solid #dce0e0; }
+    .event-detail .row::after {
+      clear: both;
+      content: "";
+      display: table; }
+  .event-detail .title-column {
+    width: 35%;
+    float: left;
+    font-weight: bold;
+    color: #BC0100; }
+  .event-detail .detail-column {
+    width: 65%;
+    float: right; }
+  .event-detail .bottom-cover {
+    background: #ffffff;
+    bottom: 1em;
+    height: 3px;
+    position: absolute;
+    width: 90%; }
+
+.pay-meta {
+  width: 100%;
+  background-color: gainsboro;
+  line-height: 1em;
+  font-size: 0.9em;
+  padding: 0.75em 0.75em;
+  text-align: center; }
 
 /*# sourceMappingURL=main.css.map */

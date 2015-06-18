@@ -1,16 +1,40 @@
+.event-detail{
+	position:relative;
+	padding:1em;
+	background-color:$event-table-backgrond-color;
+	border-bottom: 2px solid $default-red;
 
-.event-details{
-
-	
-	th{
-		text-align: right;
-		width: 30%;
-		padding-right: 0.5em;
+	.row{
+		@include clearfix;
+		padding:0.5em;
 		border-bottom:$event-table;
 	}
-
-	td{
-		padding-left:0.5em;
-		border-bottom:$event-table;
+	
+	.title-column{
+		width:35%;
+		float: left;
+		font-weight: bold;
+		color:$default-red;
+	}
+	.detail-column{
+		width: 65%;
+		float: right;
+	}
+	.bottom-cover {
+	    background: $event-table-backgrond-color;
+	    bottom: 1em;
+	    height: 3px;
+	    position: absolute;
+	    width: 90%;
 	}
 }
+
+.pay-meta{
+	width:100%;
+    background-color: $pay-meta-background-color;
+    line-height: 1em;
+    font-size: 0.9em;
+    padding: ($base-spacing / 2) ($base-spacing / 2);
+    text-align: center;
+}
+
