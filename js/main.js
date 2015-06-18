@@ -7,15 +7,21 @@ $(document).ready(function() {
 
   $filter.click(function(event){
     $container.fadeOut();
+    $filter.removeClass('is-active');
+    $(this).addClass('is-active');
     event.preventDefault();
     var 
       $term = $(this).data('term'),
       $taxonomy = $(this).data('taxonomy'),
       $postType = $(this).data('post-type'),
-      dataSend = {'action': 'getFilteredPosts','term':$term }
+      dataSend = {
+        'action': 'getFilteredPosts',
+        'term':$term,
+        'tax': $taxonomy,
+        'post': $postType
+      }
 
     $.post(siteInfo.ajaxURL, dataSend, function(dataReturn){
-      console.log(dataReturn);
      $container.empty().fadeIn().html(dataReturn);
      $('.grid').equaliseHeight();
     })

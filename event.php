@@ -8,7 +8,9 @@ $cat = pods_v(-2,'url');
 //creates pod object and loads data
 $eventsPod = pods('events',$permalink);
 $type = $cat."_type.name";
+$postID =$eventsPod->field('ID');
 ?>
+
 
 <?php get_header(); ?>
 
@@ -41,6 +43,20 @@ $type = $cat."_type.name";
             <p>
                 <?php echo wpautop($eventsPod->field('content')); ?>
             </p>
+        
+            <?php  
+            $comments_args = array(
+                    // change the title of send button 
+                    'label_submit'=>'Add Comment',
+                    // change the title of the reply section
+                    'title_reply'=>'Write a Comment',
+                    // remove "Text or HTML to be displayed after the set of comment fields"
+                    'comment_notes_after' => '',
+                    // redefine your own textarea (the comment body)
+                    'comment_field' => '<p class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun' ) . '</label><br /><textarea id="comment" name="comment" aria-required="true"></textarea></p>',
+            );    
+            ?>         
+   
        <hr>
    
           <p class="author">- by <?php
@@ -55,7 +71,7 @@ $type = $cat."_type.name";
 
             
             <div class="grid">
-                               <h2>You May Also Like:</h2>
+                <h2>You May Also Like:</h2>
                 <hr>
                 <div class="grid-items-lines">
                   <a href="javascript:void(0)" class="grid-item">
@@ -91,8 +107,70 @@ $type = $cat."_type.name";
             </div> <!-- end of You May Also Like -->
             
         </div>
+
+
         
-<?php get_sidebar() ?>
+        <?php 
+        $cost = ($eventsPod->field('cost') == 0)? "Free" : $eventsPod->display('cost')." + GST";
+
+        $hasFinishDate = ($eventsPod->field('finish_date') ==="0000-00-00" )?  "":" to ".$eventsPod->display('finish_date');
+
+        $location = $eventsPod->field('place');
+         ?>
+
+        <div class="sidebar">
+          <div class="outercontainer">
+            <h2>events part</h2>
+            <hr>
+            <div class="cards">              
+                <div class="detail card">
+                  <!-- Event details -->
+                  <div class="card-header">
+                    Event Details
+                  </div>
+                  <div class="event-detail">
+                    <div class="row">
+                      <div class="title-column">Cost</div>
+                      <div class="detail-column"><?php echo $cost ?></div>
+                    </div>
+                    <!-- end of a row -->
+                    <div class="row">
+                      <div class="title-column">Duration</div>
+                      <div class="detail-column"><?php echo $eventsPod->display('duration') ?></div>
+                    </div>
+                    <!-- end of a row -->
+                    <div class="row">
+                      <div class="title-column">When</div>
+                      <div class="detail-column"><?php echo ($eventsPod->display('start_date').$hasFinishDate) ?></div>
+                    </div>
+                    <!-- end of a row -->
+                    <div class="row">
+                        <div class="title-column">Location</div>
+                        <div class="detail-column">
+                            <?php 
+                            echo $location['name'].": " ;
+                            echo $location['no'].", "; 
+                            echo $location['address'].", ";
+                            echo $eventsPod->display('place.suburb.name').", ";
+                            echo $eventsPod->display('place.city.name');
+                            ?>
+                        </div>
+                    </div>
+                    <!-- end of a row -->
+                    <div class="row">
+                      <div class="title-column">Early Bird</div>
+                      <div class="detail-column">Save 10% if booked before 12 June 2015</div>
+                    </div>
+                    <!-- end of a row -->
+                    <div class="bottom-cover"></div>
+                </div>
+                <div class="pay-meta">
+                  <button>Add to Cart</button>
+                  <button>Pay Now</button>
+                </div>
+              </div>
+            <?php get_template_part('events','sidebar'); ?>
+     
 
     </div>
         

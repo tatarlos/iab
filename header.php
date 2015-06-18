@@ -31,6 +31,7 @@
 	      <ul id="js-navigation-menu" class="navigation-menu show">
 	        <li class="nav-link"><a href="javascript:void(0)">Products</a></li>
 	        <li class="nav-link"><a href="javascript:void(0)">About Us</a></li>
+	        <li class="nav-link"><a href="<?php bloginfo('url')?>/blog">Blog</a></li>
 	        <li class="nav-link"><a href="javascript:void(0)">Contact</a></li>
 	        <li class="nav-link more"><a href="javascript:void(0)">More</a>
 	          <ul class="submenu">

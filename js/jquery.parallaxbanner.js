@@ -68,7 +68,8 @@
 
 			
 
-			$dots.click(function(){
+			$dots.click(function(event){
+				event.preventDefault();
 				currentIndex = $dots.index(this);
 				changeSlide();
 			});

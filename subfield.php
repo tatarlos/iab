@@ -17,38 +17,29 @@ template Name:All SubNav template
   $taxonomy = $permalink."_type"; 
   
   $terms = get_terms($taxonomy, array('orderby' => 'name', 'hide_empty' => 0, 'parent'=>0 ));
-
-
-
 ?>
 <!-- <main> -->
-
-
-
     <!-- articals -->
 
     <div class="resourcecontainer">
 
-
-
       <div class="listing-area">
-
-
       <section class="filter-section">
         <div class="outercontainer">
          
-
             <div class="filter-header">
               <h2><?php echo (ucwords($permalink)); ?></h2>
             </div>
         
             <ul class="accordion-tabs-minimal">
+                <li class="tab-header">
+                  <a href="#" data-term="e" data-taxonomy="all" data-post-type="<?php echo $permalink ?>" class="tab-link is-active filtering-links">All</a>
+                </li>
               <?php 
-               
                 foreach ( $terms as $term ) : ?>  
                 <li class="tab-header">
-                <a href="#" data-term="<?php echo $term->slug ?> "data-taxonomy="<?php echo $taxonomy ?>" data-post-type="<?php echo $permalink ?>" class="tab-link is-active filtering-links"><?php echo $term->name; ?></a>
-                </li>
+                <a href="#" data-term="<?php echo $term->slug ?> "data-taxonomy="<?php echo $taxonomy ?>" data-post-type="<?php echo $permalink ?>" class="tab-link filtering-links"><?php echo $term->name; ?></a>
+                
          
               <?php endforeach ?>
 
@@ -99,62 +90,15 @@ template Name:All SubNav template
         </div> <!-- end of grid-items-lines -->  
       </div> <!-- end of grid -->
       
-      <div class="sidebar">
-        <div class="outercontainer">
-            <h2>The Latest</h2>
-            <hr>
-            <div class="cards">
-              <div class="card">
-                <div class="card-header">
-                  First Interesting Article
-                </div>
-                <div class="card-image">
-                  <img src="img/banner.jpeg" alt="">
-                </div>
-                <div class="card-copy">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, officiis sunt neque facilis culpa molestiae necessitatibus delectus veniam provident.</p>
-                </div>
-                <div class="card-meta">
-                  <p>15th April 2015</p>
-                    <p>Resources > Market Research</p>
-                </div>
-              </div>
+ <?php 
+// if ($permalink === "events") {
+//  get_template_part('events','sidebar');
+// }else{
+  get_sidebar();
+// }
 
-              <div class="card">
-                <div class="card-header">
-                  Second Interesting Article
-                </div>
-                <div class="card-image">
-                  <img src="img/banner.jpeg" alt="">
-                </div>
-                <div class="card-copy">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, officiis sunt neque facilis culpa molestiae necessitatibus delectus veniam provident.</p>
-                </div>
-                <div class="card-meta">
-                  <p>15th April 2015</p>
-                    <p>Resources > Ad Spend</p>
-                </div>
-              </div>
 
-              <div class="card">
-                <div class="card-header">
-                  Last Interesting Article
-                </div>
-                <div class="card-image">
-                  <img src="img/banner.jpeg" alt="">
-                </div>
-                <div class="card-copy">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, officiis sunt neque facilis culpa molestiae necessitatibus delectus veniam provident.</p>
-                </div>
-                <div class="card-meta">
-                  <p>15th April 2015</p>
-                    <p>Resources > Trends</p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-      </div>
+ ?>
 
     </div>
 

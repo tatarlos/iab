@@ -68,20 +68,24 @@ add_action('wp_ajax_nopriv_getFilteredPosts', 'getFilteredPosts');
 
 
 function getFilteredPosts(){
-	$postType = 'resources';
-	$taxonomy = 'resources_type';
+	$postType = $_POST['post'];
+	$taxonomy = $_POST['tax'];
 	$term = $_POST['term'];
-
-	$args = array(
-	  'post_type' => $postType,
-	  'tax_query' => array(
-	    array(
-	      'taxonomy' => $taxonomy,
-	      'field'    => 'slug',
-	      'terms'    => $term,
-	    ),
-	  ),
-	);
+	
+	if($taxonomy === "all"){
+		$args = array('post_type' => $postType, );
+	}else{
+		$args = array(
+		  'post_type' => $postType,
+		  'tax_query' => array(
+		    array(
+		      'taxonomy' => $taxonomy,
+		      'field'    => 'slug',
+		      'terms'    => $term,
+		    ),
+		  ),
+		);
+	}
 
 	$loop = new WP_Query( $args );
 
