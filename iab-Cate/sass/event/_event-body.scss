@@ -1,0 +1,16 @@
+
+.event-details{
+
+	
+	th{
+		text-align: right;
+		width: 30%;
+		padding-right: 0.5em;
+		border-bottom:$event-table;
+	}
+
+	td{
+		padding-left:0.5em;
+		border-bottom:$event-table;
+	}
+}

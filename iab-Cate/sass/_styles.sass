@@ -10,6 +10,13 @@ $desktop: new-breakpoint(min-width 800px 12)
 	background: $default-red
 	color: $white
 
+.banner
+	max-height: 30em
+
+.banner-area
+	>
+	display: inline-block
+
 .outercontainer
 	margin: 40px 0 0 0
 	padding: 0 20px
@@ -145,3 +152,59 @@ $desktop: new-breakpoint(min-width 800px 12)
 				background-color: $even-darker-grey
 				color: $white
 				border-top: 2px solid $default-red
+
+.bannerarea
+	position: relative
+
+.dots
+	padding: 10px
+	position: absolute
+	top: 480px
+	z-index: 6000
+	+centerer(true,false)
+
+.dotstyle
+	ul
+		position: relative
+		display: inline-block
+		margin: 0
+		padding: 0
+		list-style: none
+		cursor: default
+		-webkit-touch-callout: none
+		-webkit-user-select: none
+		-khtml-user-select: none
+		-moz-user-select: none
+		-ms-user-select: none
+		user-select: none
+	li
+		position: relative
+		display: block
+		float: left
+		margin: 0 12px
+		width: 16px
+		height: 16px
+		cursor: pointer
+		a
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			outline: none
+			border-radius: 50%
+			background-color: #fff
+			background-color: $default-red
+			text-indent: -999em
+			cursor: pointer
+			position: absolute
+			&:focus
+				outline: none
+
+.dotstyle-dotstroke 
+	li 
+		a
+			-webkit-transition: all 0.3s ease
+			transition: all 0.3s ease
+			box-shadow: inset 0 0 0 8px $default-red, 0 0 5px $shadow
+			&:hover, &.current
+				box-shadow: inset 0 0 0 2px white, 0 0 5px $shadow

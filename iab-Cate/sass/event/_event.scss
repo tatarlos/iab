@@ -1,11 +1,2 @@
-.event-details{
-	th{
-		text-align: right;
-		width: 30%;
-		padding-right: 0.5em;
-	}
-
-	td{
-		padding-left:0.5em;
-	}
-}
+@import 'event-variables';
+@import 'event-body';
