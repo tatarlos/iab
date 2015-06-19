@@ -1,4 +1,14 @@
+
 $(document).ready(function() {
+
+  document.onreadystatechange = function () {
+    if (document.readyState === "interactive") {
+      console.log("interactive");
+    }else if(document.readyState === "complete"){
+      console.log("complete");
+      $('body').addClass('loaded');
+    }
+  }
   
 
 
@@ -86,7 +96,7 @@ function parallax(){
             var windowInnerHeight = window.innerHeight;
             var plxBackgroundTopToWindowTop = plxBackgroundTopToPageTop - windowTopToPageTop;
             var plxBackgroundTopToWindowBottom = windowInnerHeight - plxBackgroundTopToWindowTop;
-            var plxSpeed = 0.35;
+            var plxSpeed = 0.5;
 
             plxBackground.css('top', - (plxWindowTopToWindowTop * plxSpeed) + 'px');
           }

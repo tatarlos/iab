@@ -12,6 +12,7 @@ $desktop: new-breakpoint(min-width 800px 12)
 
 .banner
 	max-height: 30em
+	position: relative
 
 .banner-area
 	>
@@ -110,6 +111,16 @@ $desktop: new-breakpoint(min-width 800px 12)
 
 .members
 	+outer-container
+	.member-area
+		display: inline-block
+		width: 20%
+		height: 100px
+		margin: 0
+		background-color: yellow
+		+media($medium)
+			width: 50%
+		+media($mobile)
+			width: 100%
 
 .postcontainer, .resourcecontainer
 	margin: 40px 0 0 0
@@ -153,15 +164,17 @@ $desktop: new-breakpoint(min-width 800px 12)
 				color: $white
 				border-top: 2px solid $default-red
 
-.bannerarea
+.banner-area
 	position: relative
 
 .dots
 	padding: 10px
 	position: absolute
-	top: 480px
+	bottom: 5px
 	z-index: 6000
 	+centerer(true,false)
+	+media($mobile)
+		top: 5px
 
 .dotstyle
 	ul
@@ -185,6 +198,10 @@ $desktop: new-breakpoint(min-width 800px 12)
 		width: 16px
 		height: 16px
 		cursor: pointer
+		+media($mobile)
+			margin: 0 12px
+			width: 10px
+			height: 10px
 		a
 			top: 0
 			left: 0

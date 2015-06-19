@@ -1,13 +1,13 @@
 (function($){
 
-	$.fn.parallaxBannerSlider = function(){
+	$.fn.members = function(){
 
 		return this.each(function(){
 
 
 
 			var $this = $(this),
-				$slides = $this.find('.parallax-window'),
+				$members = $this.find('.parallax-window'),
 				$dotsList = $this.find('.dots .dotstyle ul'),
 				$mask = $this.find('.banner-area'),
 				$slider,
