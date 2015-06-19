@@ -8,19 +8,11 @@ $blog-header-border:$blog-image-border;
 
 	.share-link{
 		display: inline;
-
-		.share-link a{
-			color:$dark-gray;
-
-			&{
-				color:fade-in($default-red, 0.3);
-			}
-		}
 	}
 
 	.share-social-media{
 		float: left;
-		padding-right:3em;
+		padding-right:2em;
 		margin-bottom: 10px;
 
 		li{
@@ -40,6 +32,10 @@ $blog-header-border:$blog-image-border;
 	width: 80%;
 	float: left;
 
+	.date{
+		margin-bottom: 15px;
+	}
+
 	h1,h2,{
 		margin-bottom: 10px;
 	}
@@ -51,6 +47,7 @@ $blog-header-border:$blog-image-border;
 .author-info{
 	float: right;
 	padding-top:1em;
+	text-align:center;
 
 	img{
 		width:8em;

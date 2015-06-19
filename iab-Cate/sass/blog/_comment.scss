@@ -46,13 +46,6 @@
     display: table-cell;
     vertical-align: $comment-image-vert-alignment;
 
-    h2{
-      color:black;
-      text-align: left;
-      padding-bottom:10px;
-      border-bottom:2px solid transparentize($base-font-color, 0.8);
-    }
-
     p{
       color:$comment-content-color;
     }
@@ -63,13 +56,12 @@
     text-align: center;
 
     > img {
+      width:4em;
+      height: 4em;
       background: $comment-background;
-      border-radius:$base-border-radius;
+      border-radius:2em;
       display: block;
-      height: auto;
-      max-width: none;
       padding: $comment-image-padding;
-      width: $comment-image-width;
     }
 
     .comment-reverse-order & {
