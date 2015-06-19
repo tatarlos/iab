@@ -1,18 +1,9 @@
 .comments{
-  position:relative;
   background-color:$white;
 
   h2{
     text-align: center;
   }
-
-  .bottom-cover {
-    background-color:$white;
-    bottom: 1em;
-    height: 3px;
-    position: absolute;
-    width: 100%;
-  }  
 }
 
 .comment {
@@ -30,13 +21,24 @@
   $comment-image-vert-alignment: top;
   $comment-content-color:transparentize($dark-gray, 0.3);
 
-  border-bottom: 1px solid transparentize($comment-color, 0.9);
+  @include transition (all 0.25s ease-in-out);
+
+  // border-bottom: 1px solid transparentize($comment-color, 0.9);
   display: table;
-  margin-bottom: $base-spacing;
-  margin-top:20px;
-  padding: 1em;
-  padding-top:20px;
+  // margin-bottom: $base-spacing;
+  // margin-top:20px;
+  padding: 20px 1em 0;
   width: 100%;
+  cursor: pointer;
+
+  &:hover{
+    box-shadow:0 2px 10px transparentize($shadow, 0.3);
+
+    .comment-content h2{
+      // border-bottom:2px solid fade-in($default-red, 0.3);
+      color:fade-in($default-red, 0.3);
+    }
+  }
   
 
   .comment-image,
@@ -45,7 +47,10 @@
     vertical-align: $comment-image-vert-alignment;
 
     h2{
+      color:black;
       text-align: left;
+      padding-bottom:10px;
+      border-bottom:2px solid transparentize($base-font-color, 0.8);
     }
 
     p{
@@ -80,6 +85,7 @@
 
   .comment-content {
     width: 100%;
+    padding-bottom:20px;
 
     h1 {
       font-size: 1em;
