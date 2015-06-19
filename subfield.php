@@ -15,7 +15,9 @@ template Name:All SubNav template
   //creates pod object and loads data
   $subpod = pods($permalink,$params); 
   $taxonomy = $permalink."_type"; 
-  
+    $params = array( 
+      "limit" => -1,
+      );
   $terms = get_terms($taxonomy, array('orderby' => 'name', 'hide_empty' => 0, 'parent'=>0 ));
 ?>
 <!-- <main> -->

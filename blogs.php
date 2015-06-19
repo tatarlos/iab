@@ -1,6 +1,6 @@
  <?php
 /*
-template Name:blog page template
+template Name:blogs page template
 */ 
 $args = array('post_type' => 'post', );
 $loop = new WP_Query( $args );
@@ -18,7 +18,7 @@ $loop = new WP_Query( $args );
             if($loop->have_posts()):
             while ( $loop->have_posts() ) : $loop->the_post(); ?>
 
-            <a href="<?php echo bloginfo('url')?>/blog/<?php echo $post->post_name; ?>" class="grid-item-blog">
+            <a href="<?php the_permalink(); ?>" class="grid-item-blog">
               <div class="blog-img-small">
                 <img src="img/banner.jpeg" alt="">
               </div>
@@ -36,7 +36,7 @@ $loop = new WP_Query( $args );
                 </div>
                 <div class="stats">
                     <ul>
-                      <li><?php //if(function_exists('the_views')) { the_views(); } ?><span>Views</span></li>
+                      <li><?php if(function_exists('the_views')) { the_views(); } ?><span>Views</span></li>
                       <li><?php echo get_comments_number(); ?><span>Comments</span></li>
                     </ul>
                 </div>

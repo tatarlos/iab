@@ -1,67 +1,67 @@
-<?php
-/*
-template Name:Single article template
-*/ 
-$permalink = pods_v('last','url');
-
-$cat = pods_v(-2,'url');
-
-//query parameters
-//creates pod object and loads data
-$articlePod = pods($cat,$permalink);
-$type = $cat."_type.name";
-?>
-
-
 <?php get_header(); ?>
 
-
+<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 <div class="postcontainer">
         <div class="article-area">
             <article>
                 <p class="type">  
-                    <?php
-                        
-                        $cats = $articlePod->field($type);
-                        if ( is_array($cats) ){
-                            
-                            $catLen = sizeof($cats)-1;
-                            echo  $cats[ $catLen];
-                            
-                            // for($i = $catLen; $i >= 0; $i--){
-                            //     echo ($cats[$i]." || ");
-                            // }
-
-                        }else{
-                            echo $cats;
-                        } 
-                    ?>
                 </p>
-            <h1><?php echo $articlePod->field('title'); ?></h1>
+            <h1><?php echo get_the_title(); ?></h1>
             <h2>This artice is about something amazing</h2>
             <p class="date"> 
                 <?php 
-                    $time =strtotime($articlePod->field('created')) ;
-                    echo(gmdate('D, d M Y', $time));
+                    the_date();
                 ?>
             </p>
             <p>
-                <?php echo wpautop($articlePod->field('content')); ?>
+                <?php echo get_the_content(); ?>
             </p>
        <hr>
    
-          <p class="author">- by <?php
-                
-                $author_id = $articlePod->field('post_author');
-                $author = get_the_author_meta( 'display_name', $author_id );
-                echo $author;
-            ?>
+          <p class="author">- by <?php the_author(); ?>
 
         </p>
+
+
             </article>
 
-            
-            <div class="grid">
+  <div class="comments">
+
+             <?php  
+            $comments_args = array(
+                    // change the title of send button 
+                    'label_submit'=>'Add Comment',
+                    // change the title of the reply section
+                    'title_reply'=>'Write a Comment',
+                    // remove "Text or HTML to be displayed after the set of comment fields"
+                    'comment_notes_after' => '',
+                    // redefine your own textarea (the comment body)
+                    'comment_field' => '<p class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun' ) . '</label><br /><textarea id="comment" name="comment" aria-required="true"></textarea></p>',
+            );    
+            ?>         
+   
+  	<?php comment_form($comments_args); ?>
+
+<ol class="commentlist">
+	<?php
+		//Gather comments for a specific page/post 
+		$comments = get_comments(array(
+			'post_id' => get_the_ID(),
+			'status' => 'approve' //Change this to the type of comments to be displayed
+		));
+
+		//Display the list of comments
+		wp_list_comments(array(
+			'per_page' => 10, //Allow comment pagination
+			'reverse_top_level' => false //Show the latest comments at the top of the list
+		), $comments);
+	?>
+</ol>
+
+
+
+  </div>
+ <div class="grid">
                                <h2>You May Also Like:</h2>
                 <hr>
                 <div class="grid-items-lines">
@@ -98,14 +98,9 @@ $type = $cat."_type.name";
             </div> <!-- end of You May Also Like -->
             
         </div>
-        
+<?php endwhile; else : ?>
+	<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+<?php endif; ?>	
 <?php get_sidebar(); ?>
-
-    </div>
-
-       
-</main>
-
-
-	
+</div>
 <?php get_footer(); ?>
