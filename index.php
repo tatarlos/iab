@@ -19,6 +19,16 @@ $resourcesPod = pods('resources', $params);
 
 ?>
 
+<body>
+    <div id="loader-wrapper">
+    <div id="loader" class="loader">
+        <img src="<?php bloginfo('template_directory'); ?>/img/iab-logo.png" alt="">
+        <div class="loader-inner ball-scale-ripple">
+            <div></div>
+        </div>
+    </div>
+</div>
+
 <main>
         <div class="banner">
 

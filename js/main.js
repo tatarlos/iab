@@ -1,4 +1,13 @@
 $(document).ready(function() {
+
+  document.onreadystatechange = function () {
+    if (document.readyState === "interactive") {
+      console.log("interactive");
+    }else if(document.readyState === "complete"){
+      console.log("complete");
+      $('body').addClass('loaded');
+    }
+  }
   
  var $filter = $('.filtering-links'),
       $container = $('.grid-items-lines');

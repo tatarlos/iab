@@ -6,7 +6,10 @@
 	<title>IAB New Zealand</title>
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 	<link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>	
 	<link href='http://fonts.googleapis.com/css?family=Sanchez:400,400italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/loaders.min.css">
 	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/main.css">
 
 	<?php
@@ -20,7 +23,7 @@
 
 </head>
 
-<body>
+
 	<header class="navigation" role="banner">
 	  <div class="navigation-wrapper">
 	    <a href="<?php bloginfo('url'); ?>" class="logo">
