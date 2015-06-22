@@ -2136,6 +2136,12 @@ header.navigation {
     float: left;
     padding-right: 2em;
     margin-bottom: 10px; }
+    .artical-header .share-social-media a {
+      color: #333;
+      text-decoration: none;
+      transition: color 0.1s linear; }
+      .artical-header .share-social-media a:active, .artical-header .share-social-media a:focus, .artical-header .share-social-media a:hover {
+        color: #BC0100; }
     .artical-header .share-social-media li {
       display: inline-block; }
   .artical-header .mail-print {
