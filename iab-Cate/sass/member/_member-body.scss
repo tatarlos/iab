@@ -1,28 +1,17 @@
 
+
 @mixin grid-item-columns($columns) {
   width: (100% / 12) * $columns;
 }
 
 .members{
   text-align: left;
-  $base-background-color: white !default;
-  $dark-gray: #333 !default;
-  $light-gray: #DDD !default;
-  $medium-screen: em(640) !default;
-  $large-screen: em(800) !default;
-  $base-font-color: $dark-gray !default;
-  $grid-items-background: $base-background-color;
-  $grid-item-background: $base-background-color;
-  $grid-item-border: 1px solid transparentize($base-font-color, 0.8); 
-  $grid-item-columns: 4;
-  $grid-item-big-columns: 8;
-  $grid-item-color: $base-font-color;
-  $grid-item-height: 20em;
+ 
 
   @include clearfix;
   position: relative;
     
-  .grid-item {
+  .grid-item-logo {
     text-align: left;
     @include transition (all 0.2s ease-in-out);
     background: $grid-item-background;
@@ -33,6 +22,13 @@
     padding: 2em;
     text-decoration: none;
     width: 100%;
+
+    img{
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-bottom: 1.2em;
+    }
 
     @include grid-item-columns(12);
     @include media($medium-screen) {
@@ -51,13 +47,5 @@
       }   
     }
   }
-
-  .grid-item img {
-      display: block;
-      width: 100%;
-      height: auto;
-      //height: 2.5em;
-      margin-bottom: 1.2em;
-      //opacity: 0.2;
-    }
 }
+

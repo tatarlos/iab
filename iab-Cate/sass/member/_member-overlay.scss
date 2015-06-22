@@ -1,0 +1,63 @@
+.member-overlay {
+  text-align: left;
+
+  @include clearfix;
+  position: relative;
+    
+  .grid-item {
+    text-align: left;
+    @include transition (all 0.2s ease-in-out);
+    background: $grid-item-background;
+    float: left;
+    overflow: hidden;
+    outline: none;
+    padding: 2em;
+    text-decoration: none;
+    width: 100%;
+    h2 {
+      color: $default-red;
+      border-bottom: 2px solid $light;
+      @include transition (all 0.2s ease-in-out);
+      letter-spacing: 0.08em;
+    }
+
+    .info{
+      width:100%;
+
+      .info-row{
+        width: 70%;
+        float: left;
+        padding-right:15px;
+        color: transparentize($grid-item-color, 0.4); 
+        p{
+          margin-bottom: 10px;
+        }  
+      }
+
+      .meta-row{
+        width: 30%;
+        float: right;
+        color: transparentize($grid-item-color, 0.5);
+        p{
+          margin-bottom: 10px;
+        }  
+      }
+    }
+
+    @include media($large-screen) {
+      @include span-columns(8);
+      @include shift(2);
+    }
+  }
+
+  .grid-item img {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-bottom: 1.2em;
+    }
+
+  .grid-item p {
+      line-height: 1.5em;
+    }
+}
