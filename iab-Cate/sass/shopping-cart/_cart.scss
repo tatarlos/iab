@@ -1,3 +1,8 @@
 .shopping-cart{
 	@include outer-container;
+
+	h2{
+		text-align: center;
+	}
+
 }

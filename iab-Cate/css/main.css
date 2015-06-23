@@ -2258,6 +2258,8 @@ header.navigation {
     clear: both;
     content: "";
     display: table; }
+  .shopping-cart h2 {
+    text-align: center; }
 
 .outercontainer .member-header h2 {
   text-align: center; }
