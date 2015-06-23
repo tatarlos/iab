@@ -1,5 +1,35 @@
 <?php 
+add_action( 'register_form', 'myplugin_register_form' );
+function myplugin_register_form() {
 
+    $first_name = ( ! empty( $_POST['first_name'] ) ) ? trim( $_POST['first_name'] ) : '';
+        
+        ?>
+        <p>
+            <label for="first_name"><?php _e( 'First Name', 'mydomain' ) ?><br />
+                <input type="text" name="first_name" id="first_name" class="input" value="<?php echo esc_attr( wp_unslash( $first_name ) ); ?>" size="25" /></label>
+        </p>
+        <?php
+    }
+
+    //2. Add validation. In this case, we make sure first_name is required.
+    add_filter( 'registration_errors', 'myplugin_registration_errors', 10, 3 );
+    function myplugin_registration_errors( $errors, $sanitized_user_login, $user_email ) {
+        
+        if ( empty( $_POST['first_name'] ) || ! empty( $_POST['first_name'] ) && trim( $_POST['first_name'] ) == '' ) {
+            $errors->add( 'first_name_error', __( '<strong>ERROR</strong>: You must include a first name.', 'mydomain' ) );
+        }
+
+        return $errors;
+    }
+
+    //3. Finally, save our extra registration user meta.
+    add_action( 'user_register', 'myplugin_user_register' );
+    function myplugin_user_register( $user_id ) {
+        if ( ! empty( $_POST['first_name'] ) ) {
+            update_user_meta( $user_id, 'first_name', trim( $_POST['first_name'] ) );
+        }
+    }
 	add_image_size('featured',400,920,true);
 	add_theme_support( 'post-thumbnails' ); 
 	set_post_thumbnail_size(200,200, array( 'center', 'center'));
@@ -26,7 +56,13 @@
 
 	add_theme_support( 'automatic-feed-links' );
 	add_theme_support( 'title-tag' );
+	
 
+	add_action('wp_ajax_getFilteredPosts', 'getFilteredPosts');
+	add_action('wp_ajax_nopriv_getFilteredPosts', 'getFilteredPosts');
+
+	 add_action('wp_ajax_addToCart', 'addToCart');
+	 add_action('wp_ajax_nopriv_addToCart', 'addToCart');
 	/*
 	 * Switch default core markup for search form, comment form, and comments
 	 * to output valid HTML5.
@@ -60,12 +96,6 @@ function arphabet_widgets_init() {
 
 }
 add_action( 'widgets_init', 'arphabet_widgets_init' );
-?>
-<?php  
-
-add_action('wp_ajax_getFilteredPosts', 'getFilteredPosts');
-add_action('wp_ajax_nopriv_getFilteredPosts', 'getFilteredPosts');
-
 
 function getFilteredPosts(){
 	$postType = $_POST['post'];
@@ -117,7 +147,28 @@ function getFilteredPosts(){
 	</a>
 <?php
 	endwhile;
+?>
+            <div class="right-cover"></div>
+            <div class="bottom-cover"></div>
+ <?php 
 	endif;
 	exit;
 }
+
+function addToCart(){
+	$id = $_POST['id'];
+	$cartItem = array('id'=>$id);
+	
+	if(!isset($_SESSION['cart'])){
+		$_SESSION['cart'] = array();
+	}
+
+	$_SESSION['cart'][] = $cartItem;
+
+	echo count($_SESSION['cart']);
+
+	exit;
+}
+
+
 ?>

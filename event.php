@@ -4,10 +4,10 @@ template Name:Single Event single template
 */ 
 $permalink = pods_var('last','url');
 $cat = pods_v(-2,'url');
+$type = $cat."_type.name";
 //query parameters
 //creates pod object and loads data
 $eventsPod = pods('events',$permalink);
-$type = $cat."_type.name";
 $postID =$eventsPod->field('ID');
 ?>
 
@@ -165,7 +165,7 @@ $postID =$eventsPod->field('ID');
                     <div class="bottom-cover"></div>
                 </div>
                 <div class="pay-meta">
-                  <button>Add to Cart</button>
+                  <button class ="addCart" data-id ="<?php echo $postID ?>">Add to Cart</button>
                   <button>Pay Now</button>
                 </div>
               </div>

@@ -24,13 +24,8 @@ $type = $cat."_type.name";
                         
                         $cats = $articlePod->field($type);
                         if ( is_array($cats) ){
-                            
                             $catLen = sizeof($cats)-1;
                             echo  $cats[ $catLen];
-                            
-                            // for($i = $catLen; $i >= 0; $i--){
-                            //     echo ($cats[$i]." || ");
-                            // }
 
                         }else{
                             echo $cats;

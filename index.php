@@ -1,8 +1,6 @@
 
 <?php get_header(); ?>
 <?php 
-
-
 //query parameters
 $params = array( 
     "limit" => 3,
@@ -11,12 +9,17 @@ $params = array(
 //creates pod object and loads data
 $eventsPod = pods('events',$params);
 $newsPod = pods('news', $params);
-
+$bannerPod = pods('banner', $params);
 $params = array( 
     "limit" => 6,
 );
 $resourcesPod = pods('resources', $params);
-
+$params = array( 
+    "limit" => -1,
+);
+$statsPod = pods('statistic', $params);
+$signUpPod = pods('sign_up_info', $params);
+$readMore = pods('button_word', $params);
 ?>
 
 <body>
@@ -33,40 +36,20 @@ $resourcesPod = pods('resources', $params);
         <div class="banner">
 
             <div class="banner-area">
-
-                <div class="parallax-window">
-                  <div class="parallax-static-content">
-                    <h1>IAB's Latest Headlines</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque esse quisquam quas perferendis.</p>
-                    <button>Read More</button>
-                  </div>
-
-                  <div class="parallax-background"></div>
-                </div>
-
-
-                <div class="parallax-window">
-                  <div class="parallax-static-content">
-                    <h1>IAB's Latest Headlines 2</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque esse quisquam quas perferendis.</p>
-                    <button>Read More</button>
-                  </div>
-
-                  <div class="parallax-background"></div>
-                </div>
-
-
-                <div class="parallax-window">
-                  <div class="parallax-static-content">
-                    <h1>IAB's Latest Headlines 3</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque esse quisquam quas perferendis.</p>
-                    <button>Read More</button>
-                  </div>
-
-                  <div class="parallax-background"></div>
-                </div>
-
                 
+                <?php while ($bannerPod->fetch()): ?>  
+                
+                <div class="parallax-window">
+                  <div class="parallax-static-content">
+                    <h1><?php echo $bannerPod -> field('name');  ?></h1>
+                    <p><?php echo $bannerPod -> field('description');  ?></p>
+                    <button><?php echo $readMore -> field('description'); ?></button>
+                  </div>
+
+                  <div class="parallax-background"></div>
+                </div>
+
+            <?php endwhile; ?>       
             
             </div>
 
@@ -85,41 +68,39 @@ $resourcesPod = pods('resources', $params);
                 <h2>Why IAB</h2>
                 <div class="vertical-tabs-container">
                   <div class="vertical-tabs">
-                    <a href="javascript:void(0)" class="js-vertical-tab vertical-tab is-active" rel="tab1">Advertising Agency</a>
-                    <a href="javascript:void(0)" class="js-vertical-tab vertical-tab" rel="tab2">Advertiser</a>
-                    <a href="javascript:void(0)" class="js-vertical-tab vertical-tab" rel="tab3">Designer / Copywriter</a>
-                    <a href="javascript:void(0)" class="js-vertical-tab vertical-tab" rel="tab4">Journalist</a>
-                    <a href="javascript:void(0)" class="js-vertical-tab vertical-tab" rel="tab5">Media Buyer</a>
+                    <?php  
+                        //query parameters
+                        $params = array( 
+                            "limit" => -1,
+
+                        );
+                        //creates pod object and loads data
+                        $whyIABpods = pods('why_iab', $params);
+                    $i = 1;
+                    ?>
+                     <?php while ($whyIABpods->fetch()): ?>  
+                    <a href="javascript:void(0)" class="js-vertical-tab vertical-tab starting-tab<?php echo $i; ?>" rel="tab<?php echo $i; ?>"><?php echo $whyIABpods->field('name'); ?></a>
+                    <?php $i++;endwhile; ?>
                   </div>
 
                   <div class="vertical-tab-content-container">
-                    <a href="#" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading is-active" rel="tab1">Advertising Agency</a>
-                    <div id="tab1" class="js-vertical-tab-content vertical-tab-content">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt pellentesque lorem, id suscipit dolor rutrum id. Morbi facilisis porta volutpat. Fusce adipiscing, mauris quis congue tincidunt, sapien purus suscipit odio, quis dictum odio tortor in sem. Ut sit amet libero nec orci mattis fringilla.</p>
-                    </div>
 
-                    <a href="#" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab2">Advertiser</a>
-                    <div id="tab2" class="js-vertical-tab-content vertical-tab-content">
-                      <p>Ut laoreet augue et neque pretium non sagittis nibh pulvinar. Etiam ornare tincidunt orci quis ultrices. Pellentesque ac sapien ac purus gravida ullamcorper. Duis rhoncus sodales lacus, vitae adipiscing tellus pharetra sed. Praesent bibendum.</p>
-                    </div>
+                    <?php  
 
-                    <a href="#" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab3">IDesigner / Copywriter</a>
-                    <div id="tab3" class="js-vertical-tab-content vertical-tab-content">
-                      <p>Donec mattis mauris gravida metus laoreet non rutrum sem viverra. Aenean nibh libero, viverra vel vestibulum in, porttitor ut sapien. Phasellus tempor lorem id justo ornare tincidunt. Nulla faucibus, purus eu placerat fermentum, velit mi iaculis nunc, bibendum tincidunt ipsum justo eu mauris.</p>
-                    </div>
+                        $i = 1;
+                        $whyIABpods->reset();
+                     
+                    ?>
+                    
+                    <?php while ($whyIABpods->fetch()):?>
+                
+                    
+                    <a href="#" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading starting-tab<?php echo $i; ?>" rel="tab<?php echo $i; ?>"><?php echo $whyIABpods->field('name'); ?></a>
+                    <div id="tab<?php echo $i; ?>" class="js-vertical-tab-content vertical-tab-content">
+                      <p><?php echo $whyIABpods -> field('description'); ?></p>
+                    </div>          
 
-                    <a href="#" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab4">Journalist</a>
-                    <div id="tab4" class="js-vertical-tab-content vertical-tab-content">
-                      <p>Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus dui urna, mollis vel suscipit in, pharetra at ligula. Pellentesque a est vel est fermentum pellentesque sed sit amet dolor. Nunc in dapibus nibh. Aliquam erat volutpat.</p>
-                    </div>
-
-                    <a href="#" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab5">Media Buyer</a>
-                    <div id="tab5" class="js-vertical-tab-content vertical-tab-content">
-                      <p>Ut laoreet augue et neque pretium non sagittis nibh pulvinar. Etiam ornare tincidunt orci quis ultrices. Pellentesque ac sapien ac purus gravida ullamcorper. Duis rhoncus sodales lacus, vitae adipiscing tellus pharetra sed. Praesent bibendum.</p>
-                    </div>
-                  
-
-
+                    <?php $i++; endwhile; ?>
 
                   </div>
                 </div>
@@ -127,9 +108,11 @@ $resourcesPod = pods('resources', $params);
             <div class="signup">
                 <div class="flex-boxes">
                     <div class="flex-box">
-                        <h2 class="flex-title">Signup to our Newsletter</h2>
-                        <p>Stay up to date with the IAB by receiving useful information via our newsletter.</p><br>
-                        <button>Signup Now</button>
+                        <h2 class="flex-title"><?php echo $signUpPod -> field('name'); ?></h2>
+                        <p><?php echo $signUpPod -> field('description'); ?></p><br>
+                        <a href="<?php echo bloginfo('url')?>/sign-up">
+                             <button><?php echo $signUpPod -> field('button_text') ;?></button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -158,7 +141,7 @@ $resourcesPod = pods('resources', $params);
 
                     </div>
                     <div class="card-copy">
-                      <p><?php echo wp_trim_words($newsPod->field('content'),10); ?></p>
+                      <p><?php echo wp_trim_words($newsPod->field('content'),12); ?></p>
                     </div>
                     <div class="card-meta">
                         <p> 
@@ -167,7 +150,9 @@ $resourcesPod = pods('resources', $params);
                                 echo('Last-Modified: '.gmdate('D, d M Y', $time));
                             ?>
                         </p>
-                        <p>News > News Tag</p>
+                        <p>
+                             <a href="<?php echo bloginfo('url')?>/news">News</a> > <a href="#"><?php echo $newsPod->field('news_type.name');?></a> > <a href="<?php echo $newsPod->field('permalink')?>"> <?php echo $newsPod->field('title');?> </a> 
+                        </p>
                     </div>
                      </a>
                   </div>
@@ -200,19 +185,30 @@ $resourcesPod = pods('resources', $params);
                         <p>
                             <?php 
                                 $time =strtotime($resourcesPod->field('created')) ;
-                                echo('Last-Modified: '.gmdate('D, d M Y', $time));
+                                echo(gmdate('D, d M Y', $time));
                             ?>
                         </p>
-                        <p>Resources > Resource Tag</p>
+                        <p>Resources > <?php
+                        
+                        $cats = $resourcesPod->field('resources_type');
+                        if ( is_array($cats) ){
+                            $catLen = sizeof($cats)-1;
+                            echo $cats[ $catLen]['name'];
+
+                        }else{
+                            echo $cats;
+                        } 
+                        ?>
+                      </p>
                     </div>
-                </a>
+              </a>
               <?php endwhile;?>
               <div class="right-cover"></div>
               <div class="bottom-cover"></div>
             </div>
             <a href="<?php echo bloginfo('url')?>/resources">
-            <button>More Resources</button>
-            </a>
+            <button>More Resources</button></a>
+            
         </div> <!-- end of resources grid -->
 
         <div class="section-red">
@@ -222,18 +218,12 @@ $resourcesPod = pods('resources', $params);
                 <div class="flex-boxes">
                     <div class="flex-box twitter">
                         <h2 class="flex-title">Twitter Feed</h2>
-
-          
-
-           </p>
-            <p class ="twitter-text"></p>
-           <br>
+                            <p class ="twitter-text">
+                                
+                                <?php echo do_shortcode('[fts twitter twitter_name=iabnewzealand]'); ?>
+                            </p>
+                           <br>
                         <button class="twitter-btn">Follow Us on Twitter</button>
-                    </div>
-                    <div class="flex-box fb">
-                        <h2 class="flex-title">Facebook Feed</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad nostrum, libero!</p><br>
-                        <button class="fb-btn">Like Us on Facebook</button>
                     </div>
                 </div>
             </div>
@@ -242,8 +232,9 @@ $resourcesPod = pods('resources', $params);
         <div class="statistics">
             <h1>Statistics</h1>
             <hr>
-            <h2>123,456,789 unique users of the internet in 2014</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem esse et veniam velit ut dolorum excepturi ipsam itaque suscipit, dignissimos quae alias placeat unde quasi nam soluta eaque, odio earum!</p>
+            <h2><?php echo $statsPod->field('name');  ?></h2>
+            <p><?php  echo $statsPod->field('description'); ?></p>
+      
         </div>
 
         <div class="section-red">
@@ -268,7 +259,7 @@ $resourcesPod = pods('resources', $params);
 
                     </div>
                     <div class="card-copy">
-                      <p><?php echo wp_trim_words($eventsPod->field('content'),10); ?></p>
+                      <p><?php echo wp_trim_words($eventsPod->field('content'),12); ?></p>
                     </div>
                     <div class="card-meta">
                         <p> 
@@ -277,7 +268,7 @@ $resourcesPod = pods('resources', $params);
                                 echo('Last-Modified: '.gmdate('D, d M Y', $time));
                             ?>
                         </p>
-                        <p>Events > Events Tag</p>
+                        <p><a href="<?php echo bloginfo('url')?>/events">Events</a> > <a href="#"><?php $event = $eventsPod->field('events_type.name'); echo $event[0]?></a> > <a href="<?php echo $eventsPod->field('permalink')?>"> <?php echo $eventsPod->field('title');?> </a> </p>
                     </div>
                      </a>
                   </div>
@@ -290,16 +281,4 @@ $resourcesPod = pods('resources', $params);
             </div>
         </div> <!-- end of 3 events -->
 
-        <!-- shopping cart Simple PayPal Shopping Cart -->
-   <!--      <?php 
-        $itemprice = 12;
-        $productname="\"hallo\" ";
-        $b = "[wp_cart_button name=";
-        $e = "price= \"19.95\" shipping= \"4.99\"]";
-      
-        echo do_shortcode($b.$productname.$e); ?>
-        <?php echo do_shortcode('[show_wp_shopping_cart]'); ?>  -->
-    </main>
-
 <?php get_footer(); ?>
-

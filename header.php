@@ -6,11 +6,13 @@
 	<title>IAB New Zealand</title>
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 	<link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
-	
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>	
 	<link href='http://fonts.googleapis.com/css?family=Sanchez:400,400italic' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/loaders.min.css">
+	<?php if(is_front_page()) :?>
+		<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/loaders.min.css">	
+	<?php endif; ?>
 	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/main.css">
+
+
 
 	<?php
 		if ( current_user_can( 'manage_options' ) ) {

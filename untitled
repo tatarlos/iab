@@ -16,3 +16,16 @@
      $container.empty().fadeIn().html(dataReturn);
     })
   });
+
+
+
+        <!-- shopping cart Simple PayPal Shopping Cart -->
+   <!--      <?php 
+        $itemprice = 12;
+        $productname="\"hallo\" ";
+        $b = "[wp_cart_button name=";
+        $e = "price= \"19.95\" shipping= \"4.99\"]";
+      
+        echo do_shortcode($b.$productname.$e); ?>
+        <?php echo do_shortcode('[show_wp_shopping_cart]'); ?>  -->
+    </main>

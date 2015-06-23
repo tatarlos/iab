@@ -1,13 +1,18 @@
 $(document).ready(function() {
 
-  document.onreadystatechange = function () {
-    if (document.readyState === "interactive") {
-      console.log("interactive");
-    }else if(document.readyState === "complete"){
-      console.log("complete");
-      $('body').addClass('loaded');
+  var $addCart = $('.addCart');
+
+  $addCart.click(function(){
+    id = $(this).data('id');
+    
+    dataSend = {
+        'action': 'addToCart',
+        'id': id
     }
-  }
+  $.post(siteInfo.ajaxURL, dataSend, function(data){
+      console.log(data);
+    });
+  });
   
  var $filter = $('.filtering-links'),
       $container = $('.grid-items-lines');
@@ -23,17 +28,19 @@ $(document).ready(function() {
       $term = $(this).data('term'),
       $taxonomy = $(this).data('taxonomy'),
       $postType = $(this).data('post-type'),
-      dataSend = {
+      data = {
         'action': 'getFilteredPosts',
         'term':$term,
         'tax': $taxonomy,
         'post': $postType
       }
 
-    $.post(siteInfo.ajaxURL, dataSend, function(dataReturn){
-     $container.empty().fadeIn().html(dataReturn);
+    $.post(siteInfo.ajaxURL, data, function(data){
+     $container.empty().fadeIn().html(data);
+
      $('.grid').equaliseHeight();
-    })
+    });
+
   });
 
   // Refills Navigation Menu
@@ -49,11 +56,14 @@ $(document).ready(function() {
     });
   });
 
-
-
+  //resize intial
+  if(document.readyState === "complete"){
+    $('.grid').equaliseHeight();
+  }
 
   // Refills Vertical Tabs
   $(".js-vertical-tab-content").hide();
+  $('.starting-tab1').addClass("is-active");
   $(".js-vertical-tab-content:first").show();
 
   /* if in tab mode */
@@ -89,40 +99,6 @@ $(document).ready(function() {
   });
 
 
-  
-
-  $('.banner').parallaxBannerSlider();
-  $('.grid').equaliseHeight();
-  // Refills Parallax BG
-    if ($(".parallax-window").length) {
-      parallax();
-    }
-
 });
 
 
-$(window).scroll(function(e) {
-  if ($(".parallax-window").length) {
-    parallax();
-  }
-});
-
-function parallax(){
-        if( $(".parallax-window").length > 0 ) {
-            var plxBackground = $(".parallax-background");
-            var plxWindow = $(".parallax-window");
-
-            var plxWindowTopToPageTop = $(plxWindow).offset().top;
-            var windowTopToPageTop = $(window).scrollTop();
-            var plxWindowTopToWindowTop = plxWindowTopToPageTop - windowTopToPageTop;
-
-            var plxBackgroundTopToPageTop = $(plxBackground).offset().top;
-            var windowInnerHeight = window.innerHeight;
-            var plxBackgroundTopToWindowTop = plxBackgroundTopToPageTop - windowTopToPageTop;
-            var plxBackgroundTopToWindowBottom = windowInnerHeight - plxBackgroundTopToWindowTop;
-            var plxSpeed = 0.35;
-
-            plxBackground.css('top', - (plxWindowTopToWindowTop * plxSpeed) + 'px');
-          }
-
-      }

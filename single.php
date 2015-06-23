@@ -4,21 +4,31 @@
 <div class="postcontainer">
         <div class="article-area">
             <article>
-                <p class="type">  
+                <p class="type">
+                  Article Category
                 </p>
-            <h1><?php echo get_the_title(); ?></h1>
-            <h2>This artice is about something amazing</h2>
-            <p class="date"> 
-                <?php 
-                    the_date();
-                ?>
-            </p>
+
+            <div class="artical-header">
+              <div class="artical-header-copy">
+              <p class="date"> 
+                  <?php 
+                      the_date();
+                  ?>
+              </p> 
+              <h1><?php echo get_the_title(); ?></h1>
+              </div>
+              <div class="author-info">
+                <img src="img/sample.jpg">
+                <p class="author">- By <?php echo get_the_author(); ?></p>
+              </div>
+            </div>
+           
             <p>
-                <?php echo get_the_content(); ?>
+                <?php echo wpautop(get_the_content()); ?>
             </p>
        <hr>
    
-          <p class="author">- by <?php the_author(); ?>
+          
 
         </p>
 
@@ -101,6 +111,57 @@
 <?php endwhile; else : ?>
 	<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
 <?php endif; ?>	
-<?php get_sidebar(); ?>
+
+<?php //get_sidebar(); ?>
+      <div class="sidebar">
+        <div class="outercontainer">
+            <h2>Sidebar Stuff</h2>
+            <hr>
+            <div class="cards">
+              <div class="card"><!-- Disclaimer -->
+                      <div class="card-header">
+                        Disclaimer
+                      </div>
+                      <div class="card-copy">
+                        <p>The views expressed in these individual blog posts are those of the author. They are not necessarily the views of IAB or the author's company.</p>
+                      </div>
+                    </div>
+                    <!-- end of Disclaimer -->
+
+              <div class="card">
+                <div class="card-header">
+                  Second Interesting Article
+                </div>
+                <div class="card-image">
+                  <img src="img/banner.jpeg" alt="">
+                </div>
+                <div class="card-copy">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, officiis sunt neque facilis culpa molestiae necessitatibus delectus veniam provident.</p>
+                </div>
+                <div class="card-meta">
+                  <p>15th April 2015</p>
+                    <p>Resources > Ad Spend</p>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header">
+                  Last Interesting Article
+                </div>
+                <div class="card-image">
+                  <img src="img/banner.jpeg" alt="">
+                </div>
+                <div class="card-copy">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, officiis sunt neque facilis culpa molestiae necessitatibus delectus veniam provident.</p>
+                </div>
+                <div class="card-meta">
+                  <p>15th April 2015</p>
+                    <p>Resources > Trends</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+      </div>
 </div>
 <?php get_footer(); ?>
