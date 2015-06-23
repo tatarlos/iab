@@ -30,15 +30,6 @@
   padding: 20px 1em 0;
   width: 100%;
   cursor: pointer;
-
-  &:hover{
-    box-shadow:0 2px 10px transparentize($shadow, 0.3);
-
-    .comment-content h2{
-      // border-bottom:2px solid fade-in($default-red, 0.3);
-      color:fade-in($default-red, 0.3);
-    }
-  }
   
 
   .comment-image,
@@ -97,3 +88,9 @@
   }
 }
 
+.comment-content hr{
+  float: left;
+  border: 0.5px solid transparentize($dark-gray, 0.7);
+  margin: 0 auto 1.5em;
+  width: 6.5em;
+}
