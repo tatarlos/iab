@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 	<link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Sanchez:400,400italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/main.css">
 	
 </head>
@@ -54,24 +55,41 @@
 	  </div>
 	</header>
 	<main>
-		<div class="shopping-cart">
+		<div class="shopping-cart outercontainer">
 			<h2>Cart</h2>
 
-			<div class="cart-form">
-				<div class="event-image">
-					<img src="img/sample.jpg">
-				</div>
-				<div class="event-discrption">
-					<p class="event-name">Digital Media Sales Training Course</p>
-					<p class="event-details">July 1st, 2015 to June 2nd, 2015</p>
-					<p class="event-details">The Marketing Association: Lvl 1, 69 St Georges Bay Road, Parnell, Aucklands</p>
-				</div>
-				<div class="event-price"></div>
-				<div class="event-quantity"></div>
-				<div class="event-remove"></div>
-			</div>
+			<table class="cart-form">
+				<tr>
+					<td class="event-image"><img src="img/banner.jpeg"></td>
+					<td class="event-discrption">
+						<h2 class="event-name">Digital Media Sales Training Course</h2>
+						<p class="event-details">July 1st, 2015 to June 2nd, 2015</p>
+						<p class="event-details">The Marketing Association: Lvl 1, 69 St Georges Bay Road, Parnell, Aucklands</p>
+					</td>
+					<td class="event-price">$550.00 NZD + GST</td>
+					<td class="event-quantity"><form><input type="number" name="quantity"></form></td>
+					<td class="event-remove"><i class="fa fa-times-circle-o fa-2x"></i></td>
+				</tr>
 
-			<div class="grid-items-lines">
+				<tr>
+					<td class="event-image"><img src="img/banner.jpeg"></td>
+					<td class="event-discrption">
+						<h2 class="event-name">Digital Media Sales Training Course</h2>
+						<p class="event-details">July 1st, 2015 to June 2nd, 2015</p>
+						<p class="event-details">The Marketing Association: Lvl 1, 69 St Georges Bay Road, Parnell, Aucklands</p>
+					</td>
+					<td class="event-price">$550.00 NZD + GST</td>
+					<td class="event-quantity"><form><input type="number" name="quantity"></form></td>
+					<td class="event-remove"><i class="fa fa-times-circle-o fa-2x"></i></td>
+				</tr>
+
+			</table>
+			<div class="cover-bottom"></div>
+			
+		</div>
+
+
+			<div class="grid-items-lines outercontainer">
 			  <a href="javascript:void(0)" class="grid-item">
 			  	<img src="img/banner.jpeg" alt="">
 			    <h2>Article Title</h2>
@@ -102,7 +120,7 @@
 			  <div class="right-cover"></div>
 			  <div class="bottom-cover"></div>
 			</div>
-		</div> <!-- end of You May Also Like -->				
+		 <!-- end of You May Also Like -->				
 	</main>
 
 
