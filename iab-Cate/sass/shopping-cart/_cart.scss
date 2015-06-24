@@ -65,9 +65,12 @@
 	.event-remove{
 		width: 10%;
 	}
-
-
-
 }
 
+.payment {
+	text-align:right;
+	h2{
+		color: $default-red;
+	}
+}
 

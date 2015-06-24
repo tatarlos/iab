@@ -2299,6 +2299,11 @@ header.navigation {
 .cart-form .event-remove {
   width: 10%; }
 
+.payment {
+  text-align: right; }
+  .payment h2 {
+    color: #BC0100; }
+
 .outercontainer .member-header h2 {
   text-align: center; }
 
