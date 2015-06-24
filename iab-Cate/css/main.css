@@ -2262,42 +2262,53 @@ header.navigation {
   .shopping-cart h2 {
     text-align: center; }
   .shopping-cart .cover-bottom {
-    width: 100%;
+    width: 97.5%;
     bottom: 11px;
     height: 3px;
     position: absolute;
     background-color: #ffffff; }
 
-.cart-form .cart-form table {
+.cart-form {
+  width: 100%;
   border-spacing: 5px; }
-.cart-form td {
-  padding: 1em;
-  margin-bottom: 1em;
-  border-right: 1px solid #D9DADE; }
-  .cart-form td:nth-last-child(1) {
-    border-right: none; }
-.cart-form tr {
-  margin-bottom: 1em;
-  cursor: pointer; }
-  .cart-form tr:hover {
-    -webkit-animation-duration: 2s;
-    animation-duration: 2s;
-    background-color: #D9DADE; }
-.cart-form .event-image {
-  width: 20%; }
-.cart-form .event-discrption {
-  width: 40%; }
-  .cart-form .event-discrption p {
-    margin: 5px 0; }
-  .cart-form .event-discrption .event-name {
-    text-align: left;
-    color: #BC0100; }
-.cart-form .event-price {
-  width: 20%; }
-.cart-form .event-quantity {
-  width: 10%; }
-.cart-form .event-remove {
-  width: 10%; }
+  .cart-form td {
+    padding: 1em;
+    margin-bottom: 1em;
+    border-right: 1px solid #D9DADE; }
+    .cart-form td:nth-last-child(1) {
+      border-right: none;
+      cursor: pointer; }
+    .cart-form td:first-child {
+      border-right: none; }
+  .cart-form tr {
+    margin-bottom: 1em; }
+    .cart-form tr:hover {
+      -webkit-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+      background-color: rgba(217, 218, 222, 0.3); }
+  .cart-form .event-image {
+    display: none; }
+    @media screen and (min-width: 53.75em) {
+      .cart-form .event-image {
+        display: table-cell;
+        width: 20%; } }
+  .cart-form .event-discrption {
+    width: 40%; }
+    .cart-form .event-discrption p {
+      margin: 5px 0;
+      color: #333; }
+    .cart-form .event-discrption .event-name {
+      text-align: left;
+      color: #BC0100; }
+  .cart-form .event-price {
+    width: 20%;
+    text-align: center; }
+  .cart-form .event-quantity {
+    width: 10%; }
+  .cart-form .event-remove {
+    width: 10%;
+    text-align: center;
+    color: rgba(51, 51, 51, 0.5); }
 
 .payment {
   text-align: right; }
