@@ -1,0 +1,80 @@
+.search-header{
+
+	h2{
+		color:$base-color-dark-red;
+		text-align: center;
+		margin-bottom: 0;
+		padding:1em 0;
+	}
+
+	p{
+		margin-bottom: 0;
+	}
+
+	.search-bar{
+		width: 100%;
+		padding-left:0;
+		padding-right:0;
+	}
+
+	.categories {
+		@include clearfix;
+		line-height: 1.5;
+		padding: 0;
+		margin-top: 10px;
+
+		li.cate-titles {
+		list-style: none;
+		@include span-columns(12);
+
+		@include media($tab-mode){
+			@include span-columns(6);
+			@include omega(2n);
+		}
+		text-align: center;
+		background-color:transparentize($light, 0.7);
+		border-radius:2px;
+		margin-bottom: 5px;
+		float: left;
+		}
+	}
+
+	a.cate-title {
+		// width:50%;
+		// float: left;
+		@include transition (all 0.2s ease-in-out);
+        letter-spacing:0.01em;
+        border-bottom:5px solid transparentize($light, 1);
+	    color: $darkgray;
+	    display: block;
+	    font-weight: 400;
+	    padding: $filter-tab-link-padding;
+	    text-decoration: none;
+	    
+
+	    @include media($tab-mode) {
+	      @include inline-block;
+	      border-top: 0;
+	    }
+
+	    &:hover {
+	     color: $base-color-red;
+        border-bottom: 5px solid $base-color-red;
+	    }
+
+	    &:focus {
+	      outline: none;
+	    }
+
+	    &.is-active {
+	    border-bottom: 0;
+        color: $base-color-red;
+
+	      @include media($tab-mode) {
+	        border: $filter-header-border;
+	        border-bottom-color:$active-color;
+	        margin-bottom: -1px;
+	      }
+	    }
+	}
+}

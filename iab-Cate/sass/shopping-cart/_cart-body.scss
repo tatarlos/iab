@@ -30,9 +30,9 @@
 
 	tr{
 		margin-bottom: 1em;
-		
+		@include transition (all 0.3s ease-in-out);
 		&:hover{
-			@include transition (all 0.3s ease-in-out);
+			
 			background-color: transparentize($light, 0.7);
 
 			.event-discrption p{

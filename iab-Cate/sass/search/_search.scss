@@ -1,8 +1,2 @@
-.search-results{
-	width:100%;
-
-	h2{
-		color:$dark-gray;
-		text-align: left;
-	}
-}
+@import 'search-header';
+@import 'search-body';
