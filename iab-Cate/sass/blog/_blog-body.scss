@@ -22,16 +22,6 @@
   @include clearfix;
   position: relative;
   
-  .blog-img-small{
-    display: block;
-    
-    padding:1em;
-
-    @include media($medium-screen){
-      display: none;
-    }
-  }
-
 
   .blog-content{
   	width: 100%;

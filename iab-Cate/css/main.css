@@ -1998,12 +1998,6 @@ header.navigation {
     clear: both;
     content: "";
     display: table; }
-  .grid-items-lines .blog-img-small {
-    display: block;
-    padding: 1em; }
-    @media screen and (min-width: 40em) {
-      .grid-items-lines .blog-img-small {
-        display: none; } }
   .grid-items-lines .blog-content {
     width: 100%;
     float: none;
