@@ -157,15 +157,16 @@ function getFilteredPosts(){
 
 function addToCart(){
 	$id = $_POST['id'];
-	$cartItem = array('id'=>$id);
+	$cost = $_POST['cost'];
+	$date = $_POST['date'];
+	$cartItem = array('id'=>$id , 'cost'=> $cost, 'date' => $date);
+
 	
 	if(!isset($_SESSION['cart'])){
 		$_SESSION['cart'] = array();
 	}
 
 	$_SESSION['cart'][] = $cartItem;
-
-	echo count($_SESSION['cart']);
 
 	exit;
 }

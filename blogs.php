@@ -19,18 +19,12 @@ $loop = new WP_Query( $args );
             while ( $loop->have_posts() ) : $loop->the_post(); ?>
 
             <a href="<?php the_permalink(); ?>" class="grid-item-blog">
-              <div class="blog-img-small">
-                <img src="img/banner.jpeg" alt="">
-              </div>
-              <div class="blog-img">
-                <img src="img/sample.jpg" alt="">
-              </div>
               <div class="blog-content">
                 <h2><?php echo get_the_title() ?></h2>
                 <div class="author">
                   <p>Posted by <?php the_author() ?> on <?php the_date() ?></p>
                 </div>
-                <p><?php echo get_the_content(); ?></p>
+                <p><?php echo get_the_excerpt(); ?></p>
                 <div class="meta">
                   <p>Resources > Case Studies</p>
                 </div>

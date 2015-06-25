@@ -110,8 +110,9 @@ $postID =$eventsPod->field('ID');
 
 
         
-        <?php 
-        $cost = ($eventsPod->field('cost') == 0)? "Free" : $eventsPod->display('cost')." + GST";
+        <?php
+        $cost = $eventsPod->field('cost');
+        $costs = ($cost == 0)? "Free" : $eventsPod->display('cost')." + GST";
 
         $hasFinishDate = ($eventsPod->field('finish_date') ==="0000-00-00" )?  "":" to ".$eventsPod->display('finish_date');
 
@@ -131,7 +132,7 @@ $postID =$eventsPod->field('ID');
                   <div class="event-detail">
                     <div class="row">
                       <div class="title-column">Cost</div>
-                      <div class="detail-column"><?php echo $cost ?></div>
+                      <div class="detail-column"><?php echo $costs ?></div>
                     </div>
                     <!-- end of a row -->
                     <div class="row">
@@ -141,14 +142,14 @@ $postID =$eventsPod->field('ID');
                     <!-- end of a row -->
                     <div class="row">
                       <div class="title-column">When</div>
-                      <div class="detail-column"><?php echo ($eventsPod->display('start_date').$hasFinishDate) ?></div>
+                      <div class="detail-column"><?php $date  = $eventsPod->display('start_date').$hasFinishDate; echo $date; ?></div>
                     </div>
                     <!-- end of a row -->
                     <div class="row">
                         <div class="title-column">Location</div>
                         <div class="detail-column">
                             <?php 
-                            echo $location['name'].": " ;
+                            echo $location['name'].": ";
                             echo $location['no'].", "; 
                             echo $location['address'].", ";
                             echo $eventsPod->display('place.suburb.name').", ";
@@ -165,7 +166,7 @@ $postID =$eventsPod->field('ID');
                     <div class="bottom-cover"></div>
                 </div>
                 <div class="pay-meta">
-                  <button class ="addCart" data-id ="<?php echo $postID ?>">Add to Cart</button>
+                  <button class ="addCart" data-id ="<?php echo $postID ?>" data-cost ="<?php echo $cost ?>" data-date="<?php $date ?>">Add to Cart</button>
                   <button>Pay Now</button>
                 </div>
               </div>

@@ -2004,26 +2004,10 @@ header.navigation {
     @media screen and (min-width: 40em) {
       .grid-items-lines .blog-img-small {
         display: none; } }
-  .grid-items-lines .blog-img {
-    display: none;
-    width: 29%;
-    float: left;
-    padding-left: 1em;
-    padding-top: 1em; }
-    @media screen and (min-width: 40em) {
-      .grid-items-lines .blog-img {
-        display: block; } }
-  .grid-items-lines .blog-img img {
-    width: 100%; }
   .grid-items-lines .blog-content {
     width: 100%;
     float: none;
     padding: 1em; }
-    @media screen and (min-width: 40em) {
-      .grid-items-lines .blog-content {
-        width: 69%;
-        float: right;
-        padding-right: 1em; } }
   .grid-items-lines .grid-item-blog {
     text-align: left;
     -webkit-transition: all 0.2s ease-in-out;
@@ -2253,11 +2237,68 @@ header.navigation {
 .shopping-cart {
   max-width: 1200px;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  position: relative; }
   .shopping-cart::after {
     clear: both;
     content: "";
     display: table; }
+  .shopping-cart h2 {
+    text-align: center; }
+  .shopping-cart .cover-bottom {
+    width: 97.5%;
+    bottom: 11px;
+    height: 3px;
+    position: absolute;
+    background-color: #ffffff; }
+
+.cart-form {
+  width: 100%;
+  border-spacing: 5px; }
+  .cart-form td {
+    padding: 1em;
+    margin-bottom: 1em; }
+    .cart-form td:nth-last-child(1) {
+      cursor: pointer; }
+  .cart-form tr {
+    margin-bottom: 1em; }
+    .cart-form tr:hover {
+      -webkit-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      background-color: rgba(217, 218, 222, 0.3); }
+      .cart-form tr:hover .event-discrption p {
+        color: #333; }
+  .cart-form .event-image {
+    display: none; }
+    @media screen and (min-width: 53.75em) {
+      .cart-form .event-image {
+        display: table-cell;
+        width: 20%; } }
+  .cart-form .event-discrption {
+    width: 40%; }
+    .cart-form .event-discrption p {
+      margin: 5px 0;
+      color: rgba(51, 51, 51, 0.6); }
+    .cart-form .event-discrption .event-name {
+      text-align: left;
+      color: #BC0100; }
+  .cart-form .event-price {
+    width: 10%;
+    text-align: center; }
+  .cart-form .event-quantity {
+    width: 10%; }
+  .cart-form .event-remove {
+    width: 5%;
+    text-align: center;
+    color: rgba(51, 51, 51, 0.5); }
+  .cart-form .event-item-price {
+    width: 10%;
+    color: #BC0100; }
+
+.payment {
+  text-align: right; }
+  .payment h2 {
+    color: #BC0100; }
 
 .outercontainer .member-header h2 {
   text-align: center; }
@@ -2353,5 +2394,67 @@ header.navigation {
     margin-bottom: 1.2em; }
   .member-overlay .grid-item p {
     line-height: 1.5em; }
+
+.wpcf7-form::after {
+  clear: both;
+  content: "";
+  display: table; }
+.wpcf7-form h2 {
+  text-align: center;
+  color: #821717; }
+@media screen and (min-width: 40em) {
+  .wpcf7-form .small-colunms {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%; }
+    .wpcf7-form .small-colunms:last-child {
+      margin-right: 0; }
+    .wpcf7-form .small-colunms:nth-child(2n) {
+      margin-right: 0; }
+    .wpcf7-form .small-colunms:nth-child(2n+1) {
+      clear: left; } }
+.wpcf7-form .wpcf7-form-control-wrap {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%; }
+  .wpcf7-form .wpcf7-form-control-wrap:last-child {
+    margin-right: 0; }
+.wpcf7-form .wpcf7-list-item label {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
+  margin-bottom: 0;
+  padding: 0.5em;
+  border-bottom: 1px solid #D9DADE; }
+  .wpcf7-form .wpcf7-list-item label:last-child {
+    margin-right: 0; }
+  @media screen and (min-width: 40em) {
+    .wpcf7-form .wpcf7-list-item label {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 48.82117%; }
+      .wpcf7-form .wpcf7-list-item label:last-child {
+        margin-right: 0; } }
+.wpcf7-form .checkbox-1 {
+  margin-bottom: 1.5em; }
+.wpcf7-form .large-colunms {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%; }
+  .wpcf7-form .large-colunms:last-child {
+    margin-right: 0; }
+.wpcf7-form .large-colunms p {
+  margin-bottom: 20px; }
+
+.search-results {
+  width: 100%; }
+  .search-results h2 {
+    color: #333;
+    text-align: left; }
 
 /*# sourceMappingURL=main.css.map */

@@ -35,7 +35,7 @@ template Name:All SubNav template
         
             <ul class="accordion-tabs-minimal">
                 <li class="tab-header">
-                  <a href="#" data-term="e" data-taxonomy="all" data-post-type="<?php echo $permalink ?>" class="tab-link is-active filtering-links">All</a>
+                  <a href="#" data-term="e" data-taxonomy="all" data-post-type="<?php echo $permalink ?>" class="tab-link is-active filtering-links">latest <?php echo $permalink ?></a>
                 </li>
               <?php 
                 foreach ( $terms as $term ) : ?>  
@@ -93,12 +93,8 @@ template Name:All SubNav template
       </div> <!-- end of grid -->
       
  <?php 
-// if ($permalink === "events") {
-//  get_template_part('events','sidebar');
-// }else{
-  get_sidebar();
-// }
 
+  get_sidebar();
 
  ?>
 

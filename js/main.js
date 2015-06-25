@@ -1,45 +1,62 @@
 $(document).ready(function() {
-
-  var $addCart = $('.addCart');
+//add to cart button functionality
+  var $addCart = $('.addCart'),
+      $removeItem = $('.event-remove');
 
   $addCart.click(function(){
     id = $(this).data('id');
+    cost = $(this).data('cost');
+    date = $(this).data('date');
     
     dataSend = {
         'action': 'addToCart',
-        'id': id
+        'id': id,
+        'cost': cost,
+        'date': date
     }
   $.post(siteInfo.ajaxURL, dataSend, function(data){
-      console.log(data);
     });
   });
+
+//remove item from cart
+$removeItem.click(function(){
+
+});
   
  var $filter = $('.filtering-links'),
+      $currentTab="all",
       $container = $('.grid-items-lines');
 
 //filtering system for subfields page
 
   $filter.click(function(event){
-    $container.fadeOut();
-    $filter.removeClass('is-active');
-    $(this).addClass('is-active');
     event.preventDefault();
     var 
       $term = $(this).data('term'),
       $taxonomy = $(this).data('taxonomy'),
-      $postType = $(this).data('post-type'),
-      data = {
-        'action': 'getFilteredPosts',
-        'term':$term,
-        'tax': $taxonomy,
-        'post': $postType
-      }
+      $postType = $(this).data('post-type')
+      
 
-    $.post(siteInfo.ajaxURL, data, function(data){
-     $container.empty().fadeIn().html(data);
+    if($currentTab === $taxonomy){
 
-     $('.grid').equaliseHeight();
-    });
+    }else{
+      $currentTab = $taxonomy;
+      $container.fadeOut();
+      $filter.removeClass('is-active');
+      $(this).addClass('is-active');
+      
+      
+      var data = {
+          'action': 'getFilteredPosts',
+          'term':$term,
+          'tax': $taxonomy,
+          'post': $postType
+      };
+      $.post(siteInfo.ajaxURL, data, function(data){
+       $container.empty().fadeIn().html(data);
+       $('.grid').equaliseHeight();
+      });
+    }
 
   });
 
@@ -57,8 +74,11 @@ $(document).ready(function() {
   });
 
   //resize intial
-  if(document.readyState === "complete"){
-    $('.grid').equaliseHeight();
+  document.onreadystatechange = function () {
+  
+    if(document.readyState === "complete"){
+      $('.grid').equaliseHeight();
+    }
   }
 
   // Refills Vertical Tabs
