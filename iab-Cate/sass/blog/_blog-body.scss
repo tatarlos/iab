@@ -32,40 +32,11 @@
     }
   }
 
-  .blog-img{
-    display: none;
-  	width: 29%;
-    float: left;
-    padding-left:1em;
-    padding-top:1em;
-
-    @include media($medium-screen) {
-      display: block;
-    }
-
-    
-    // background-image:url('img/banner.jpeg');
-    // background-repeat:none;
-    // background-size:cover;
-  }
-
-  .blog-img img{
-    width: 100%;
-  }
 
   .blog-content{
   	width: 100%;
   	float: none;
-    padding: 1em;
-
-    @include media($medium-screen) {
-      width: 69%;
-      float: right;
-      padding-right: 1em;
-    }
-
-    
-  	
+    padding: 1em;     	
   }
     
   .grid-item-blog {
