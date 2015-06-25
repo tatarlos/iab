@@ -2299,14 +2299,17 @@ header.navigation {
       text-align: left;
       color: #BC0100; }
   .cart-form .event-price {
-    width: 20%;
+    width: 10%;
     text-align: center; }
   .cart-form .event-quantity {
     width: 10%; }
   .cart-form .event-remove {
-    width: 10%;
+    width: 5%;
     text-align: center;
     color: rgba(51, 51, 51, 0.5); }
+  .cart-form .event-item-price {
+    width: 10%;
+    color: #BC0100; }
 
 .payment {
   text-align: right; }
