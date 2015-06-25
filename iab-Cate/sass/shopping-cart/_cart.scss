@@ -21,15 +21,10 @@
 	td{
 		padding:1em;
 		margin-bottom: 1em;
-		border-right:1px solid $light;
+		// border-right:1px solid $light;
 
 		&:nth-last-child(1){
-			border-right:none;
 			cursor: pointer;
-		}
-
-		&:first-child{
-			border-right:none;
 		}
 	}
 
@@ -37,8 +32,12 @@
 		margin-bottom: 1em;
 		
 		&:hover{
-			@include transition (all 0.2s ease-in-out);
+			@include transition (all 0.3s ease-in-out);
 			background-color: transparentize($light, 0.7);
+
+			.event-discrption p{
+				color:$dark-gray;
+			}
 		}
 	}
 	.event-image{
@@ -53,8 +52,7 @@
 		width: 40%;
 		p{
 			margin: 5px 0;
-			color:$dark-gray;
-
+			color:transparentize($dark-gray, 0.4);
 		}
 
 		.event-name {

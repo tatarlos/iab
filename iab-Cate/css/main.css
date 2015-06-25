@@ -2273,19 +2273,17 @@ header.navigation {
   border-spacing: 5px; }
   .cart-form td {
     padding: 1em;
-    margin-bottom: 1em;
-    border-right: 1px solid #D9DADE; }
+    margin-bottom: 1em; }
     .cart-form td:nth-last-child(1) {
-      border-right: none;
       cursor: pointer; }
-    .cart-form td:first-child {
-      border-right: none; }
   .cart-form tr {
     margin-bottom: 1em; }
     .cart-form tr:hover {
-      -webkit-transition: all 0.2s ease-in-out;
-      transition: all 0.2s ease-in-out;
+      -webkit-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
       background-color: rgba(217, 218, 222, 0.3); }
+      .cart-form tr:hover .event-discrption p {
+        color: #333; }
   .cart-form .event-image {
     display: none; }
     @media screen and (min-width: 53.75em) {
@@ -2296,7 +2294,7 @@ header.navigation {
     width: 40%; }
     .cart-form .event-discrption p {
       margin: 5px 0;
-      color: #333; }
+      color: rgba(51, 51, 51, 0.6); }
     .cart-form .event-discrption .event-name {
       text-align: left;
       color: #BC0100; }
