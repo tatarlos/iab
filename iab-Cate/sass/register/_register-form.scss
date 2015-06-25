@@ -1,0 +1,49 @@
+
+.wpcf7-form{
+	@include clearfix;
+
+	h2{
+		text-align: center;
+		color: $base-color-dark-red;
+	}
+
+	.small-colunms{
+
+		@include media($medium-screen){
+			@include span-columns(6);
+			@include omega(2n);
+		}
+	}
+
+	.wpcf7-form-control-wrap{
+		@include span-columns(12);
+	}
+
+	.wpcf7-list-item{
+
+		label{
+
+			@include span-columns(12);
+
+			@include media($medium-screen){
+				@include span-columns(6);
+			}
+			
+			margin-bottom: 0;
+			padding: 0.5em;
+			border-bottom: 1px solid $light;
+		}			
+	}
+
+	.checkbox-1{
+		margin-bottom: 1.5em;
+	}
+
+	.large-colunms{
+		@include span-columns(12);		
+	}
+
+	.large-colunms p{
+		margin-bottom: 20px;
+	}
+}
