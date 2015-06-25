@@ -111,16 +111,90 @@ $desktop: new-breakpoint(min-width 800px 12)
 
 .members
 	+outer-container
-	.member-area
+	padding: 50px 0
+	.member-logos
+		overflow: hidden
+		position: relative
+		padding: 0 50px
+		margin: 0 auto
+		img
+			transition: all 0.5s ease
+			padding: 0
+			margin: 0
+			float: left
+			width: 25%
+			height: auto
+			filter: grayscale(100%)
+			opacity: 0.6
+			+media($medium)
+				width: 50%
+			+media($mobile)
+				width: 100%
+			&:hover, &.selected
+				filter: grayscale(0)
+				opacity: 1
+			&:hover
+				cursor: pointer
+		.left-arrow, .right-arrow
+			transition: all 0.3s ease
+			color: $default-red
+			position: absolute
+			+centerer(false,true)
+			&:hover
+				cursor: pointer
+				text-shadow: 0 5px 5px $shadow
+		.left-arrow
+			left: 10px
+		.right-arrow
+			right: 10px
+	.member-info
+		margin: 50px 0
+		padding: 0 20px
+		position: relative
+		.member-description
+			position: absolute
+			left: 0
+			top: 0
+			.profile
+				img
+					float: left
+					margin: 0 20px 20px 0
+				+span-columns(8)
+				+media($medium)
+					+span-columns(6)
+				+media($mobile)
+					+span-columns(4)
+			.meta
+				+span-columns(4)
+				+media($medium)
+					+span-columns(6)
+				+media($mobile)
+					+span-columns(4)
+
+.member-rotate
+	+outer-container
+
+.mem-slider-area
+	overflow: hidden
+	width: 100%
+	height: 100px
+	text-align: center
+	.member-logo
 		display: inline-block
 		width: 20%
 		height: 100px
 		margin: 0
 		background-color: yellow
+		opacity: 0
 		+media($medium)
-			width: 50%
+			width: 40%
 		+media($mobile)
+			width: 80%
+		img
 			width: 100%
+			height: auto
+			margin: 10px
+
 
 .postcontainer, .resourcecontainer
 	margin: 40px 0 0 0

@@ -7,36 +7,30 @@
 
 
 			var $this = $(this),
-				$members = $this.find('.parallax-window'),
-				$dotsList = $this.find('.dots .dotstyle ul'),
-				$mask = $this.find('.banner-area'),
-				$slider,
-				numSlides = $slides.length,
-				lastIndex = numSlides-1,
-				currentIndex = 0,
-				delay = 4000,
-				timeout;
+				$members = $this.find('.mem-slider-area .member-area'),
+				$maskMem = $this.find('.mem-slider-area'),
+				$memberSlider,
+				numMemSlides = $members.length,
+				lastMemIndex = (numMemSlides/4)-1,
+				currentMemIndex = 0,
+				delayMem = 4000,
+				timeoutMem;
 
 			
 
-			function createDots() {
-				for (var i = 0; i < numSlides; i++){
-					$dotsList.append('<li><a href="#"></a></li>');
-				}
+			
 
+			function changeMember(){
+				clearTimeout(timeoutMem);
+				timeoutMem = setTimeout(nextMember, delayMem);
+				// $memberSlider.css({'margin-left': -currentMemIndex*100+"%"});
+				$memberSlider.css({'margin-left': -currentMemIndex*100+"%"});
+				
 			}
 
-			function changeSlide(){
-				clearTimeout(timeout);
-				timeout = setTimeout(nextSlide, delay);
-				$slider.css({'margin-left': -currentIndex*100+"%"});
-				$dots.filter('.current').removeClass('current');
-				$dots.eq(currentIndex).addClass('current');
-			}
-
-			function nextSlide() {
-				currentIndex = (currentIndex < lastIndex)? currentIndex+1 : 0;
-				changeSlide();
+			function nextMember() {
+				currentMemIndex = (currentMemIndex < lastMemIndex)? currentMemIndex+1 : 0;
+				changeMember();
 			}
 
 
@@ -45,34 +39,25 @@
 
 			//Wrap images inside a slider
 
-			$slides.wrapAll('<div class="slider">');
-			$slider = $this.find('.slider');
+			$members.wrapAll('<div class="member-slider">');
+			$memberSlider = $this.find('.member-slider');
 
 			//Set slider width
-			$slider.width(100*numSlides+"%").css({transition: 'all 1s'});
+			$memberSlider.width(25*numMemSlides+"%").css({transition: 'all 1s'});
 
 			//Set images width
-			$slides.width(100/numSlides+"%");
-
-			//Create Dots
-			createDots();
+			$members.width(100/numMemSlides+"%");
 
 			//Set dots selected state
-			var $dots = $dotsList.find('li a');
-			$dots.eq(currentIndex).addClass('current');
+			// var $dots = $dotsList.find('li a');
+			// $dots.eq(currentIndex).addClass('current');
 			
-			$mask.css({overflow: 'hidden'});
-			timeout = setTimeout(nextSlide, delay);
+			$maskMem.css({overflow: 'hidden'});
+			timeoutMem = setTimeout(nextMember, delayMem);
 
 			
 
 			
-
-			$dots.click(function(e){
-				e.preventDefault();
-				currentIndex = $dots.index(this);
-				changeSlide();
-			});
 
 			// $prevBtn.click(function(){
 			// 	currentIndex = (currentIndex > 0)? currentIndex-1 : lastIndex;

@@ -3,9 +3,9 @@ $(document).ready(function() {
 
   document.onreadystatechange = function () {
     if (document.readyState === "interactive") {
-      console.log("interactive");
+      //console.log("interactive");
     }else if(document.readyState === "complete"){
-      console.log("complete");
+      //console.log("complete");
       $('body').addClass('loaded');
     }
   }
@@ -65,14 +65,17 @@ $(document).ready(function() {
   });
 
 
-  
 
+
+  $('.member-rotate').members();
   $('.banner').parallaxBannerSlider();
   $('.grid').equaliseHeight();
   // Refills Parallax BG
     if ($(".parallax-window").length) {
-      parallax();
+      parallax(); 
     }
+
+  
 
 });
 
