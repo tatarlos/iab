@@ -22,31 +22,7 @@
   @include clearfix;
   position: relative;
   
-  .search-img{
-
-    display: none;
-
-    @include media($large-screen){
-      display: block;
-      padding:1em;
-      width: 25%;
-      float: left;
-      img{
-        width: 100%;
-      }
-    }
-    
-  }
-
-  .blog-content{
-  	width: 100%;
-    padding: 1em; 
-
-    @include media($large-screen){
-      width: 75%;
-      float: right;
-      }    	
-  }
+  
     
   .grid-item-blog {
     text-align: left;
@@ -60,6 +36,31 @@
     padding: 2em 0;
     text-decoration: none;
     width: 100%;
+
+    .search-img{
+
+      display: none;
+
+      @include media($large-screen){
+        display: block;
+        padding:1em;
+        width: 25%;
+        float: left;
+        img{
+          width: 100%;
+        }
+      } 
+    }
+
+  .blog-content{
+    width: 100%;
+    padding: 1em; 
+
+    @include media($large-screen){
+      width: 75%;
+      float: right;
+      }     
+  }
 
     h2 {
       color: $default-red;
