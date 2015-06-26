@@ -1,0 +1,210 @@
+$mobile: new-breakpoint(max-width 500px 4)
+$medium: new-breakpoint(max-width 800px 6)
+$desktop: new-breakpoint(min-width 800px 12)
+
+::selection
+	background: $default-red
+	color: $white
+
+::-moz-selection
+	background: $default-red
+	color: $white
+
+.banner
+	max-height: 30em
+
+.banner-area
+	>
+	display: inline-block
+
+.outercontainer
+	margin: 40px 0 0 0
+	padding: 0 20px
+	+outer-container
+	.tabbed
+		$height: em(293)
+		+span-columns(8)
+		+media($medium)
+			+span-columns(6)
+	.signup
+		+span-columns(4)
+		+media($medium)
+			+span-columns(6)
+		.flex-box
+			height: em(367)
+	hr
+		align: center
+		border: 1px solid $default-red
+		margin: 0 auto 1.5em
+		width: 12em
+
+.section-red
+	margin: 20px 0 0 0
+	padding: 20px
+	background-color: $default-red
+	text-align: center
+	h1
+		color: $white
+	button
+		margin: 20px 0
+	hr
+		align: center
+		border: 1px solid $white
+		margin: 0 auto 1.5em
+		width: 12em
+	.flex-box
+		$flex-box-background: $white
+		box-shadow: 0 2px 4px $even-darker-grey
+		&:focus, &:hover
+			background-color: $white
+	.card
+		.card-header
+			border-top: 2px solid $very-dark-grey
+			color: $default-red
+		.card-meta
+			background-color: $white
+			color: $default-red
+		&:hover
+			.card-header
+				background-color: $even-darker-grey
+				color: $white
+				border-top: 2px solid $white
+
+
+.section
+	margin: 20px 0
+	padding: 20px
+	text-align: center
+	button
+		margin: 20px 0
+
+.grid
+	margin: 20px 0
+	padding: 20px
+	+outer-container
+	text-align: center
+	button
+		margin: 20px 0
+	hr
+		align: center
+		border: 1px solid $default-red
+		margin: 0 auto 1.5em
+		width: 12em
+
+.social
+	margin: 40px 0
+	padding: 0 20px
+	+outer-container
+	text-align: center
+
+.statistics
+	margin: 40px 0
+	padding: 0 20px
+	text-align: center
+	+outer-container
+	hr
+		align: center
+		border: 1px solid $default-red
+		margin: 0 auto 1.5em
+		width: 12em
+
+.members
+	+outer-container
+
+.postcontainer, .resourcecontainer
+	margin: 40px 0 0 0
+	padding: 0 20px
+	+outer-container
+	.article-area, .listing-area
+		text-align: left
+		$height: em(293)
+		+span-columns(8)
+		+media($medium)
+			+span-columns(6)
+	.sidebar
+		border-left: 1px solid $light
+		+span-columns(4)
+		+media($medium)
+			+span-columns(6)
+			border-left: none
+		.flex-box
+			height: em(367)
+	hr
+		align: left
+		border: 1px solid $default-red
+		margin: 0 auto 1.5em
+		width: 12em
+
+.sidebar
+	.card
+		.card-header
+			border-top: 2px solid $very-dark-grey
+			color: $white
+			background-color: $default-red
+		.card-meta
+			background-color: $light
+			color: $default-red
+		.card-copy
+			background: $white
+			color: $very-dark-grey
+		&:hover
+			.card-header
+				background-color: $even-darker-grey
+				color: $white
+				border-top: 2px solid $default-red
+
+.bannerarea
+	position: relative
+
+.dots
+	padding: 10px
+	position: absolute
+	top: 480px
+	z-index: 6000
+	+centerer(true,false)
+
+.dotstyle
+	ul
+		position: relative
+		display: inline-block
+		margin: 0
+		padding: 0
+		list-style: none
+		cursor: default
+		-webkit-touch-callout: none
+		-webkit-user-select: none
+		-khtml-user-select: none
+		-moz-user-select: none
+		-ms-user-select: none
+		user-select: none
+	li
+		position: relative
+		display: block
+		float: left
+		margin: 0 12px
+		width: 16px
+		height: 16px
+		cursor: pointer
+		a
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			outline: none
+			border-radius: 50%
+			background-color: #fff
+			background-color: $default-red
+			text-indent: -999em
+			cursor: pointer
+			position: absolute
+			&:focus
+				outline: none
+
+.dotstyle-dotstroke 
+	li 
+		a
+			-webkit-transition: all 0.3s ease
+			transition: all 0.3s ease
+			box-shadow: inset 0 0 0 8px $default-red, 0 0 5px $shadow
+			&:hover, &.current
+				box-shadow: inset 0 0 0 2px white, 0 0 5px $shadow

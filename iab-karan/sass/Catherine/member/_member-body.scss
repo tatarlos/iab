@@ -1,0 +1,51 @@
+
+
+@mixin grid-item-columns($columns) {
+  width: (100% / 12) * $columns;
+}
+
+.members{
+  text-align: left;
+ 
+
+  @include clearfix;
+  position: relative;
+    
+  .grid-item-logo {
+    text-align: left;
+    @include transition (all 0.2s ease-in-out);
+    background: $grid-item-background;
+    cursor: pointer;
+    float: left;
+    overflow: hidden;
+    outline: none;
+    padding: 2em;
+    text-decoration: none;
+    width: 100%;
+
+    img{
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-bottom: 1.2em;
+    }
+
+    @include grid-item-columns(12);
+    @include media($medium-screen) {
+      @include grid-item-columns(6);
+    }
+    @include media($large-screen) {
+      @include grid-item-columns(3);
+    }
+
+    &:focus,
+    &:hover {
+      background-color: transparentize($even-darker-grey, 0.3);
+
+      img {
+        box-shadow: 0 12px 15px $shadow;
+      }   
+    }
+  }
+}
+

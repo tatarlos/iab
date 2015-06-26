@@ -1,6 +1,6 @@
 (function($){
 
-	$.fn.members = function(){
+	$.fn.membersShowcase = function(){
 
 		return this.each(function(){
 

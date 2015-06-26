@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+$parallax-window-height: 30em;
+$parallax-background-height: $parallax-window-height * 2;
+
+.parallax-window {
+  max-height: $parallax-window-height;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.parallax-static-content {
+  color: $white;
+  padding: 8em 0;
+  position: relative;
+  z-index: 9;
+  @include outer-container;
+  h1 {
+    padding: 20px;
+    font-size: 2.5em;
+    text-shadow: 0 3px 15px #000;
+    background-color: $default-red;
+    border-bottom: 3px solid $default-red;
+    display: inline-block;
+  }
+  p {
+    padding: 20px;
+    background-color: rgba(0,0,0,0.6);
+    color: $white !important;
+  }
+}
+
+.parallax-background {
+  background: url("../img/banner.jpeg") repeat;
+  background-position: top;
+  background-size: cover;
+  background-color: beige;
+  height: $parallax-background-height;
+  left: 0;
+  position: absolute;
+  top: - $parallax-window-height / 3;
+  width: 100%;
+}
+
+// Based on http://codepen.io/skeurentjes/

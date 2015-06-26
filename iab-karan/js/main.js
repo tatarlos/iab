@@ -67,7 +67,7 @@ $(document).ready(function() {
 
 
 
-  $('.member-rotate').members();
+  $('.member-rotate').membersShowcase();
   $('.banner').parallaxBannerSlider();
   $('.grid').equaliseHeight();
   // Refills Parallax BG
