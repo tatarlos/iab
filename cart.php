@@ -26,7 +26,7 @@ if($numOfItems === 0):
 ?>
 nothing here!
 <?php else: ?>
-		<div class="shopping-cart outercontainer">
+	<div class="shopping-cart outercontainer">
 			<h2>Cart</h2>
 			<hr>
 <table class="cart-form">
@@ -72,14 +72,25 @@ foreach ($cart as $item ):
 
 		</td>
 		<td class="event-quantity"><form><input type="number" name="quantity" value="1" min ="1" max ="50"></form></td>
-		<td class="event-item-price">$550.00 NZD + GST</td>
+		<td class="event-item-price">
+			<?php 
+			$subtotal=$cost;
+			echo $subtotal;
+			$total += $subtotal;
+		 	?> + GST</td>
 		<td class="event-remove"><a href="<?php echo bloginfo('url')?>/cart?delete=<?php echo $id ?>"><i class="fa fa-times-circle-o fa-2x"></a></i></td>
 	</tr>
 	<?php $id++; ?>
 <?php endforeach; ?>
 
 </table>
+<div class="cover-bottom"></div>
 </div>
+<div class="payment outercontainer">
+			<h2>Total: $ <?php echo $total; ?> NZD</h2>
+			<button>Pay Now</button>
+</div>
+<p></p>
 <?php endif; ?>
 
 <?php get_footer(); ?>

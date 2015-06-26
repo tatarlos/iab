@@ -37,7 +37,7 @@
 	        <li class="nav-link"><a href="javascript:void(0)">Products</a></li>
 	        <li class="nav-link"><a href="javascript:void(0)">About Us</a></li>
 	        <li class="nav-link"><a href="<?php bloginfo('url')?>/blogs">Blog</a></li>
-	        <li class="nav-link"><a href="<?php bloginfo('url')?>/cart">cart</a></li>
+	        <li class="nav-link"><a href="<?php bloginfo('url')?>/cart">Cart</a></li>
 	        <li class="nav-link"><a href="javascript:void(0)">Contact</a></li>
 	        <li class="nav-link more"><a href="javascript:void(0)">More</a>
 	          <ul class="submenu">

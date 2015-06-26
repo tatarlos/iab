@@ -70,13 +70,6 @@ $(document).ready(function() {
     });
   });
 
-  //resize intial
-  document.onreadystatechange = function () {
-  
-    if(document.readyState === "complete"){
-      $('.grid').equaliseHeight();
-    }
-  }
 
   // Refills Vertical Tabs
   $(".js-vertical-tab-content").hide();

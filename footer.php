@@ -35,14 +35,17 @@
     </script>
     
 
-	    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-		<script>window.jQuery || document.write('<script src="js/vendor/jquery-2.1.4.min.js"><\/script>')</script>
-	    <script src="<?php bloginfo('template_directory'); ?>/js/jquery.gridheight.js"></script>
-	    <script src="<?php bloginfo('template_directory'); ?>/js/jquery.parallaxbanner.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/vendor/jquery-2.1.4.min.js"><\/script>')</script>
+    <script src="<?php bloginfo('template_directory'); ?>/js/jquery.gridheight.js"></script>
+    <script src="<?php bloginfo('template_directory'); ?>/js/jquery.parallaxbanner.js"></script>
 	<?php if(is_front_page()): ?>
 		<script src="<?php bloginfo('template_directory'); ?>/js/loader.js"></script>
+		<script src="<?php bloginfo('template_directory'); ?>/js/frontpage.js"></script>
+	<?php else: ?>
+		<script src="<?php bloginfo('template_directory'); ?>/js/main.js"></script>
 	<?php endif; ?>	
-	<script src="<?php bloginfo('template_directory'); ?>/js/main.js"></script>
+	
 </body>
 </html>	
 <?php wp_footer(); ?>

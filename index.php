@@ -279,6 +279,26 @@ $readMore = pods('button_word', $params);
                 <button class="grey-btn">More Events</button>
                 </a>
             </div>
-        </div> <!-- end of 3 events -->
+        </div>
+        <div class="section-red">
+            <div class="member-rotate">
+                <h1>Members</h1>
+                <hr>
+                <div class="mem-slider-area">
+                    <div class="member-logo">1</div>
+                    <div class="member-logo">2</div>
+                    <div class="member-logo">3</div>
+                    <div class="member-logo">4</div>
+                    <div class="member-logo">5</div>
+                    <div class="member-logo">6</div>
+                    <div class="member-logo">7</div>
+                    <div class="member-logo">8</div>
+                    <div class="member-logo">9</div>
+                    <div class="member-logo">10</div>
+                    <div class="member-logo">11</div>
+                    <div class="member-logo">12</div>
+                </div>
+            </div>
+        </div <!-- end of 3 events -->
 
 <?php get_footer(); ?>
