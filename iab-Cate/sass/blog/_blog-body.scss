@@ -21,13 +21,6 @@
 
   @include clearfix;
   position: relative;
-  
-
-  .blog-content{
-  	width: 100%;
-  	float: none;
-    padding: 1em;     	
-  }
     
   .grid-item-blog {
     text-align: left;
@@ -35,12 +28,18 @@
     background: $grid-item-background;
     border-bottom: $grid-item-border;
     cursor: pointer;
-    float: left;
+
     overflow: hidden;
     outline: none;
     padding: 2em 0;
     text-decoration: none;
     width: 100%;
+
+    .blog-content{
+      width: 100%;
+
+      padding: 1em;       
+    }
     h2 {
       color: $default-red;
       @include transition (all 0.2s ease-in-out);
@@ -76,9 +75,7 @@
         color: $white;
         text-shadow: 0 0 3px $shadow;
       }
-      img {
-        box-shadow: 0 12px 15px $shadow;
-      }
+
       .author{
       	border-bottom: 2px solid $default-red;
       }
@@ -88,26 +85,10 @@
     }
   }
 
-  .grid-item-blog img {
-      display: block;
-      // height: 10em;
-      // margin-bottom: 1.2em;
-      //opacity: 0.2;
-    }
-
-  .grid-item-blog h1 {
-      color: $grid-item-color;
-      font-size: 1.3em;
-      margin-bottom: 0.4em;
-    }
-
   .grid-item-blog p {
       color: transparentize($grid-item-color, 0.4);
       line-height: 1.5em;
-      
-      // @include media($medium-screen) {
-      //   max-width: 70%;
-      // }
+
     }
 
 
