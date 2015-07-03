@@ -14,6 +14,7 @@
 			numImages = $thumbs.length,
 			currentIndex = 0,
 			delay = 4000,
+			imageNumber = currentIndex + 1,
 			displayNumber,
 			timer;
 
@@ -38,17 +39,48 @@
 			$thumbs.eq(currentIndex).addClass('selected');
 		}
 
-		function nextImage(){
+		function nextImage(index){
 			var newIndex = (currentIndex < lastIndex)? currentIndex+1 : 0;
+			
 			changeImage(newIndex);
-			console.log(currentIndex % displayNumber);
-			if (currentIndex % displayNumber === 0 && currentIndex != lastIndex) {
-				$logoSlider.css({'margin-left': -100+"%"});
-			}
+			
+			
+			
+				if (currentIndex % displayNumber === 0 && currentIndex != lastIndex && displayNumber != 1) {
+					imageNumber = newIndex+1;
+					//console.log('image number: '+imageNumber);
+					var multiplier = Math.floor(imageNumber/displayNumber);
+					console.log('multiplier: '+multiplier);
+					$logoSlider.css({'margin-left': -multiplier*100+"%"});
+				}
 
-			if (currentIndex === 0){
-				$logoSlider.css({'margin-left': 0});
-			}
+				if (displayNumber === 1){
+					imageNumber = newIndex+1;
+					$logoSlider.css({'margin-left': -newIndex*100+"%"});
+					
+				}
+		}
+
+		function prevImage(index){
+			var newIndex =(currentIndex > 0)? currentIndex-1 : lastIndex;
+			
+			changeImage(newIndex);
+			
+			
+			
+				if ((currentIndex+1) % displayNumber === 0 && currentIndex != 0) {
+					imageNumber = newIndex+1;
+					//console.log('image number: '+imageNumber);
+					var multiplier = Math.floor(imageNumber/displayNumber)-1;
+					//console.log('multiplierfir: '+multiplier);
+					$logoSlider.css({'margin-left': -multiplier*100+"%"});
+				}
+
+				if (displayNumber === 1){
+					imageNumber = newIndex+1;
+					$logoSlider.css({'margin-left': -newIndex*100+"%"});
+					
+				}
 		}
 
 		function setDimentions() {
@@ -73,11 +105,14 @@
 			changeImage(newIndex);
 		});
 
-		$nextBtn.click(nextImage);
+		$nextBtn.click(function(e){
+			index = $thumbs.index(this);
+			nextImage(index);
+		});
 
 		$prevBtn.click(function(){
-			var newIndex =(currentIndex > 0)? currentIndex-1 : lastIndex;
-			changeImage(newIndex);
+			index = $thumbs.index(this);
+			prevImage(index);
 
 		});
 		

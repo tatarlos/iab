@@ -15,7 +15,6 @@ $desktop: new-breakpoint(min-width 800px 12)
 	position: relative
 
 .banner-area
-	>
 	display: inline-block
 
 .outercontainer
@@ -114,6 +113,8 @@ $desktop: new-breakpoint(min-width 800px 12)
 	padding: 50px 0
 	.upper-area
 		width: 100%
+		+media($mobile)
+			padding: 0 20px
 		.member-logos
 			overflow: hidden
 			display: inline-block
@@ -148,7 +149,7 @@ $desktop: new-breakpoint(min-width 800px 12)
 				transition: all 0.3s ease
 				&:hover
 					cursor: pointer
-					text-shadow: 0 5px 5px $shadow
+					text-shadow: 0 3px 3px $shadow
 				&.fa-angle-left
 					left: 10px
 				&.fa-angle-right
