@@ -2000,6 +2000,11 @@ header.navigation .search-bar form button[type=submit] img {
 .members .upper-area {
   width: 100%;
 }
+@media screen and (max-width: 500px) {
+  .members .upper-area {
+    padding: 0 20px;
+  }
+}
 .members .upper-area .member-logos {
   overflow: hidden;
   display: inline-block;
@@ -2046,7 +2051,7 @@ header.navigation .search-bar form button[type=submit] img {
 }
 .members .upper-area .arrows i:hover {
   cursor: pointer;
-  text-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
 }
 .members .upper-area .arrows i.fa-angle-left {
   left: 10px;
