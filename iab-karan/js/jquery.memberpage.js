@@ -50,7 +50,7 @@
 					imageNumber = newIndex+1;
 					//console.log('image number: '+imageNumber);
 					var multiplier = Math.floor(imageNumber/displayNumber);
-					console.log('multiplier: '+multiplier);
+					//console.log('multiplier: '+multiplier);
 					$logoSlider.css({'margin-left': -multiplier*100+"%"});
 				}
 
