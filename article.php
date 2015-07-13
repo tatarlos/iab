@@ -33,7 +33,6 @@ $type = $cat."_type.name";
                     ?>
                 </p>
             <h1><?php echo $articlePod->field('title'); ?></h1>
-            <h2>This artice is about something amazing</h2>
             <p class="date"> 
                 <?php 
                     $time =strtotime($articlePod->field('created')) ;

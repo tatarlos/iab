@@ -1,4 +1,9 @@
 $(document).ready(function() {
+
+// adding sticky nav
+var $nav = $('header');
+new Waypoint.Sticky({element: $nav});
+
 //add to cart button functionality
   var $addCart = $('.addCart');
 
@@ -18,44 +23,92 @@ $(document).ready(function() {
     });
   });
 
-
-  
- var $filter = $('.filtering-links'),
-      $currentTab="all",
-      $container = $('.grid-items-lines');
-
 //filtering system for subfields page
+
+  var $filter = $('.filtering-links'),
+      currentIndex = 0,
+      $container = $('.grid'),
+      $subcontainer,
+      $spinner = $('<i class = "fa fa-spinner fa-spin fa-3x">'),
+      $selection = $('.grid'),
+      sub,
+      term,
+      taxonomy,
+      newIndex,
+      postType,
+      subterm,
+      termID;
+
 
   $filter.click(function(event){
     event.preventDefault();
-    var 
-      $term = $(this).data('term'),
-      $taxonomy = $(this).data('taxonomy'),
-      $postType = $(this).data('post-type')
-      
-
-    if($currentTab === $taxonomy){
+        term = $(this).data('term');
+        taxonomy = $(this).data('taxonomy');
+        newIndex = $filter.index(this);
+        postType = $(this).data('post-type');
+        termID = $(this).data('id');
+    if(currentIndex === newIndex ){
 
     }else{
-      $currentTab = $taxonomy;
-      $container.fadeOut();
-      $filter.removeClass('is-active');
-      $(this).addClass('is-active');
-      
-      
-      var data = {
-          'action': 'getFilteredPosts',
-          'term':$term,
-          'tax': $taxonomy,
-          'post': $postType
-      };
-      $.post(siteInfo.ajaxURL, data, function(data){
-       $container.empty().fadeIn().html(data);
-       $('.grid').equaliseHeight();
-      });
+      filterlist();
     }
-
   });
+  
+
+  
+  function filterlist(){
+    sub = 0;
+    currentIndex = newIndex;
+    $container.fadeOut();
+    $filter.removeClass('is-active');
+    $filter.eq(currentIndex).addClass('is-active');
+    
+    var data = {
+        'action': 'getFilteredPosts',
+        'term':term,
+        'tax': taxonomy,
+        'post': postType,
+        'id' : termID,
+        'sub': sub
+    };
+
+
+    $.post(siteInfo.ajaxURL, data, function(data){
+      $container.empty().append($spinner).fadeIn().html(data);
+    });
+    $('.grid').equaliseHeight();
+  }
+
+function filterSubCat(){
+  $subcontainer = $('.grid-items-lines');
+  $subcontainer.fadeOut();
+   var data = {
+        'action': 'getFilteredPosts',
+        'term':subterm,
+        'tax': taxonomy,
+        'post': postType,
+        'id' : termID,
+        'sub': sub
+    };
+
+
+    $.post(siteInfo.ajaxURL, data, function(data){
+      $subcontainer.empty().append($spinner).fadeIn().html(data);
+    });
+    $('.grid').equaliseHeight();
+
+
+}
+
+$selection.on('click', '.options',function(e){
+  value = $("#selection option:selected").val();
+  console.log(value);
+  subterm = value;
+  sub = 1;
+  filterSubCat();
+});//end click
+
+
 
   // Refills Navigation Menu
   var menuToggle = $('#js-mobile-menu').unbind();
@@ -70,13 +123,32 @@ $(document).ready(function() {
     });
   });
 
-  //resize intial
+  //intial load
   document.onreadystatechange = function () {
   
     if(document.readyState === "complete"){
+    
+    var $hasFilter = $(".filtering"),
+        hflen = $hasFilter.length;
+    if(hflen != 0){
+     term = $hasFilter.data('term');
+        taxonomy = $hasFilter.data('taxonomy');
+        newIndex = $hasFilter.data('index');
+        postType = $hasFilter.data('post-type');
+        termID = $hasFilter.data('id');
+
+        console.log(term);
+        console.log(taxonomy);
+        console.log(newIndex);
+        console.log(postType);
+        console.log(termID);
+
+        filterlist(term,taxonomy,newIndex,postType,termID);
+    }
       $('.grid').equaliseHeight();
     }
   }
+ 
 
   // Refills Vertical Tabs
   $(".js-vertical-tab-content").hide();

@@ -1,4 +1,8 @@
 $(document).ready(function() {
+
+// adding sticky nav
+var $nav = $('header');
+new Waypoint.Sticky({element: $nav});
 //add to cart button functionality
   var $addCart = $('.addCart');
 
@@ -17,7 +21,6 @@ $(document).ready(function() {
   $.post(siteInfo.ajaxURL, dataSend, function(data){
     });
   });
-
 
   
  var $filter = $('.filtering-links'),
@@ -70,7 +73,7 @@ $(document).ready(function() {
     });
   });
 
-
+ $('.member-rotate').members();
   // Refills Vertical Tabs
   $(".js-vertical-tab-content").hide();
   $('.starting-tab1').addClass("is-active");

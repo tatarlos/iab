@@ -19,7 +19,6 @@ $params = array(
 );
 $statsPod = pods('statistic', $params);
 $signUpPod = pods('sign_up_info', $params);
-$readMore = pods('button_word', $params);
 ?>
 
 <body>
@@ -43,7 +42,7 @@ $readMore = pods('button_word', $params);
                   <div class="parallax-static-content">
                     <h1><?php echo $bannerPod -> field('name');  ?></h1>
                     <p><?php echo $bannerPod -> field('description');  ?></p>
-                    <button><?php echo $readMore -> field('description'); ?></button>
+                    <button>Read More</button>
                   </div>
 
                   <div class="parallax-background"></div>
@@ -151,7 +150,7 @@ $readMore = pods('button_word', $params);
                             ?>
                         </p>
                         <p>
-                             <a href="<?php echo bloginfo('url')?>/news">News</a> > <a href="#"><?php echo $newsPod->field('news_type.name');?></a> > <a href="<?php echo $newsPod->field('permalink')?>"> <?php echo $newsPod->field('title');?> </a> 
+                             <a href="<?php echo bloginfo('url')?>/news">News</a> > <a href="#"><?php echo $newsPod->field('news_type.name');?></a> > <a href="<?php echo $newsPod->field('permalink')?>"></a> 
                         </p>
                     </div>
                      </a>
@@ -164,7 +163,57 @@ $readMore = pods('button_word', $params);
                 </a>
             </div>
         </div> <!-- end of 3 news -->
+        <div class="statistics">
+            <h1>Statistics</h1>
+            <hr>
+            <h2><?php echo $statsPod->field('name');  ?></h2>
+            <p><?php  echo $statsPod->field('description'); ?></p>
+      
+        </div>
 
+        <div class="section-red">
+            <div class="outercontainer">
+                <h1>Events</h1>
+                <hr>
+                <div class="cards">
+                  <?php while ($eventsPod->fetch()): ?>  
+                  <div class="card">
+                    <a href="<?php echo $eventsPod->field('permalink')?>">
+                    <div class="card-header">
+                      <?php echo wp_trim_words($eventsPod->field('title'), 4); ?>
+                    </div>
+                    <div class="card-image">
+                        <?php 
+                            $postId = $eventsPod->field('ID');
+                            $image_id = get_post_thumbnail_id($postId);
+                            $image = wp_get_attachment_image_src($image_id);
+                            $image_url = $image[0];             
+                        ?>
+                        <img src="<?php echo $image_url; ?>" alt="">
+
+                    </div>
+                    <div class="card-copy">
+                      <p><?php echo wp_trim_words($eventsPod->field('content'),12); ?></p>
+                    </div>
+                    <div class="card-meta">
+                        <p> 
+                            <?php 
+                                $time =strtotime($eventsPod->field('created')) ;
+                                echo('Last-Modified: '.gmdate('D, d M Y', $time));
+                            ?>
+                        </p>
+                        <p><a href="<?php echo bloginfo('url')?>/events">Events</a> > <a href="#"><?php $event = $eventsPod->field('events_type.name'); echo $event[0]?></a> > <a href="<?php echo $eventsPod->field('permalink')?>"> <?php echo $eventsPod->field('title');?> </a> </p>
+                    </div>
+                     </a>
+                  </div>
+                <?php endwhile;?>          
+
+                </div>
+                 <a href="<?php echo bloginfo('url')?>/events">
+                <button class="grey-btn">More Events</button>
+                </a>
+            </div>
+        </div>
         <div class="grid">
             <h1>Resources</h1>
             <hr>
@@ -229,58 +278,7 @@ $readMore = pods('button_word', $params);
             </div>
         </div>    
 
-        <div class="statistics">
-            <h1>Statistics</h1>
-            <hr>
-            <h2><?php echo $statsPod->field('name');  ?></h2>
-            <p><?php  echo $statsPod->field('description'); ?></p>
-      
-        </div>
-
-        <div class="section-red">
-            <div class="outercontainer">
-                <h1>Events</h1>
-                <hr>
-                <div class="cards">
-                  <?php while ($eventsPod->fetch()): ?>  
-                  <div class="card">
-                    <a href="<?php echo $eventsPod->field('permalink')?>">
-                    <div class="card-header">
-                      <?php echo wp_trim_words($eventsPod->field('title'), 4); ?>
-                    </div>
-                    <div class="card-image">
-                        <?php 
-                            $postId = $eventsPod->field('ID');
-                            $image_id = get_post_thumbnail_id($postId);
-                            $image = wp_get_attachment_image_src($image_id);
-                            $image_url = $image[0];             
-                        ?>
-                        <img src="<?php echo $image_url; ?>" alt="">
-
-                    </div>
-                    <div class="card-copy">
-                      <p><?php echo wp_trim_words($eventsPod->field('content'),12); ?></p>
-                    </div>
-                    <div class="card-meta">
-                        <p> 
-                            <?php 
-                                $time =strtotime($eventsPod->field('created')) ;
-                                echo('Last-Modified: '.gmdate('D, d M Y', $time));
-                            ?>
-                        </p>
-                        <p><a href="<?php echo bloginfo('url')?>/events">Events</a> > <a href="#"><?php $event = $eventsPod->field('events_type.name'); echo $event[0]?></a> > <a href="<?php echo $eventsPod->field('permalink')?>"> <?php echo $eventsPod->field('title');?> </a> </p>
-                    </div>
-                     </a>
-                  </div>
-                <?php endwhile;?>          
-
-                </div>
-                 <a href="<?php echo bloginfo('url')?>/events">
-                <button class="grey-btn">More Events</button>
-                </a>
-            </div>
-        </div>
-        <div class="section-red">
+     <div class="statistics">
             <div class="member-rotate">
                 <h1>Members</h1>
                 <hr>
@@ -297,8 +295,18 @@ $readMore = pods('button_word', $params);
                     <div class="member-logo">10</div>
                     <div class="member-logo">11</div>
                     <div class="member-logo">12</div>
+<!--                     <div class="member-logo">13</div>
+                    <div class="member-logo">14</div>
+                    <div class="member-logo">15</div>
+                    <div class="member-logo">16</div>
+                                        <div class="member-logo">13</div>
+                    <div class="member-logo">14</div>
+                    <div class="member-logo">15</div>
+                    <div class="member-logo">16</div> -->
                 </div>
             </div>
-        </div <!-- end of 3 events -->
+            <p></p>
+       <a href="<?php bloginfo('url')?>/members"><button>More Members</button></a>
+        </div>    
 
 <?php get_footer(); ?>

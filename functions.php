@@ -1,35 +1,20 @@
-<?php 
-add_action( 'register_form', 'myplugin_register_form' );
-function myplugin_register_form() {
+<?php
+add_filter( 'login_redirect', create_function( '$url,$query,$user', 'return home_url();' ), 10, 3 );
+//[blog url]
+function bloginfo_short(){
+	$info = get_bloginfo('url');
+	return $info;
+}
+add_shortcode( 'infoURL', 'bloginfo_short' );
 
-    $first_name = ( ! empty( $_POST['first_name'] ) ) ? trim( $_POST['first_name'] ) : '';
-        
-        ?>
-        <p>
-            <label for="first_name"><?php _e( 'First Name', 'mydomain' ) ?><br />
-                <input type="text" name="first_name" id="first_name" class="input" value="<?php echo esc_attr( wp_unslash( $first_name ) ); ?>" size="25" /></label>
-        </p>
-        <?php
-    }
+add_filter('wp_nav_menu_items','add_search_box_to_menu', 10, 2);
+function add_search_box_to_menu( $items, $args ) {
+    if( $args->theme_location == 'primary' )
+        return $items.get_search_form();
 
-    //2. Add validation. In this case, we make sure first_name is required.
-    add_filter( 'registration_errors', 'myplugin_registration_errors', 10, 3 );
-    function myplugin_registration_errors( $errors, $sanitized_user_login, $user_email ) {
-        
-        if ( empty( $_POST['first_name'] ) || ! empty( $_POST['first_name'] ) && trim( $_POST['first_name'] ) == '' ) {
-            $errors->add( 'first_name_error', __( '<strong>ERROR</strong>: You must include a first name.', 'mydomain' ) );
-        }
+    return $items;
+}
 
-        return $errors;
-    }
-
-    //3. Finally, save our extra registration user meta.
-    add_action( 'user_register', 'myplugin_user_register' );
-    function myplugin_user_register( $user_id ) {
-        if ( ! empty( $_POST['first_name'] ) ) {
-            update_user_meta( $user_id, 'first_name', trim( $_POST['first_name'] ) );
-        }
-    }
 	add_image_size('featured',400,920,true);
 	add_theme_support( 'post-thumbnails' ); 
 	set_post_thumbnail_size(200,200, array( 'center', 'center'));
@@ -101,8 +86,10 @@ function getFilteredPosts(){
 	$postType = $_POST['post'];
 	$taxonomy = $_POST['tax'];
 	$term = $_POST['term'];
+	$id = $_POST['id'];
+	$sub = $_POST['sub'];
 	
-	if($taxonomy === "all"){
+	if($term === "all"){
 		$args = array('post_type' => $postType, );
 	}else{
 		$args = array(
@@ -116,10 +103,36 @@ function getFilteredPosts(){
 		  ),
 		);
 	}
-
 	$loop = new WP_Query( $args );
+?>
+<?php
+if($sub === "0"):
+	if ($postType ==="resources" ) :  
+		$subset = get_terms($taxonomy, array('orderby' => 'name', 'hide_empty' => 0, 'child_of'=>$id ));
+
+?>
+<?php if ($term === "all"): ?>
+	<select id ="selection" style ="display:none">
+<?php else: ?>
+	<select id ="selection" style ="display:show">
+<?php endif ?>
+	<option value="<?php echo $term->slug ?>">All Results</option>
+	<?php
+	    foreach ( $subset as $term ) : ?>  
+		    <option value="<?php echo $term->slug ?>" class ="options">
+		    <a href="#" data-term="<?php echo $term->slug ?> "data-taxonomy="<?php echo $taxonomy ?>" data-post-type="<?php echo $permalink ?>" class="filtering-links"><?php echo $term->name; ?></a>
+		    </option>
+	   	<?php endforeach;?> 
+
+	</select>
+<?php endif; ?>
+
+ <div class="grid-items-lines">
+<?php endif; ?>
+<?php
 
 	if($loop->have_posts()):
+
 	while ( $loop->have_posts() ) : $loop->the_post();
 ?>
 	<a href="<?php echo the_permalink();?>" class="grid-item-big">
@@ -150,6 +163,7 @@ function getFilteredPosts(){
 ?>
             <div class="right-cover"></div>
             <div class="bottom-cover"></div>
+        </div>
  <?php 
 	endif;
 	exit;
