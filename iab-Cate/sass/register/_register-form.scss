@@ -1,5 +1,5 @@
 
-.wpcf7-form{
+.register-form{
 	@include clearfix;
 
 	h2{
@@ -7,43 +7,46 @@
 		color: $base-color-dark-red;
 	}
 
-	.small-colunms{
+	form{
 
-		@include media($medium-screen){
-			@include span-columns(6);
-			@include omega(2n);
-		}
-	}
+		.applicant-details{
+			@include clearfix;
+			width: 100%;
+			display: inline-block;
+			margin-bottom: 10px;
+			float: left;
 
-	.wpcf7-form-control-wrap{
-		@include span-columns(12);
-	}
+			p.small-colunms{
+				width: 100%;
+				padding: 0 10px;
 
-	.wpcf7-list-item{
-
-		label{
-
-			@include span-columns(12);
-
-			@include media($medium-screen){
-				@include span-columns(6);
+				@include media($medium-screen){
+					width:50%;
+					float: left;
+				}
 			}
-			
-			margin-bottom: 0;
+		}
+
+		.column{
+			padding: 0 10px;
+		}
+
+		.type-details{
+			display: inline-block;
+			width: 100%;
+			margin-bottom: 20px;
+		}
+
+		.type-detail{
+			width:100%;
 			padding: 0.5em;
 			border-bottom: 1px solid $light;
-		}			
+
+			@include media($medium-screen){
+					width:50%;
+					float: left;
+				}			
+		}	
 	}
 
-	.checkbox-1{
-		margin-bottom: 1.5em;
-	}
-
-	.large-colunms{
-		@include span-columns(12);		
-	}
-
-	.large-colunms p{
-		margin-bottom: 20px;
-	}
 }
