@@ -5,21 +5,21 @@
 }
 
 .members{
-  text-align: left;
+  text-align: center;
  
 
   @include clearfix;
   position: relative;
     
   .grid-item-logo {
-    text-align: left;
+    text-align: center;
     @include transition (all 0.2s ease-in-out);
     background: $grid-item-background;
     cursor: pointer;
     float: left;
     overflow: hidden;
     outline: none;
-    padding: 2em;
+    padding: 1em;
     text-decoration: none;
     width: 100%;
 
@@ -30,7 +30,7 @@
       margin-bottom: 1.2em;
     }
 
-    @include grid-item-columns(12);
+    @include grid-item-columns(6);
     @include media($medium-screen) {
       @include grid-item-columns(6);
     }

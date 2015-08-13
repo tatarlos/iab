@@ -1953,39 +1953,34 @@ header.navigation {
       content: "";
       display: table; }
     .filter-section .accordion-tabs-minimal li.tab-header {
+      text-align: center;
+      display: block;
+      width: 50%;
+      float: left;
       list-style: none; }
       @media screen and (min-width: 40em) {
         .filter-section .accordion-tabs-minimal li.tab-header {
-          display: inline; } }
+          display: block;
+          width: 25%; } }
     .filter-section .accordion-tabs-minimal a.tab-link {
       letter-spacing: 0.01em;
-      background-color: white;
-      border-top: 1px solid #f0f0f0;
       color: #606363;
       display: block;
       font-weight: 400;
       padding: 10px;
-      text-decoration: none;
-      border-bottom: 1px solid #f0f0f0; }
-      @media screen and (min-width: 40em) {
-        .filter-section .accordion-tabs-minimal a.tab-link {
-          display: inline-block;
-          border-top: 0; } }
+      text-decoration: none; }
       .filter-section .accordion-tabs-minimal a.tab-link:hover {
         color: #ee2d26;
-        border-bottom: 0;
-        border-top: 1px solid #f0f0f0;
-        border-left: 1px solid #f0f0f0;
-        border-right: 1px solid #f0f0f0; }
+        background-color: rgba(44, 50, 48, 0.1);
+        border-bottom: 0; }
       .filter-section .accordion-tabs-minimal a.tab-link:focus {
         outline: none; }
       .filter-section .accordion-tabs-minimal a.tab-link.is-active {
         border-bottom: 0;
-        color: #ee2d26; }
+        color: #ee2d26;
+        background-color: rgba(44, 50, 48, 0.1); }
         @media screen and (min-width: 40em) {
           .filter-section .accordion-tabs-minimal a.tab-link.is-active {
-            border: 1px solid #f0f0f0;
-            border-bottom-color: white;
             margin-bottom: -1px; } }
   .filter-section .navigation-tools {
     background: white;
@@ -2396,25 +2391,43 @@ header.navigation {
         display: table-cell;
         width: 20%; } }
   .cart-form .event-discrption {
-    width: 40%; }
+    width: 30%; }
+    @media screen and (min-width: 53.75em) {
+      .cart-form .event-discrption {
+        width: 40%; } }
     .cart-form .event-discrption p {
       margin: 5px 0;
       color: rgba(51, 51, 51, 0.6); }
     .cart-form .event-discrption .event-name {
       text-align: left;
       color: #BC0100; }
+    .cart-form .event-discrption .event-details {
+      display: none; }
+      @media screen and (min-width: 53.75em) {
+        .cart-form .event-discrption .event-details {
+          display: block; } }
   .cart-form .event-price {
     width: 10%;
     text-align: center; }
   .cart-form .event-quantity {
-    width: 10%; }
+    display: none; }
+    @media screen and (min-width: 53.75em) {
+      .cart-form .event-quantity {
+        width: 10%; } }
   .cart-form .event-remove {
-    width: 5%;
-    text-align: center;
-    color: rgba(51, 51, 51, 0.5); }
+    width: 10%; }
+    @media screen and (min-width: 53.75em) {
+      .cart-form .event-remove {
+        width: 5%;
+        text-align: center;
+        color: rgba(51, 51, 51, 0.5); } }
   .cart-form .event-item-price {
-    width: 10%;
-    color: #BC0100; }
+    display: none; }
+    @media screen and (min-width: 53.75em) {
+      .cart-form .event-item-price {
+        display: block;
+        width: 10%;
+        color: #BC0100; } }
 
 .payment {
   text-align: right; }
@@ -2425,14 +2438,14 @@ header.navigation {
   text-align: center; }
 
 .members {
-  text-align: left;
+  text-align: center;
   position: relative; }
   .members::after {
     clear: both;
     content: "";
     display: table; }
   .members .grid-item-logo {
-    text-align: left;
+    text-align: center;
     -webkit-transition: all 0.2s ease-in-out;
     -moz-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
@@ -2441,10 +2454,10 @@ header.navigation {
     float: left;
     overflow: hidden;
     outline: none;
-    padding: 2em;
+    padding: 1em;
     text-decoration: none;
     width: 100%;
-    width: 100%; }
+    width: 50%; }
     .members .grid-item-logo img {
       display: block;
       width: 100%;

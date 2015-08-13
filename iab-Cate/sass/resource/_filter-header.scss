@@ -17,35 +17,33 @@
 		padding: 0;
 
 		li.tab-header {
-		list-style: none;
+      text-align: center;
+      display: block;
+      width: 50%;
+      float: left;
 
-		@include media($tab-mode) {
-		  display: inline;
-		}
+  		list-style: none;
+
+  		@include media($tab-mode) {
+  		  display: block;
+        width: 25%;
+  		}
 	}
 
 	a.tab-link {
       letter-spacing:0.01em;
-	    background-color: $base-color;
-	    border-top: $filter-header-border;
 	    color: $darkgray;
 	    display: block;
 	    font-weight: 400;
 	    padding: $filter-tab-link-padding;
 	    text-decoration: none;
-	    border-bottom:$filter-header-border;
 
-	    @include media($tab-mode) {
-	      @include inline-block;
-	      border-top: 0;
-	    }
+	    
 
 	    &:hover {
 	      color: $base-color-red;
+        background-color: transparentize($even-darker-grey, 0.9);
         border-bottom: 0;
-        border-top: $filter-header-border;
-        border-left: $filter-header-border;
-        border-right: $filter-header-border;
 	    }
 
 	    &:focus {
@@ -55,10 +53,9 @@
 	    &.is-active {
 	      border-bottom: 0;
         color: $base-color-red;
+        background-color: transparentize($even-darker-grey, 0.9);
 
 	      @include media($tab-mode) {
-	        border: $filter-header-border;
-	        border-bottom-color:$active-color;
 	        margin-bottom: -1px;
 	      }
 	    }

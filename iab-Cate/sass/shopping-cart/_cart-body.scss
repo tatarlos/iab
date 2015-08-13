@@ -38,6 +38,8 @@
 			.event-discrption p{
 				color:$dark-gray;
 			}
+
+
 		}
 	}
 	.event-image{
@@ -49,7 +51,10 @@
 	}
 
 	.event-discrption{
-		width: 40%;
+		width: 30%;
+		@include media($large-screen){
+			width: 40%;
+		}
 		p{
 			margin: 5px 0;
 			color:transparentize($dark-gray, 0.4);
@@ -59,6 +64,13 @@
 			text-align: left;
 			color:$default-red;
 		}
+
+		.event-details{
+			display: none;
+			@include media($large-screen){
+				display: block;
+			}
+		}
 	}
 	
 	.event-price{
@@ -66,16 +78,33 @@
 		text-align: center;
 	}
 	.event-quantity{
-		width: 10%;
+		display: none;
+
+		@include media($large-screen){
+			width: 10%;
+		}
+		
 	}
 	.event-remove{
-		width: 5%;
-		text-align: center;
-		color: transparentize($dark-gray, 0.5);
+		width: 10%;
+		// display: none;
+
+		@include media($large-screen){
+			width: 5%;
+			text-align: center;
+			color: transparentize($dark-gray, 0.5);
+		}
+
 	}
 	.event-item-price{
-		width: 10%;
-		color:$default-red;
+		display: none;
+
+		@include media($large-screen){
+			display: block;
+			width: 10%;
+			color:$default-red;
+		}
+		
 	}
 }
 
