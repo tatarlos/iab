@@ -2411,11 +2411,9 @@ header.navigation {
     text-align: center; }
   .cart-form .event-quantity {
     display: none; }
-    @media screen and (min-width: 53.75em) {
-      .cart-form .event-quantity {
-        width: 10%; } }
   .cart-form .event-remove {
-    width: 10%; }
+    width: 10%;
+    margin: auto; }
     @media screen and (min-width: 53.75em) {
       .cart-form .event-remove {
         width: 5%;
@@ -2423,11 +2421,6 @@ header.navigation {
         color: rgba(51, 51, 51, 0.5); } }
   .cart-form .event-item-price {
     display: none; }
-    @media screen and (min-width: 53.75em) {
-      .cart-form .event-item-price {
-        display: block;
-        width: 10%;
-        color: #BC0100; } }
 
 .payment {
   text-align: right; }

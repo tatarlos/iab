@@ -80,13 +80,15 @@
 	.event-quantity{
 		display: none;
 
-		@include media($large-screen){
-			width: 10%;
-		}
+		// @include media($large-screen){
+		// 	display: block;
+		// 	width: 10%;
+		// }
 		
 	}
 	.event-remove{
 		width: 10%;
+		margin:auto;
 		// display: none;
 
 		@include media($large-screen){
@@ -99,11 +101,11 @@
 	.event-item-price{
 		display: none;
 
-		@include media($large-screen){
-			display: block;
-			width: 10%;
-			color:$default-red;
-		}
+		// @include media($large-screen){
+		// 	display: block;
+		// 	width: 15%;
+		// 	color:$default-red;
+		// }
 		
 	}
 }
